@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lawyer Benchmarks</title>
+  <meta name="description" content="Legal benchmarks are cool.">
+  <meta property="og:title" content="Lawyer Benchmarks">
+  <meta property="og:description" content="Legal benchmarks are cool.">
+  <meta property="og:url" content="https://lawyerbenchmarks.com/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231b1a17'/%3E%3Crect x='7' y='17' width='4' height='8' fill='%23f4efe6'/%3E%3Crect x='14' y='12' width='4' height='13' fill='%23f4efe6'/%3E%3Crect x='21' y='7' width='4' height='18' fill='%23c8553d'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --ink: #1b1a17;
+      --muted: #6b665c;
+      --rule: #d9d1c3;
+      --accent: #c8553d;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #141310;
+        --ink: #f1ece2;
+        --muted: #9a9486;
+        --rule: #2e2b25;
+        --accent: #e0765e;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 24px clamp(16px, 5vw, 64px);
+    }
+
+    header, footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 1100px;
+    }
+
+    .bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      height: 72px;
+      margin-bottom: 36px;
+    }
+    .bars span {
+      width: 18px;
+      background: var(--ink);
+      transform-origin: bottom;
+      animation: rise 0.9s cubic-bezier(.2,.7,.2,1) both;
+    }
+    .bars span:nth-child(1) { height: 30%; animation-delay: 0.05s; }
+    .bars span:nth-child(2) { height: 48%; animation-delay: 0.15s; }
+    .bars span:nth-child(3) { height: 62%; animation-delay: 0.25s; }
+    .bars span:nth-child(4) { height: 100%; animation-delay: 0.35s; background: var(--accent); }
+
+    @keyframes rise {
+      from { transform: scaleY(0); }
+      to   { transform: scaleY(1); }
+    }
+
+    h1 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(56px, 12vw, 168px);
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+    }
+    h1 em { color: var(--accent); }
+
+    footer {
+      border-top: 1px solid var(--rule);
+      padding-top: 16px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bars span { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span>Lawyer Benchmarks</span>
+    <span>Est. 2026</span>
+  </header>
+
+  <main>
+    <div class="bars" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <h1>Legal benchmarks<br>are <em>cool.</em></h1>
+  </main>
+
+  <footer>
+    <span>lawyerbenchmarks.com</span>
+    <span>More soon</span>
+  </footer>
+</body>
+</html>
