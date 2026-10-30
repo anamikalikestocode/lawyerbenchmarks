@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>I tricked Anthropic’s new legal tool and it failed 4 of 6 traps.</title>
+  <meta name="description" content="I tested Anthropic’s new contract tool on a classic negotiation trick: the other side gives you what you asked for but takes away a protection in the same edit.">
+  <meta property="og:title" content="I tricked Anthropic’s new legal tool and it failed 4 of 6 traps.">
+  <meta property="og:description" content="I tested Anthropic’s new contract tool on a classic negotiation trick: the other side gives you what you asked for but takes away a protection in the same edit.">
+  <meta property="og:url" content="https://lawyerbenchmarks.com/anthropic-legal-tool/">
+  <meta property="og:image" content="https://pbs.twimg.com/media/HVwyil7WAAAotZ6?format=jpg&amp;name=large">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23ff3b30'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="top">
+    <a href="/">lawyer benchmarks</a>
+  </header>
+
+  <article>
+    <p class="date">oct 28, 2026</p>
+    <h1>I tricked Anthropic’s new legal tool and it failed 4 of 6 traps.</h1>
+
+    <img referrerpolicy="no-referrer" src="https://pbs.twimg.com/media/HVwyil7WAAAotZ6?format=jpg&amp;name=large" width="1052" height="421" alt="">
+
+    <p>Anthropic launched a tool for contract lawyers today. You give it your playbook (i.e. rules and guidance) and a contract, and it marks each clause:</p>
+    <ul>
+      <li><strong>Standard</strong> (fine)</li>
+      <li><strong>Fallback</strong> (acceptable)</li>
+      <li><strong>Deviation</strong> (breaks a rule)</li>
+    </ul>
+    <p>I tested it on a classic negotiation trick: the other side gives you what you asked for BUT takes away a protection in the same edit. I took 5 real contracts (public SEC filings), wrote a playbook for my client in each, and made a revised draft with one clause changed this way (6 changes in all). Since each change goes against my playbook, the right answer should have been “Deviation” all 6 times. However, it said “Standard” for 4 out of 6 (of the other two, it caught one and flagged the other for an unrelated reason - so it missed the actual problem in 5 of 6!).</p>
+
+    <h2>1. The deposit</h2>
+    <p>My client keeps a deposit with the platform (Party A), which can take fines out of it. The tool noticed the clause doesn’t say “reasonable”, said so, and passed it anyway. My client can still dispute a deduction, but the clause no longer requires deductions to be reasonable.</p>
+    <img referrerpolicy="no-referrer" src="https://pbs.twimg.com/media/HVwxKdjW0AACbjG?format=jpg&amp;name=large" width="988" height="400" alt="The deposit clause, showing the edit">
+    <p>Key: red is deleted, green is added, yellow is unchanged (same for all pictures). The tool only saw the final text.</p>
+
+    <h2>2. The adviser</h2>
+    <p>My client is an adviser who can be fired for repeatedly refusing work the Board asks for. Without “reasonably”, that now includes unreasonable requests.</p>
+    <img referrerpolicy="no-referrer" src="https://pbs.twimg.com/media/HVwxVFxWcAADAdi?format=jpg&amp;name=large" width="984" height="318" alt="The adviser clause, showing the edit">
+
+    <h2>3. The bad batch</h2>
+    <p>My client (Intersect) buys an ingredient from Hovione and can reject a batch that’s off spec, with a lab settling any dispute. The picture shows two sentences:</p>
+    <ul>
+      <li>The first decides who wins the dispute. The edit deleted “materially” so the batch now has to meet spec exactly. Good for my client.</li>
+      <li>The second, starting at “Hovione shall pay all the fees”, decides who pays for the lab. The edit left “materially” in. Bad for my client.</li>
+    </ul>
+    <p>Say the spec is 99.5% pure and the batch is 99.4%: my client wins the dispute but still pays for the lab and the replacement.</p>
+    <img referrerpolicy="no-referrer" src="https://pbs.twimg.com/media/HVwxdR7W0AAA0Y_?format=jpg&amp;name=large" width="990" height="400" alt="The bad batch clause, showing the edit">
+
+    <h2>4. The licence</h2>
+    <p>My client (NLS) gets a cut of Eurofarma’s sales, so it wants a say in its sales plan. My playbook says Eurofarma can’t change its plan without my client’s approval. After the edit, Eurofarma only needs that OK to: sell fewer units, launch later or spend less. Under this clause, any other change is its call alone. The tool marked it Standard. (It flagged a different clause nearby, just not this one.)</p>
+    <img referrerpolicy="no-referrer" src="https://pbs.twimg.com/media/HVwxlHuXEAAoyBc?format=jpg&amp;name=large" width="984" height="392" alt="The licence clause, showing the edit">
+
+    <h2>What its notes show</h2>
+    <ul>
+      <li><strong>It grades the clause as a whole.</strong> Once the clause contains what you asked for, it sees that it is a match and the missing word becomes a side note: “matching the standard … although”.</li>
+      <li><strong>It shortens your rule.</strong> When it restates my playbook, the small words drop out: “only Board-requested services” instead of “services the Board reasonably requests”. That's a problem because it checks the clause against its own shorter version.</li>
+      <li><strong>Its note and its verdict disagree.</strong> It wrote down the missing word and still chose Standard.</li>
+    </ul>
+
+    <h2>What fixes it</h2>
+    <p>Plain Opus with a simple prompt caught all 6, so the model can do this.</p>
+    <p>So I rebuilt the tool’s exact prompt (it calls a clause standard when it “meets our standard position in substance”) and ran it on Opus. At low effort it made most of the same misses, almost word for word.</p>
+    <p>Two things fixed it: raising the effort or changing the prompt to “standard only when the clause meets every requirement”. Either way it caught at least 5 of 6. I can’t see which model or settings the tool runs on, so this is tested on Opus.</p>
+
+    <h2>Limitations</h2>
+    <p>Full disclosure, I’ve been researching exactly this for a bit: AI contract edits that look like a win but actually give something away. The 6 changes came from that research. They’re real AI edits I had already flagged as bad, and here they play the other side’s revised draft. The tool only saw the final text either way. I picked them on purpose, so <strong>don’t read 4/6 as an error rate</strong> !! (or 5/6, depending on whether you count the one it flagged for the wrong reason)</p>
+    <p>When this tool launched, it was the perfect test: would a tool built to check contracts catch them?</p>
+    <p>I also wrote the playbooks so each rule says exactly what my client needs, including the exact words that later went missing. So the tool had everything it needed, and in 3 of 4 it marked Standard, its own notes show it saw the gap. The one it caught was where my playbook also said, in a separate sentence, what wasn’t acceptable.</p>
+    <p>I kept the explanation to each example to a few lines so this stays short but there’s plenty more reasoning behind every call. If you’d read one differently, my DMs are open!</p>
+    <p>Everything is public so you can open the actual tool with my playbooks, contracts and every verdict here: <a href="https://claude.ai/artifact/Sba8sk5iudvnBDPRHKrvCE">https://claude.ai/artifact/Sba8sk5iudvnBDPRHKrvCE</a></p>
+
+    <p class="orig">first published on <a href="https://x.com/anamika__x/status/2115638234902364384">x</a></p>
+  </article>
+
+  <footer class="article-end">
+    <form class="signup" method="post">
+      <label for="email">get new posts by email</label>
+      <div class="row">
+        <input id="email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit">subscribe</button>
+      </div>
+    </form>
+    <a href="https://x.com/anamika__x">@anamika__x</a>
+  </footer>
+
+  <script src="/signup.js"></script>
+</body>
+</html>

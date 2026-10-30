@@ -8,68 +8,29 @@
   <meta property="og:title" content="lawyer benchmarks">
   <meta property="og:description" content="lawyer benchmarks are cool.">
   <meta property="og:url" content="https://lawyerbenchmarks.com/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23000'/%3E%3Crect x='7' y='17' width='4' height='8' fill='%23fff'/%3E%3Crect x='14' y='12' width='4' height='13' fill='%23fff'/%3E%3Crect x='21' y='7' width='4' height='18' fill='%23ff3b30'/%3E%3C/svg%3E">
-  <style>
-    :root {
-      --bg: #000;
-      --ink: #fff;
-      --accent: #ff3b30;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: Arial, Helvetica, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 24px clamp(16px, 5vw, 64px);
-    }
-
-    .bars {
-      display: flex;
-      align-items: flex-end;
-      gap: 10px;
-      height: 72px;
-      margin-bottom: 36px;
-    }
-    .bars span {
-      width: 18px;
-      background: var(--ink);
-      transform-origin: bottom;
-      animation: rise 0.9s cubic-bezier(.2,.7,.2,1) both;
-    }
-    .bars span:nth-child(1) { height: 30%; animation-delay: 0.05s; }
-    .bars span:nth-child(2) { height: 48%; animation-delay: 0.15s; }
-    .bars span:nth-child(3) { height: 62%; animation-delay: 0.25s; }
-    .bars span:nth-child(4) { height: 100%; animation-delay: 0.35s; background: var(--accent); }
-
-    @keyframes rise {
-      from { transform: scaleY(0); }
-      to   { transform: scaleY(1); }
-    }
-
-    h1 {
-      font-weight: 700;
-      font-size: clamp(48px, 11vw, 160px);
-      line-height: 0.95;
-      letter-spacing: -0.03em;
-      text-transform: lowercase;
-    }
-    h1 .cool { color: var(--accent); }
-
-    @media (prefers-reduced-motion: reduce) {
-      .bars span { animation: none; }
-    }
-  </style>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23ff3b30'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-  <div class="bars" aria-hidden="true">
-    <span></span><span></span><span></span><span></span>
-  </div>
-  <h1>lawyer benchmarks<br>are <span class="cool">cool.</span></h1>
+<body class="home">
+  <h1 class="headline">lawyer benchmarks<br>are <span class="cool">cool.</span></h1>
+
+  <ul class="cards">
+    <li><a href="/anthropic-legal-tool/"><img referrerpolicy="no-referrer" src="https://pbs.twimg.com/media/HVwyil7WAAAotZ6?format=jpg&amp;name=medium" width="1052" height="421" alt=""><p class="t">I tricked Anthropic’s new legal tool and it failed 4 of 6 traps.</p></a></li>
+    <li><a href="/no-ai-native-law-firms/"><img referrerpolicy="no-referrer" src="https://pbs.twimg.com/media/HUqIC4fbwAA44KQ?format=jpg&amp;name=medium" width="1200" height="480" alt=""><p class="t">There Will Be No AI-Native Law Firms</p></a></li>
+  </ul>
+
+  <footer class="bottom">
+    <form class="signup" method="post">
+      <label for="email">get new posts by email</label>
+      <div class="row">
+        <input id="email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit">subscribe</button>
+      </div>
+    </form>
+    <a href="https://x.com/anamika__x">@anamika__x</a>
+  </footer>
+
+  <script src="/signup.js"></script>
 </body>
 </html>

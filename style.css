@@ -1,0 +1,182 @@
+:root {
+  --bg: #000;
+  --ink: #fff;
+  --accent: #ff3b30;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0 clamp(16px, 4vw, 48px);
+}
+
+a { color: inherit; }
+
+/* home: headline at the top, signup at the bottom, cards as big as the screen allows */
+
+.home {
+  --hl: min(11vw, 12vh, 150px);
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(20px, 4vh, 40px);
+  padding-top: clamp(16px, 4vh, 40px);
+  padding-bottom: clamp(16px, 3vh, 28px);
+}
+
+.headline {
+  font-weight: 700;
+  font-size: var(--hl);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: lowercase;
+}
+.cool { color: var(--accent); }
+
+.cards {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.cards li {
+  flex: 1 1 min(300px, 42vw);
+  min-width: 0;
+  /* widest a 5:2 card can be and still leave room for the headline and signup */
+  max-width: calc((100vh - 1.9 * var(--hl) - 300px) * 2.5);
+  max-width: calc((100dvh - 1.9 * var(--hl) - 300px) * 2.5);
+}
+.cards a {
+  display: block;
+  height: 100%;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+}
+.cards img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 2;
+  object-fit: cover;
+  border-bottom: 1px solid var(--ink);
+}
+.cards .t {
+  padding: 14px 16px 16px;
+  font-size: clamp(14px, 1.5vw, 22px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.cards a:hover { border-color: var(--accent); }
+.cards a:hover img { border-color: var(--accent); }
+.cards a:hover .t { color: var(--accent); }
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  font-size: 15px;
+}
+.bottom > a { text-decoration: none; }
+.bottom > a:hover { color: var(--accent); }
+
+/* email */
+
+.signup { width: min(100%, 520px); }
+.signup label, .signup .msg {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: lowercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.signup .row { display: flex; gap: 8px; }
+.signup input[type=email] {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: 16px;
+  padding: 12px 14px;
+  background: var(--bg);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 0;
+}
+.signup input[type=email]:focus { outline: none; border-color: var(--accent); }
+.signup .hp { position: absolute; left: -9999px; }
+.signup button {
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: lowercase;
+  padding: 12px 20px;
+  background: var(--accent);
+  color: var(--ink);
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+.signup button:hover { background: var(--ink); color: var(--bg); }
+.signup button:disabled { opacity: 0.6; cursor: default; }
+
+/* article */
+
+.top { padding: 24px 0; }
+.top a {
+  font-weight: 700;
+  font-size: 17px;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+.top a:hover { color: var(--accent); }
+
+article { max-width: 680px; margin: clamp(32px, 8vh, 80px) 0 0; }
+article .date { font-size: 15px; text-transform: lowercase; color: var(--accent); font-weight: 700; margin-bottom: 16px; }
+article h1 {
+  font-size: clamp(34px, 6vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 40px;
+}
+article img { display: block; width: 100%; height: auto; margin: 32px 0; }
+article p, article li { font-size: 19px; line-height: 1.6; }
+article p { margin-bottom: 20px; }
+article ul, article ol { margin: 0 0 20px 24px; }
+article li { margin-bottom: 8px; padding-left: 4px; }
+article h2 {
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 48px 0 16px;
+}
+article a { text-decoration-color: var(--accent); text-underline-offset: 3px; overflow-wrap: anywhere; }
+article a:hover { color: var(--accent); }
+article .orig { margin-top: 48px; font-size: 15px; text-transform: lowercase; }
+
+.article-end {
+  max-width: 680px;
+  margin: 72px 0 0;
+  padding-bottom: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  font-size: 15px;
+}
+.article-end > a { text-decoration: none; }
+.article-end > a:hover { color: var(--accent); }
+
+@media (max-width: 560px) {
+  .home { --hl: 13vw; }
+  .cards { gap: 10px; }
+  .cards .t { padding: 10px 10px 12px; font-size: 14px; }
+}
