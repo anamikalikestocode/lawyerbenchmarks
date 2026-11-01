@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>I ran Claude's new tool on 10 briefs judges caught hallucinating. It missed 1 in 5.</title>
+  <meta name="description" content="Judges have spent two years sanctioning lawyers for filing hallucinated AI citations. I took 10 of those briefs, used the 83 bad citations the judges listed as the answer key, and ran the briefs through Claude’s new cite checker.">
+  <meta property="og:title" content="I ran Claude's new tool on 10 briefs judges caught hallucinating. It missed 1 in 5.">
+  <meta property="og:description" content="Judges have spent two years sanctioning lawyers for filing hallucinated AI citations. I took 10 of those briefs, used the 83 bad citations the judges listed as the answer key, and ran the briefs through Claude’s new cite checker.">
+  <meta property="og:url" content="https://lawyerbenchmarks.com/claude-cite-checker/">
+  <meta property="og:image" content="https://pbs.twimg.com/media/HV-khqjWgAAQjDt?format=jpg&amp;name=large">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23ff3b30'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="top">
+    <a href="/">lawyer benchmarks</a>
+  </header>
+
+  <article>
+    <p class="date">oct 31, 2026</p>
+    <h1>I ran Claude's new tool on 10 briefs judges caught hallucinating. It missed 1 in 5.</h1>
+
+    <img referrerpolicy="no-referrer" src="https://pbs.twimg.com/media/HV-khqjWgAAQjDt?format=jpg&amp;name=large" width="1045" height="418" alt="">
+
+    <p>Judges have spent two years sanctioning lawyers for filing hallucinated AI citations. I took 10 of those briefs, used the 83 bad citations the judges listed in their sanctions orders as the answer key, and ran the briefs through Claude’s new cite checker.</p>
+    <p>When you run it, Claude produces "findings": a list of problems, one row per bad citation, which means no rows for citations that (i) it read and agreed with and (ii) ones it never recognized.</p>
+    <p>The rule for this test is a bad citation is caught if it has a row on the findings tab saying it is bad (e.g. not found, does not support, misquoted, wrong page)</p>
+    <ul>
+      <li>The tool flagged 65 of 83 (78%)</li>
+      <li>Of the 18 misses, 16 are citations it never read. 2 it read and got wrong.</li>
+      <li>Opus on its own flagged 73 of 83 (88%)</li>
+    </ul>
+
+    <h2>6 briefs where it missed</h2>
+
+    <h3>1. Gauthier v. Goodyear (E.D. Tex.): Court found 9. Tool flagged 7.</h3>
+    <p>The 2 it missed are Texas citations whose parenthetical ends in "no pet." which is Texas shorthand for "nobody petitioned for review". It breaks the tool's citation pattern and the whole citation is dropped. Delete ", no pet." and it's flagged.</p>
+    <img referrerpolicy="no-referrer" src="https://pbs.twimg.com/media/HV-fil4WAAERIs1?format=jpg&amp;name=large" width="900" height="506" alt="">
+    <p>The judge said both cases are misquoted. White (in red) was flagged by the tool. Morales (in yellow) never was.</p>
+
+    <h3>2. Mata v. Avianca (S.D.N.Y.): Court found 11. Tool flagged 4.</h3>
+    <p>Mata cited 6 invented cases, including Varghese; it has a whole invented opinion quoted at length and 3 of the misses are cases cited there. The tool skips anything between quote marks. The tool’s chat summary is not counted. In Mata it told the reader to delete the Varghese passage, which covers three of the seven misses, but never brought it up in findings.</p>
+    <p>The other 4 misses are things the parser does not read mid-sentence: two Westlaw numbers, one Illinois-style citation, one citation broken across a line.</p>
+    <img referrerpolicy="no-referrer" src="https://pbs.twimg.com/media/HV_K3ZYWkAE1JdN?format=jpg&amp;name=large" width="946" height="532" alt="">
+    <p>Mata’s Findings tab. 4/11 of the judge’s flags are here: the 3 at the top, and 1/7 rows under “Worth a look”. The other 7 bad citations have no row anywhere.</p>
+
+    <h3>3. Jakes v. Youngblood (W.D. Pa.): Court found 11. Tool flagged 7.</h3>
+    <p>The 4 misses are quotes the lawyer attributed to "the Court's April 25, 2025 Memorandum Opinion". The judge considered the citation and said the words were made up. But the quote above isn't exactly a formal citation. Since the tool starts from a citation, a court plus a date doesn't match its pattern.</p>
+    <p>Opus worked out which opinion was meant and correctly flagged it as a bad citation. The tool could have too without any reasoning: the date, court name, document title plus the case number points to one docket entry. Fetch it, then match as usual.</p>
+    <img referrerpolicy="no-referrer" src="https://pbs.twimg.com/media/HV-gOXbWEAIOdf9?format=jpg&amp;name=large" width="900" height="506" alt="">
+    <p>Jakes: every invented quote with a citation attached has a row. The four quotes of the court's own opinion, that were not properly cited, have none.</p>
+
+    <h3>4. Tyson v. Warren Inn (Tex. App.): Court found 7. Tool flagged 5.</h3>
+    <p>The tool read Cook v. Cameron and graded it “supports, with inference” even though its own note says Cook is about enforcing a divorce decree (not eviction) which is what the judge said. But the row in red is a wording fix: put “See” before the citation. That is worse than silence; it tells the lawyer the citation is fine once the signal is right, and a lawyer who follows it files the same bad citation.</p>
+    <img referrerpolicy="no-referrer" src="https://pbs.twimg.com/media/HV-hwKlXAAAEMH5?format=jpg&amp;name=large" width="892" height="502" alt="">
+    <p>Tyson: the tool reads Cook, says it is about a divorce decree, and its only complaint is the missing "See".</p>
+    <p>The other miss is McEwen. The brief’s page range reads “710– 11”, with a space after the dash where the line broke. The parser does not accept that, so the citation was never read.</p>
+
+    <h3>5. Sherwood v. County of Botetourt (W.D. Va.): Court found 9. Tool flagged 8.</h3>
+    <p>The tool read Whiteley v. Warden and passed: “supports by analogy”, even though its note says the case “concerns lack of factual basis, not absence of an oath”, which is exactly what the judge said. It is only highlighted in red to suggest adding ‘Cf.’ and a pincite.</p>
+    <img referrerpolicy="no-referrer" src="https://pbs.twimg.com/media/HV-h7diXAAAlytA?format=jpg&amp;name=large" width="892" height="502" alt="">
+    <p>Sherwood: same pattern. The tool's reading agrees with the judge; the finding is a signal tip.</p>
+
+    <h3>6. Safe Choice v. City of Cleveland (N.D. Ohio): Court found 11. Tool flagged 9.</h3>
+    <p>Conley v. Gibson was printed "47– 48", same space-after-dash problem, and dropped. Craine is cited in Ohio's public-domain format, "2022-Ohio-1731", which the parser does not read. Both sit next to citations it did read and flag.</p>
+    <img referrerpolicy="no-referrer" src="https://pbs.twimg.com/media/HV-iEdFWsAAc0Dk?format=jpg&amp;name=large" width="892" height="502" alt="">
+    <p>Safe Choice: Craine and Conley, in yellow, have no underline and no row. Doe v. Columbia, one line down, is flagged.</p>
+
+    <h2>Four briefs it got completely right</h2>
+    <p>Iovino v. Michael Stapleton (W.D. Va.), Coomer v. Lindell (D. Colo.), Pelishek v. City of Sheboygan (E.D. Wis.) and Mercante v. Tarzia (D. Conn.). The courts named 5, 8, 9 and 3 bad citations: invented cases, invented quotes, real cases cited for things they do not say. Every one has a findings row.</p>
+
+    <h2>The bugs:</h2>
+    <ul>
+      <li>Five shapes the parser does not read mid-sentence: a Texas citation ending “, no pet.” (Gauthier); Westlaw numbers (Mata); Illinois and Ohio public-domain citations (Mata, Safe Choice); a page range with a space after the dash (Tyson, Safe Choice); a citation split by a line break (Mata).</li>
+      <li>Case citations inside a quoted passage are not read (Mata)</li>
+      <li>An opinion named by court and date with no citation is not followed (Jakes).</li>
+      <li>For most of these the page shows nothing. Conley and Craine got a folded “could not read” note. Nothing tells the reader which blanks are “read and fine” and which are “never read”.</li>
+      <li>When the tool has only part of a case in hand, which is often a few pages, a correct “does not support” is demoted to “Worth a look” (Sherwood, Safe Choice).</li>
+      <li>Two cases read and judged wrong, Cook and Whiteley. The tool’s own note matched the judge; the row it showed was a signal or pincite tip.</li>
+    </ul>
+
+    <h2>Limitations</h2>
+    <ul>
+      <li>One run per brief. The answer keys were built from the sanctions orders.</li>
+      <li>The "Worth a look" section, which is lower on the findings tab, counts as a row and a flag here. 6 catches sit there.</li>
+      <li>The 10 briefs is a random but small sample. I found about 90 orders where a judge listed bad citations (but for 75 of them the brief sits behind PACER’s paywall and several of the free ones are scans the tool cannot read).</li>
+      <li>Opus's figure counts "I cannot confirm this case exists" as a flag.</li>
+    </ul>
+
+    <p class="orig">first published on <a href="https://x.com/anamika__x/status/2116650674771394825">x</a></p>
+  </article>
+
+  <footer class="article-end">
+    <form class="signup" method="post">
+      <label for="email">get new posts by email</label>
+      <div class="row">
+        <input id="email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit">subscribe</button>
+      </div>
+    </form>
+    <a href="https://x.com/anamika__x">@anamika__x</a>
+  </footer>
+
+  <script src="/signup.js"></script>
+</body>
+</html>
