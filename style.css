@@ -187,3 +187,65 @@ article h3 {
   font-weight: 700;
   margin: 28px 0 10px;
 }
+
+
+/* gate: the front page is the wordmark and two doors */
+
+.gate {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: clamp(16px, 4vh, 40px);
+  padding-bottom: clamp(16px, 4vh, 40px);
+  --hl: min(11vw, 12vh, 150px);
+}
+.doors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.doors a {
+  display: flex;
+  align-items: flex-end;
+  min-height: min(38vh, 360px);
+  padding: clamp(16px, 2.4vw, 32px);
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  text-transform: lowercase;
+  font-weight: 700;
+  font-size: clamp(34px, 6.5vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+.doors a:hover { background: var(--accent); border-color: var(--accent); }
+.doors a:focus-visible, .tabs a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 560px) {
+  .doors { grid-template-columns: 1fr; }
+  .doors a { min-height: 24vh; font-size: 15vw; }
+}
+
+/* tabs: shown at the top of the articles page and the register page */
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 22px 0 18px;
+  border-bottom: 1px solid var(--ink);
+  text-transform: lowercase;
+}
+.tabs a { text-decoration: none; font-weight: 700; }
+.tabs .mark { font-size: 17px; letter-spacing: -0.01em; }
+.tabs nav { display: flex; gap: clamp(16px, 3vw, 36px); }
+.tabs nav a { font-size: clamp(17px, 2vw, 24px); padding-bottom: 4px; border-bottom: 3px solid transparent; }
+.tabs nav a:hover { color: var(--accent); }
+.tabs nav a[aria-current=page] { border-bottom-color: var(--accent); }
+
+.home.listing { padding-top: 0; }
+.home.listing .cards li {
+  max-width: calc((100vh - 400px) * 2.5);
+  max-width: calc((100dvh - 400px) * 2.5);
+}
