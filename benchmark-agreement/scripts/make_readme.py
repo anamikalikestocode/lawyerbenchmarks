@@ -34,8 +34,19 @@ for key,name,pub,run,tk in sorted(LEG,key=lambda x:-C['per_legal'][x[0]]):
     t,n=top(tk); ci=C['per_legal_ci'][key]
     w(f"| {name} | {pub} | {run} | {JUDGE[key]} | {n} | {t} | {pc(C['per_legal'][key])} | {pc(ci[0])} to {pc(ci[1])} |")
 w("\nThe intervals overlap almost completely, so the order of the five says little. The score measures agreement with the other four, not quality: a low score means a benchmark ranks models differently, not that it is wrong.\n")
-ls_,cs_=TP['legal_summary'],TP['coding_summary']
-w(f"Each of the five has a different model in first place. Among the {cs_['benchmarks']} coding benchmarks, one model is first or tied for first on {cs_['most']}. On three of the five legal leaderboards (Vals Legal Research, Mercor APEX law, Legora BAR) the leader is ahead of second place by about a point or less.\n")
+NICE.update({'muse-wonder':'Muse Wonder','gemini-3-8-flash':'Gemini 3.8 Flash','grok-4-7':'Grok 4.7','sonnet-5-5':'Claude Sonnet 5.5','muse-ember':'Muse Ember'})
+LL,C8=TP['legal_like_for_like'],TP['coding8_like_for_like']
+ORDER=['Harvey LAB (Vals run)','Legal Research Bench (Vals)','Mercor APEX, corporate law','Legora BAR','Certera']
+lead8=[m for v in C8['leaders_by_benchmark'].values() for m in v]; most8=max(lead8.count(m) for m in set(lead8))
+leadL=[m for v in LL['leaders_by_benchmark'].values() for m in v]; mostL=max(leadL.count(m) for m in set(leadL))
+w(f"On the public pages each of the five has a different model in first place, but that is not a like-for-like comparison. Vals Legal Research's leader, Gemini 4 Carbon, is not on Legora's or Certera's leaderboard, and neither are the two models released on 9 November (Claude Fable 5.2 and Muse Ember). Among the {LL['n']} models that are on all five (leaving out names that could not be matched with certainty), there are {LL['distinct_leaders']} different leaders: Harvey LAB and Vals Legal Research both put Gemini 4 Argon first. On the same basis the eight coding benchmarks (without the second Vibe Code Bench leaderboard) also have {C8['distinct_leaders']} different leaders among {C8['n']} models, so the number of different leaders does not separate the fields. In coding one model leads {most8} of the eight; in legal no model leads more than {mostL} of the five.\n")
+w(f"Rank among the {LL['n']} models on all five, for every model in the top three on any of them:\n")
+w("| Model | Harvey LAB | Vals Legal Research | Mercor APEX law | Legora BAR | Certera |\n|---|---|---|---|---|---|")
+t3=[m for m in LL['common'] if min(LL['ranks'][m].values())<=3]
+for mm_ in sorted(t3,key=lambda x:sum(LL['ranks'][x].values())):
+    w(f"| {NICE.get(mm_,mm_)} | "+' | '.join(str(LL['ranks'][mm_][bn]) for bn in ORDER)+" |")
+rdts=TP['release_dates']; sp=TP['certera_rank_spread']
+w(f"\nThe four leaders were released between {min(rdts[m] for m in set(leadL))} and {max(rdts[m] for m in set(leadL))} (dates from Mercor's page data), before Legora's October release and Certera's 9 November update, so their low ranks elsewhere are not a matter of timing. Ties share a rank. Certera publishes a rank range for each model: Gemini 4 Argon's is {sp['gemini-4-argon'].replace(' - ',' to ')} of {TP['certera_models']} and GPT-6.1 Sol's is {sp['gpt-6-1-sol'].replace(' - ',' to ')}.\n")
 rv=GS['rubric_vs_votes']
 w(f"Four of the five describe their grading the same way: a written rubric scored by an AI judge. The rubrics are mostly private (LAB's are public), so a reader cannot see how the standards differ. Certera is the only one where people judge the answers. The four rubric benchmarks agree with each other {p(rv['rubric_rubric'])} of the time and with Certera's votes {p(rv['rubric_votes'])}; the difference is {rv['diff']:.0f} points with an interval of {rv['lo']:.0f} to {rv['hi']:.0f}, so it is not clearly different from zero. SemiAnalysis' GDPx legal, in the rule-based set below, also uses an AI judge, against rubrics and reference answers written by lawyers.\n")
 w("Harvey wrote LAB, but its own published results cover only older models. Scores for current models come from other parties running it. Vals' run is used because it covers the most models and reports a margin of error for each score. Vals Legal Research is a separate benchmark with its own tasks.\n")

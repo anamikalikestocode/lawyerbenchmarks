@@ -5,8 +5,6 @@
     "gemini-4-argon"
    ],
    "score": 27.083,
-   "second": 25.0,
-   "top_in_cohort": true,
    "models": 37
   },
   "Legal Research Bench (Vals)": {
@@ -14,8 +12,6 @@
     "gemini-4-carbon"
    ],
    "score": 55.769,
-   "second": 55.288,
-   "top_in_cohort": true,
    "models": 89
   },
   "Mercor APEX, corporate law": {
@@ -23,8 +19,6 @@
     "gpt-6-astra"
    ],
    "score": 88.9,
-   "second": 88.4,
-   "top_in_cohort": true,
    "models": 66
   },
   "Legora BAR": {
@@ -32,8 +26,6 @@
     "opus-5-5"
    ],
    "score": 106.0,
-   "second": 105.0,
-   "top_in_cohort": true,
    "models": 17
   },
   "Certera": {
@@ -41,8 +33,6 @@
     "gpt-6-1-sol"
    ],
    "score": 1114.0,
-   "second": 1095.0,
-   "top_in_cohort": true,
    "models": 78
   }
  },
@@ -52,8 +42,6 @@
     "sonnet-5-5"
    ],
    "score": 86.875,
-   "second": 83.265,
-   "top_in_cohort": true,
    "models": 29
   },
   "IOI (Vals)": {
@@ -62,8 +50,6 @@
     "gpt-6-astra"
    ],
    "score": 100.0,
-   "second": 96.889,
-   "top_in_cohort": true,
    "models": 45
   },
   "ProgramBench (Vals)": {
@@ -71,8 +57,6 @@
     "fable-5-2"
    ],
    "score": 19.0,
-   "second": 18.5,
-   "top_in_cohort": true,
    "models": 63
   },
   "SWE-bench Multimodal (Vals)": {
@@ -80,8 +64,6 @@
     "opus-5-5"
    ],
    "score": 70.208,
-   "second": 62.292,
-   "top_in_cohort": true,
    "models": 22
   },
   "Terminal-Bench 4.0 (Vals)": {
@@ -90,8 +72,6 @@
     "opus-5-5"
    ],
    "score": 65.152,
-   "second": 64.141,
-   "top_in_cohort": true,
    "models": 59
   },
   "Vibe Code Bench 1-100 (Vals)": {
@@ -99,8 +79,6 @@
     "muse-wonder-full"
    ],
    "score": 33.978,
-   "second": 30.361,
-   "top_in_cohort": true,
    "models": 25
   },
   "Vibe Code Bench v1.1 (Vals)": {
@@ -108,8 +86,6 @@
     "fable-5-2"
    ],
    "score": 93.771,
-   "second": 92.392,
-   "top_in_cohort": true,
    "models": 122
   },
   "FrontierCode 2 (AA)": {
@@ -117,8 +93,6 @@
     "fable-5-2"
    ],
    "score": 0.487597222222222,
-   "second": 0.464359595959596,
-   "top_in_cohort": true,
    "models": 70
   },
   "SciCode (AA)": {
@@ -126,16 +100,475 @@
     "fable-5-2"
    ],
    "score": 0.677083333333333,
-   "second": 0.668981481481482,
-   "top_in_cohort": true,
    "models": 141
+  }
+ },
+ "legal_missing": {
+  "gemini-4-argon": [],
+  "gemini-4-carbon": [
+   "Legora BAR",
+   "Certera"
+  ],
+  "gpt-6-1-sol": [],
+  "gpt-6-astra": [],
+  "opus-5-5": []
+ },
+ "legal_like_for_like": {
+  "common": [
+   "deepseek-v4-pro",
+   "gemini-3-8-flash",
+   "gemini-4-argon",
+   "glm-5-3",
+   "glm-5-3-flash",
+   "gpt-6-1-sol",
+   "gpt-6-astra",
+   "gpt-6-luna",
+   "grok-4-7",
+   "kimi-k3",
+   "muse-wonder",
+   "opus-5-5",
+   "sonnet-5-5"
+  ],
+  "n": 13,
+  "leaders_by_benchmark": {
+   "Harvey LAB (Vals run)": [
+    "gemini-4-argon"
+   ],
+   "Legal Research Bench (Vals)": [
+    "gemini-4-argon"
+   ],
+   "Mercor APEX, corporate law": [
+    "gpt-6-astra"
+   ],
+   "Legora BAR": [
+    "opus-5-5"
+   ],
+   "Certera": [
+    "gpt-6-1-sol"
+   ]
+  },
+  "distinct_leaders": 4,
+  "ranks": {
+   "deepseek-v4-pro": {
+    "Harvey LAB (Vals run)": 7,
+    "Legal Research Bench (Vals)": 9,
+    "Mercor APEX, corporate law": 9,
+    "Legora BAR": 12,
+    "Certera": 11
+   },
+   "gemini-3-8-flash": {
+    "Harvey LAB (Vals run)": 6,
+    "Legal Research Bench (Vals)": 11,
+    "Mercor APEX, corporate law": 8,
+    "Legora BAR": 3,
+    "Certera": 2
+   },
+   "gemini-4-argon": {
+    "Harvey LAB (Vals run)": 1,
+    "Legal Research Bench (Vals)": 1,
+    "Mercor APEX, corporate law": 2,
+    "Legora BAR": 9,
+    "Certera": 4
+   },
+   "glm-5-3": {
+    "Harvey LAB (Vals run)": 4,
+    "Legal Research Bench (Vals)": 4,
+    "Mercor APEX, corporate law": 10,
+    "Legora BAR": 4,
+    "Certera": 9
+   },
+   "glm-5-3-flash": {
+    "Harvey LAB (Vals run)": 8,
+    "Legal Research Bench (Vals)": 8,
+    "Mercor APEX, corporate law": 6,
+    "Legora BAR": 11,
+    "Certera": 12
+   },
+   "gpt-6-1-sol": {
+    "Harvey LAB (Vals run)": 12,
+    "Legal Research Bench (Vals)": 12,
+    "Mercor APEX, corporate law": 5,
+    "Legora BAR": 4,
+    "Certera": 1
+   },
+   "gpt-6-astra": {
+    "Harvey LAB (Vals run)": 11,
+    "Legal Research Bench (Vals)": 10,
+    "Mercor APEX, corporate law": 1,
+    "Legora BAR": 10,
+    "Certera": 3
+   },
+   "gpt-6-luna": {
+    "Harvey LAB (Vals run)": 13,
+    "Legal Research Bench (Vals)": 13,
+    "Mercor APEX, corporate law": 12,
+    "Legora BAR": 13,
+    "Certera": 5
+   },
+   "grok-4-7": {
+    "Harvey LAB (Vals run)": 3,
+    "Legal Research Bench (Vals)": 6,
+    "Mercor APEX, corporate law": 13,
+    "Legora BAR": 4,
+    "Certera": 13
+   },
+   "kimi-k3": {
+    "Harvey LAB (Vals run)": 5,
+    "Legal Research Bench (Vals)": 7,
+    "Mercor APEX, corporate law": 11,
+    "Legora BAR": 4,
+    "Certera": 10
+   },
+   "muse-wonder": {
+    "Harvey LAB (Vals run)": 2,
+    "Legal Research Bench (Vals)": 2,
+    "Mercor APEX, corporate law": 3,
+    "Legora BAR": 2,
+    "Certera": 7
+   },
+   "opus-5-5": {
+    "Harvey LAB (Vals run)": 10,
+    "Legal Research Bench (Vals)": 2,
+    "Mercor APEX, corporate law": 4,
+    "Legora BAR": 1,
+    "Certera": 6
+   },
+   "sonnet-5-5": {
+    "Harvey LAB (Vals run)": 8,
+    "Legal Research Bench (Vals)": 5,
+    "Mercor APEX, corporate law": 7,
+    "Legora BAR": 4,
+    "Certera": 8
+   }
+  },
+  "leaders_worst_rank": {
+   "gemini-4-argon": 9,
+   "gpt-6-1-sol": 12,
+   "gpt-6-astra": 11,
+   "opus-5-5": 10
+  },
+  "bottom_third_from": 10,
+  "leaders_in_bottom_third_somewhere": {
+   "gemini-4-argon": [],
+   "gpt-6-1-sol": [
+    "Harvey LAB (Vals run)",
+    "Legal Research Bench (Vals)"
+   ],
+   "gpt-6-astra": [
+    "Harvey LAB (Vals run)",
+    "Legal Research Bench (Vals)",
+    "Legora BAR"
+   ],
+   "opus-5-5": [
+    "Harvey LAB (Vals run)"
+   ]
+  }
+ },
+ "coding_like_for_like": {
+  "common": [
+   "gemini-3-8-flash",
+   "gemini-4-argon",
+   "gpt-6-astra",
+   "haiku-5-5",
+   "muse-wonder-full",
+   "opus-5-5"
+  ],
+  "n": 6,
+  "leaders_by_benchmark": {
+   "Code Migration v1.1 (Vals)": [
+    "opus-5-5"
+   ],
+   "IOI (Vals)": [
+    "gemini-4-argon",
+    "gpt-6-astra"
+   ],
+   "ProgramBench (Vals)": [
+    "opus-5-5"
+   ],
+   "SWE-bench Multimodal (Vals)": [
+    "opus-5-5"
+   ],
+   "Terminal-Bench 4.0 (Vals)": [
+    "opus-5-5"
+   ],
+   "Vibe Code Bench 1-100 (Vals)": [
+    "muse-wonder-full"
+   ],
+   "Vibe Code Bench v1.1 (Vals)": [
+    "gemini-4-argon"
+   ],
+   "FrontierCode 2 (AA)": [
+    "opus-5-5"
+   ],
+   "SciCode (AA)": [
+    "opus-5-5"
+   ]
+  },
+  "distinct_leaders": 4,
+  "ranks": {
+   "gemini-3-8-flash": {
+    "Code Migration v1.1 (Vals)": 6,
+    "IOI (Vals)": 5,
+    "ProgramBench (Vals)": 5,
+    "SWE-bench Multimodal (Vals)": 6,
+    "Terminal-Bench 4.0 (Vals)": 6,
+    "Vibe Code Bench 1-100 (Vals)": 6,
+    "Vibe Code Bench v1.1 (Vals)": 6,
+    "FrontierCode 2 (AA)": 6,
+    "SciCode (AA)": 4
+   },
+   "gemini-4-argon": {
+    "Code Migration v1.1 (Vals)": 3,
+    "IOI (Vals)": 1,
+    "ProgramBench (Vals)": 3,
+    "SWE-bench Multimodal (Vals)": 2,
+    "Terminal-Bench 4.0 (Vals)": 4,
+    "Vibe Code Bench 1-100 (Vals)": 4,
+    "Vibe Code Bench v1.1 (Vals)": 1,
+    "FrontierCode 2 (AA)": 5,
+    "SciCode (AA)": 3
+   },
+   "gpt-6-astra": {
+    "Code Migration v1.1 (Vals)": 2,
+    "IOI (Vals)": 1,
+    "ProgramBench (Vals)": 2,
+    "SWE-bench Multimodal (Vals)": 5,
+    "Terminal-Bench 4.0 (Vals)": 2,
+    "Vibe Code Bench 1-100 (Vals)": 3,
+    "Vibe Code Bench v1.1 (Vals)": 4,
+    "FrontierCode 2 (AA)": 2,
+    "SciCode (AA)": 5
+   },
+   "haiku-5-5": {
+    "Code Migration v1.1 (Vals)": 5,
+    "IOI (Vals)": 6,
+    "ProgramBench (Vals)": 3,
+    "SWE-bench Multimodal (Vals)": 4,
+    "Terminal-Bench 4.0 (Vals)": 5,
+    "Vibe Code Bench 1-100 (Vals)": 5,
+    "Vibe Code Bench v1.1 (Vals)": 2,
+    "FrontierCode 2 (AA)": 4,
+    "SciCode (AA)": 6
+   },
+   "muse-wonder-full": {
+    "Code Migration v1.1 (Vals)": 4,
+    "IOI (Vals)": 4,
+    "ProgramBench (Vals)": 6,
+    "SWE-bench Multimodal (Vals)": 3,
+    "Terminal-Bench 4.0 (Vals)": 3,
+    "Vibe Code Bench 1-100 (Vals)": 1,
+    "Vibe Code Bench v1.1 (Vals)": 5,
+    "FrontierCode 2 (AA)": 3,
+    "SciCode (AA)": 2
+   },
+   "opus-5-5": {
+    "Code Migration v1.1 (Vals)": 1,
+    "IOI (Vals)": 3,
+    "ProgramBench (Vals)": 1,
+    "SWE-bench Multimodal (Vals)": 1,
+    "Terminal-Bench 4.0 (Vals)": 1,
+    "Vibe Code Bench 1-100 (Vals)": 2,
+    "Vibe Code Bench v1.1 (Vals)": 3,
+    "FrontierCode 2 (AA)": 1,
+    "SciCode (AA)": 1
+   }
+  },
+  "leaders_worst_rank": {
+   "gemini-4-argon": 5,
+   "gpt-6-astra": 5,
+   "muse-wonder-full": 6,
+   "opus-5-5": 3
+  },
+  "bottom_third_from": 5,
+  "leaders_in_bottom_third_somewhere": {
+   "gemini-4-argon": [
+    "FrontierCode 2 (AA)"
+   ],
+   "gpt-6-astra": [
+    "SWE-bench Multimodal (Vals)",
+    "SciCode (AA)"
+   ],
+   "muse-wonder-full": [
+    "ProgramBench (Vals)",
+    "Vibe Code Bench v1.1 (Vals)"
+   ],
+   "opus-5-5": []
+  }
+ },
+ "coding8_like_for_like": {
+  "common": [
+   "gemini-3-8-flash",
+   "gemini-4-argon",
+   "gpt-6-1-sol",
+   "gpt-6-astra",
+   "gpt-6-luna",
+   "grok-4-7",
+   "haiku-5-5",
+   "mimo-v2-6-pro",
+   "muse-wonder-full",
+   "opus-5-5",
+   "sonnet-5-5"
+  ],
+  "n": 11,
+  "leaders_by_benchmark": {
+   "Code Migration v1.1 (Vals)": [
+    "sonnet-5-5"
+   ],
+   "IOI (Vals)": [
+    "gemini-4-argon",
+    "gpt-6-astra"
+   ],
+   "ProgramBench (Vals)": [
+    "opus-5-5"
+   ],
+   "SWE-bench Multimodal (Vals)": [
+    "opus-5-5"
+   ],
+   "Terminal-Bench 4.0 (Vals)": [
+    "opus-5-5"
+   ],
+   "Vibe Code Bench v1.1 (Vals)": [
+    "sonnet-5-5"
+   ],
+   "FrontierCode 2 (AA)": [
+    "opus-5-5"
+   ],
+   "SciCode (AA)": [
+    "opus-5-5"
+   ]
+  },
+  "distinct_leaders": 4,
+  "ranks": {
+   "gemini-3-8-flash": {
+    "Code Migration v1.1 (Vals)": 11,
+    "IOI (Vals)": 8,
+    "ProgramBench (Vals)": 7,
+    "SWE-bench Multimodal (Vals)": 10,
+    "Terminal-Bench 4.0 (Vals)": 10,
+    "Vibe Code Bench v1.1 (Vals)": 11,
+    "FrontierCode 2 (AA)": 11,
+    "SciCode (AA)": 7
+   },
+   "gemini-4-argon": {
+    "Code Migration v1.1 (Vals)": 5,
+    "IOI (Vals)": 1,
+    "ProgramBench (Vals)": 5,
+    "SWE-bench Multimodal (Vals)": 3,
+    "Terminal-Bench 4.0 (Vals)": 5,
+    "Vibe Code Bench v1.1 (Vals)": 2,
+    "FrontierCode 2 (AA)": 8,
+    "SciCode (AA)": 3
+   },
+   "gpt-6-1-sol": {
+    "Code Migration v1.1 (Vals)": 4,
+    "IOI (Vals)": 3,
+    "ProgramBench (Vals)": 4,
+    "SWE-bench Multimodal (Vals)": 6,
+    "Terminal-Bench 4.0 (Vals)": 6,
+    "Vibe Code Bench v1.1 (Vals)": 6,
+    "FrontierCode 2 (AA)": 4,
+    "SciCode (AA)": 11
+   },
+   "gpt-6-astra": {
+    "Code Migration v1.1 (Vals)": 3,
+    "IOI (Vals)": 1,
+    "ProgramBench (Vals)": 3,
+    "SWE-bench Multimodal (Vals)": 7,
+    "Terminal-Bench 4.0 (Vals)": 3,
+    "Vibe Code Bench v1.1 (Vals)": 5,
+    "FrontierCode 2 (AA)": 2,
+    "SciCode (AA)": 8
+   },
+   "gpt-6-luna": {
+    "Code Migration v1.1 (Vals)": 10,
+    "IOI (Vals)": 9,
+    "ProgramBench (Vals)": 8,
+    "SWE-bench Multimodal (Vals)": 11,
+    "Terminal-Bench 4.0 (Vals)": 11,
+    "Vibe Code Bench v1.1 (Vals)": 10,
+    "FrontierCode 2 (AA)": 9,
+    "SciCode (AA)": 10
+   },
+   "grok-4-7": {
+    "Code Migration v1.1 (Vals)": 7,
+    "IOI (Vals)": 7,
+    "ProgramBench (Vals)": 8,
+    "SWE-bench Multimodal (Vals)": 8,
+    "Terminal-Bench 4.0 (Vals)": 9,
+    "Vibe Code Bench v1.1 (Vals)": 7,
+    "FrontierCode 2 (AA)": 7,
+    "SciCode (AA)": 6
+   },
+   "haiku-5-5": {
+    "Code Migration v1.1 (Vals)": 8,
+    "IOI (Vals)": 10,
+    "ProgramBench (Vals)": 5,
+    "SWE-bench Multimodal (Vals)": 5,
+    "Terminal-Bench 4.0 (Vals)": 7,
+    "Vibe Code Bench v1.1 (Vals)": 3,
+    "FrontierCode 2 (AA)": 6,
+    "SciCode (AA)": 9
+   },
+   "mimo-v2-6-pro": {
+    "Code Migration v1.1 (Vals)": 9,
+    "IOI (Vals)": 11,
+    "ProgramBench (Vals)": 8,
+    "SWE-bench Multimodal (Vals)": 9,
+    "Terminal-Bench 4.0 (Vals)": 8,
+    "Vibe Code Bench v1.1 (Vals)": 9,
+    "FrontierCode 2 (AA)": 10,
+    "SciCode (AA)": 5
+   },
+   "muse-wonder-full": {
+    "Code Migration v1.1 (Vals)": 6,
+    "IOI (Vals)": 6,
+    "ProgramBench (Vals)": 8,
+    "SWE-bench Multimodal (Vals)": 4,
+    "Terminal-Bench 4.0 (Vals)": 4,
+    "Vibe Code Bench v1.1 (Vals)": 8,
+    "FrontierCode 2 (AA)": 5,
+    "SciCode (AA)": 2
+   },
+   "opus-5-5": {
+    "Code Migration v1.1 (Vals)": 2,
+    "IOI (Vals)": 4,
+    "ProgramBench (Vals)": 1,
+    "SWE-bench Multimodal (Vals)": 1,
+    "Terminal-Bench 4.0 (Vals)": 1,
+    "Vibe Code Bench v1.1 (Vals)": 4,
+    "FrontierCode 2 (AA)": 1,
+    "SciCode (AA)": 1
+   },
+   "sonnet-5-5": {
+    "Code Migration v1.1 (Vals)": 1,
+    "IOI (Vals)": 5,
+    "ProgramBench (Vals)": 2,
+    "SWE-bench Multimodal (Vals)": 2,
+    "Terminal-Bench 4.0 (Vals)": 2,
+    "Vibe Code Bench v1.1 (Vals)": 1,
+    "FrontierCode 2 (AA)": 3,
+    "SciCode (AA)": 4
+   }
+  },
+  "leaders_worst_rank": {
+   "gemini-4-argon": 8,
+   "gpt-6-astra": 8,
+   "opus-5-5": 4,
+   "sonnet-5-5": 5
+  },
+  "bottom_third_from": 9,
+  "leaders_in_bottom_third_somewhere": {
+   "gemini-4-argon": [],
+   "gpt-6-astra": [],
+   "opus-5-5": [],
+   "sonnet-5-5": []
   }
  },
  "legal_summary": {
   "benchmarks": 5,
   "distinct_top_models": 5,
   "most": 1,
-  "most_model": "opus-5-5",
+  "most_model": "gpt-6-1-sol",
   "ties": 0
  },
  "coding_summary": {
@@ -144,5 +577,21 @@
   "most": 5,
   "most_model": "fable-5-2",
   "ties": 2
- }
+ },
+ "release_dates": {
+  "fable-5-2": "2026-11-09",
+  "gemini-4-argon": "2026-09-30",
+  "gemini-4-carbon": null,
+  "gpt-6-1-sol": "2026-09-29",
+  "gpt-6-astra": "2026-09-03",
+  "muse-ember": "2026-11-09",
+  "opus-5-5": "2026-09-22"
+ },
+ "certera_rank_spread": {
+  "gemini-4-argon": "2 - 21",
+  "gpt-6-1-sol": "1 - 4",
+  "gpt-6-astra": "2 - 16",
+  "opus-5-5": "6 - 30"
+ },
+ "certera_models": 80
 }

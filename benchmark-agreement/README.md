@@ -30,7 +30,21 @@ Legal benchmarks do agree more often than chance. They agree less than coding be
 
 The intervals overlap almost completely, so the order of the five says little. The score measures agreement with the other four, not quality: a low score means a benchmark ranks models differently, not that it is wrong.
 
-Each of the five has a different model in first place. Among the 9 coding benchmarks, one model is first or tied for first on 5. On three of the five legal leaderboards (Vals Legal Research, Mercor APEX law, Legora BAR) the leader is ahead of second place by about a point or less.
+On the public pages each of the five has a different model in first place, but that is not a like-for-like comparison. Vals Legal Research's leader, Gemini 4 Carbon, is not on Legora's or Certera's leaderboard, and neither are the two models released on 9 November (Claude Fable 5.2 and Muse Ember). Among the 13 models that are on all five (leaving out names that could not be matched with certainty), there are 4 different leaders: Harvey LAB and Vals Legal Research both put Gemini 4 Argon first. On the same basis the eight coding benchmarks (without the second Vibe Code Bench leaderboard) also have 4 different leaders among 11 models, so the number of different leaders does not separate the fields. In coding one model leads 5 of the eight; in legal no model leads more than 2 of the five.
+
+Rank among the 13 models on all five, for every model in the top three on any of them:
+
+| Model | Harvey LAB | Vals Legal Research | Mercor APEX law | Legora BAR | Certera |
+|---|---|---|---|---|---|
+| Muse Wonder | 2 | 2 | 3 | 2 | 7 |
+| Gemini 4 Argon | 1 | 1 | 2 | 9 | 4 |
+| Claude Opus 5.5 | 10 | 2 | 4 | 1 | 6 |
+| Gemini 3.8 Flash | 6 | 11 | 8 | 3 | 2 |
+| GPT-6.1 Sol | 12 | 12 | 5 | 4 | 1 |
+| GPT-6 Astra | 11 | 10 | 1 | 10 | 3 |
+| Grok 4.7 | 3 | 6 | 13 | 4 | 13 |
+
+The four leaders were released between 2026-09-03 and 2026-09-30 (dates from Mercor's page data), before Legora's October release and Certera's 9 November update, so their low ranks elsewhere are not a matter of timing. Ties share a rank. Certera publishes a rank range for each model: Gemini 4 Argon's is 2 to 21 of 80 and GPT-6.1 Sol's is 1 to 4.
 
 Four of the five describe their grading the same way: a written rubric scored by an AI judge. The rubrics are mostly private (LAB's are public), so a reader cannot see how the standards differ. Certera is the only one where people judge the answers. The four rubric benchmarks agree with each other 64% of the time and with Certera's votes 57%; the difference is 7 points with an interval of -7 to 22, so it is not clearly different from zero. SemiAnalysis' GDPx legal, in the rule-based set below, also uses an AI judge, against rubrics and reference answers written by lawyers.
 
