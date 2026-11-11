@@ -97,6 +97,8 @@ With all twelve legal benchmarks that had current models, the median rank correl
 
 ## Files
 
-- `legal-benchmarks-agreement.png`: the chart.
+- `benchmark-of-legal-benchmarks.png`: leaderboard-style chart. Scores are agreement rescaled so 0 is a coin flip and 100 is an identical ranking (2 x share of model pairs ordered the same, minus 1).
+- `option1-winners.png`, `option2-ten-dots.png`: alternative charts.
+- `legal-benchmarks-agreement.png`: earlier detailed chart with intervals.
 - `data/pairs.csv`, `data/scores.csv`, `data/final.json`, `data/concord.json`: results.
-- `scripts/`: the analysis code (`final.py`, `concord.py`, `chart2.py` produce the numbers and chart above). Raw downloaded leaderboards (about 400 MB) are not in the repo.
+- `scripts/`: the analysis code (`final.py` and `concord.py` produce the numbers; `leaderboard.py`, `options.py` and `chart2.py` draw the charts). Raw downloaded leaderboards (about 400 MB) are not in the repo.
