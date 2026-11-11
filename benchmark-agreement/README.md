@@ -24,7 +24,7 @@ Legal benchmarks do agree more often than chance. They agree less than coding be
 |---|---|---|---|---|---|
 | Legal Research Bench | Vals | 37 | Gemini 4 Carbon | 66% | 56% to 75% |
 | APEX-Agents, corporate law | Mercor | 29 | GPT-6 Astra | 62% | 52% to 72% |
-| LAB (Vals' run) | Harvey | 37 | Gemini 4 Argon | 60% | 49% to 71% |
+| LAB (Vals' run; Harvey's own published results cover only older models) | Harvey | 37 | Gemini 4 Argon | 60% | 49% to 71% |
 | BAR | Legora | 15 | Claude Opus 5.5 | 58% | 42% to 72% |
 | Legal AI Leaderboard | Certera | 23 | GPT-6.1 Sol | 55% | 45% to 68% |
 
@@ -72,6 +72,18 @@ With all twelve legal benchmarks that had current models, the median rank correl
 | All models any source tested, not just the 37 | 0.30 | 0.77 | 0.47 |
 | Only pairings sharing 15 or more models | 0.30 | 0.72 | 0.43 |
 | Leaving out any one legal benchmark | 0.18 to 0.35 | 0.72 | 0.37 to 0.54 |
+
+On the agreement-share measure:
+
+| Check | Legal | Coding |
+|---|---|---|
+| Main result | 60% | 78% |
+| Harvey LAB taken from Mercor's run instead of Vals' | 59% | 78% |
+| Harvey LAB taken from Artificial Analysis' run, ungated | 60% | 78% |
+| Harvey LAB taken from Artificial Analysis' run, hallucination-gated | 61% | 78% |
+| Pairings run by the same evaluator | 75% (1 pairing) | 78% (16 pairings) |
+| Pairings run by different evaluators | 59% (9 pairings) | 78% (12 pairings) |
+| Only Harvey LAB, Vals Legal Research and Mercor APEX | 67% | 78% |
 
 ## Limits
 
