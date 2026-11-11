@@ -4,7 +4,7 @@ sys.path.insert(0,'scripts')
 with contextlib.redirect_stdout(io.StringIO()):
     from full import T, cohort
 D=lambda f:json.load(open(f'data/{f}.json'))
-C=D('concord'); F=D('final'); A=D('audit_fields'); CAND=D('audit_candidates'); VAR=D('audit_legal_variants'); M=D('matched'); S=D('sidechecks'); G=D('field_gaps')
+C=D('concord'); F=D('final'); A=D('audit_fields'); CAND=D('audit_candidates'); VAR=D('audit_legal_variants'); M=D('matched'); S=D('sidechecks'); G=D('field_gaps'); GS=D('gap_size')
 p=lambda x:f"{x:.0f}%"; pc=lambda x:f"{x*100:.0f}%"; r2=lambda x:f"{x:.2f}"
 NICE={'gemini-4-argon':'Gemini 4 Argon','gemini-4-carbon':'Gemini 4 Carbon','gpt-6-astra':'GPT-6 Astra','opus-5-5':'Claude Opus 5.5','gpt-6-1-sol':'GPT-6.1 Sol','muse-wonder-full':'Muse Wonder Full','fable-5-2':'Claude Fable 5.2'}
 LEG=[('Vals Legal Research','Legal Research Bench','Vals','Vals','Vals Legal Research'),('Mercor APEX law','APEX-Agents, corporate law','Mercor','Mercor','APEX-Agents corporate law (Mercor)'),('Harvey LAB','LAB','Harvey','Vals','LAB (Vals run)'),('Legora BAR','BAR','Legora','Legora','Legora BAR'),('Certera','Legal AI Leaderboard','Certera','Certera','Certera (votes by legal professionals)')]
@@ -28,11 +28,14 @@ sl=C['same']
 lab=[v[0]*100 for k,v in sl.items() if k.startswith('LAB')]; tb=[v[0]*100 for k,v in sl.items() if k.startswith('Terminal')][0]
 w(f"Legal benchmarks do agree more often than chance. They agree less than coding benchmarks do, and much less than one benchmark agrees with a rerun of itself. Harvey's LAB has been run by three evaluators (Vals, Artificial Analysis, Mercor), and those runs agree {p(min(lab))} to {p(max(lab))} of the time. Terminal-Bench 4, run by Vals and Artificial Analysis, agrees {p(tb)} of the time.\n")
 w("## The five legal benchmarks\n")
-w("| Benchmark | Publisher | Run by | Models of the 37 | Top model | Agreement with the other four | 95% interval |\n|---|---|---|---|---|---|---|")
+JUDGE={'Harvey LAB':'AI judge, written rubric','Vals Legal Research':'AI judge, written rubric, citations checked','Mercor APEX law':'AI judge, expert-written rubric','Legora BAR':'AI judge, criteria written by legal professionals','Certera':'blind head-to-head votes by legal professionals'}
+w("| Benchmark | Publisher | Run by | Answers judged by | Models of the 37 | Top model | Agreement with the other four | 95% interval |\n|---|---|---|---|---|---|---|---|")
 for key,name,pub,run,tk in sorted(LEG,key=lambda x:-C['per_legal'][x[0]]):
     t,n=top(tk); ci=C['per_legal_ci'][key]
-    w(f"| {name} | {pub} | {run} | {n} | {t} | {pc(C['per_legal'][key])} | {pc(ci[0])} to {pc(ci[1])} |")
+    w(f"| {name} | {pub} | {run} | {JUDGE[key]} | {n} | {t} | {pc(C['per_legal'][key])} | {pc(ci[0])} to {pc(ci[1])} |")
 w("\nThe intervals overlap almost completely, so the order of the five says little. The score measures agreement with the other four, not quality: a low score means a benchmark ranks models differently, not that it is wrong.\n")
+rv=GS['rubric_vs_votes']
+w(f"Four of the five describe their grading the same way: a written rubric scored by an AI judge. The rubrics are mostly private (LAB's are public), so a reader cannot see how the standards differ. Certera is the only one where people judge the answers. The four rubric benchmarks agree with each other {p(rv['rubric_rubric'])} of the time and with Certera's votes {p(rv['rubric_votes'])}; the difference is {rv['diff']:.0f} points with an interval of {rv['lo']:.0f} to {rv['hi']:.0f}, so it is not clearly different from zero. SemiAnalysis' GDPx legal, in the rule-based set below, also uses an AI judge, against rubrics and reference answers written by lawyers.\n")
 w("Harvey wrote LAB, but its own published results cover only older models. Scores for current models come from other parties running it. Vals' run is used because it covers the most models and reports a margin of error for each score. Vals Legal Research is a separate benchmark with its own tasks.\n")
 SHORT={'Harvey LAB':'Harvey LAB','Vals Legal Research':'Vals Legal Research','Mercor APEX law':'Mercor APEX law','Legora BAR':'Legora BAR','Certera':'Certera'}
 w("| Pairing | Shared models | Agree on which of two models is better |\n|---|---|---|")
@@ -85,6 +88,14 @@ w(f"Two fields have only two qualifying benchmarks, so one pairing each, and are
 w(f"Science and finance were each run by a single evaluator, and legal benchmarks by four to six different parties. Where the evaluator differs, coding pairings agree {p(S['coding_diff_runner'][0])} of the time ({S['coding_diff_runner'][1]} pairings), against {p(S['legal_diff_runner'][0])} for legal ({S['legal_diff_runner'][1]} pairings). The one legal pairing run by the same evaluator (Harvey LAB and Vals Legal Research, both run by Vals) agrees {p(S['legal_same_runner'][0])} of the time.\n")
 x=S['cross']
 w(f"A legal benchmark agrees with a coding benchmark {p(x['legal_coding'])} of the time ({x['pairs']} pairings), against {p(x['legal_legal'])} with another legal benchmark. The difference is {x['diff']:.0f} points with an interval of {x['ci'][0]:.0f} to {x['ci'][1]:.0f}, so it is not clearly different from zero. There is no sign that the legal benchmarks share a ranking of their own beyond general model strength.\n")
+w("## How far does a lead on one benchmark carry?\n")
+w("For each benchmark, pairs of models are split into thirds by the size of the gap between them. The figure is how often another benchmark in the same field puts the same model ahead.\n")
+w("| Field | Closest third of gaps | Middle third | Widest third | Widest tenth |\n|---|---|---|---|---|")
+for k in ['science','coding','office work','finance','legal (written rule)','legal (hand-picked five)']:
+    g=GS['fields'][k]; cell=lambda i:f"{p(g['thirds'][i])} ({g['lo'][i]:.0f} to {g['hi'][i]:.0f})"
+    w(f"| {k.capitalize()} | {cell(0)} | {cell(1)} | {cell(2)} | {p(g['widest_tenth'])} |")
+pts=GS['points']; lo_=GS['legal_five_leave_one_out_widest']
+w(f"\nA small lead is close to a coin flip in every field. The difference is at the other end: in the four other fields a wide lead on one benchmark holds on another 92% to 97% of the time, and in legal about 70%. Leaving any one of the five legal benchmarks out, the widest-third figure is {p(lo_[0])} to {p(lo_[1])}. The widest third means gaps over {pts['Harvey LAB (Vals run)']['widest_over']:.0f} points on Harvey LAB, over {pts['Legal Research Bench (Vals)']['widest_over']:.1f} on Vals Legal Research and over {pts['Mercor APEX, corporate law']['widest_over']:.0f} on Mercor APEX law; the closest third means gaps under about {pts['Harvey LAB (Vals run)']['closest_under']:.0f}, {pts['Legal Research Bench (Vals)']['closest_under']:.0f} and {pts['Mercor APEX, corporate law']['closest_under']:.0f} points.\n")
 w("## The same models for every field\n")
 cmn=M['common']
 w(f"The comparisons above use the same pool of 37 models, but each pairing only uses the models both benchmarks tested, and legal pairings share fewer models (15 to 37) than coding pairings. To rule that out as the cause, every field was scored on exactly the same {len(M['common_models'])} models, the ones all five legal benchmarks tested.\n")

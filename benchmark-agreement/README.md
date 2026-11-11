@@ -20,15 +20,17 @@ Legal benchmarks do agree more often than chance. They agree less than coding be
 
 ## The five legal benchmarks
 
-| Benchmark | Publisher | Run by | Models of the 37 | Top model | Agreement with the other four | 95% interval |
-|---|---|---|---|---|---|---|
-| Legal Research Bench | Vals | Vals | 37 | Gemini 4 Carbon | 67% | 57% to 77% |
-| APEX-Agents, corporate law | Mercor | Mercor | 30 | GPT-6 Astra | 63% | 53% to 74% |
-| LAB | Harvey | Vals | 37 | Gemini 4 Argon | 62% | 51% to 73% |
-| BAR | Legora | Legora | 15 | Claude Opus 5.5 | 58% | 42% to 72% |
-| Legal AI Leaderboard | Certera | Certera | 24 | GPT-6.1 Sol | 57% | 47% to 71% |
+| Benchmark | Publisher | Run by | Answers judged by | Models of the 37 | Top model | Agreement with the other four | 95% interval |
+|---|---|---|---|---|---|---|---|
+| Legal Research Bench | Vals | Vals | AI judge, written rubric, citations checked | 37 | Gemini 4 Carbon | 67% | 57% to 77% |
+| APEX-Agents, corporate law | Mercor | Mercor | AI judge, expert-written rubric | 30 | GPT-6 Astra | 63% | 53% to 74% |
+| LAB | Harvey | Vals | AI judge, written rubric | 37 | Gemini 4 Argon | 62% | 51% to 73% |
+| BAR | Legora | Legora | AI judge, criteria written by legal professionals | 15 | Claude Opus 5.5 | 58% | 42% to 72% |
+| Legal AI Leaderboard | Certera | Certera | blind head-to-head votes by legal professionals | 24 | GPT-6.1 Sol | 57% | 47% to 71% |
 
 The intervals overlap almost completely, so the order of the five says little. The score measures agreement with the other four, not quality: a low score means a benchmark ranks models differently, not that it is wrong.
+
+Four of the five describe their grading the same way: a written rubric scored by an AI judge. The rubrics are mostly private (LAB's are public), so a reader cannot see how the standards differ. Certera is the only one where people judge the answers. The four rubric benchmarks agree with each other 64% of the time and with Certera's votes 57%; the difference is 7 points with an interval of -7 to 22, so it is not clearly different from zero. SemiAnalysis' GDPx legal, in the rule-based set below, also uses an AI judge, against rubrics and reference answers written by lawyers.
 
 Harvey wrote LAB, but its own published results cover only older models. Scores for current models come from other parties running it. Vals' run is used because it covers the most models and reports a margin of error for each score. Vals Legal Research is a separate benchmark with its own tasks.
 
@@ -133,6 +135,21 @@ Two fields have only two qualifying benchmarks, so one pairing each, and are not
 Science and finance were each run by a single evaluator, and legal benchmarks by four to six different parties. Where the evaluator differs, coding pairings agree 80% of the time (12 pairings), against 60% for legal (9 pairings). The one legal pairing run by the same evaluator (Harvey LAB and Vals Legal Research, both run by Vals) agrees 75% of the time.
 
 A legal benchmark agrees with a coding benchmark 66% of the time (40 pairings), against 62% with another legal benchmark. The difference is 4 points with an interval of -2 to 10, so it is not clearly different from zero. There is no sign that the legal benchmarks share a ranking of their own beyond general model strength.
+
+## How far does a lead on one benchmark carry?
+
+For each benchmark, pairs of models are split into thirds by the size of the gap between them. The figure is how often another benchmark in the same field puts the same model ahead.
+
+| Field | Closest third of gaps | Middle third | Widest third | Widest tenth |
+|---|---|---|---|---|
+| Science | 68% (53 to 82) | 87% (69 to 99) | 97% (90 to 100) | 95% |
+| Coding | 62% (57 to 69) | 79% (70 to 90) | 95% (89 to 98) | 98% |
+| Office work | 60% (55 to 66) | 78% (69 to 86) | 92% (83 to 97) | 98% |
+| Finance | 55% (48 to 64) | 74% (61 to 86) | 92% (80 to 98) | 98% |
+| Legal (written rule) | 56% (50 to 62) | 61% (55 to 72) | 73% (63 to 81) | 81% |
+| Legal (hand-picked five) | 57% (49 to 66) | 59% (50 to 71) | 69% (57 to 81) | 75% |
+
+A small lead is close to a coin flip in every field. The difference is at the other end: in the four other fields a wide lead on one benchmark holds on another 92% to 97% of the time, and in legal about 70%. Leaving any one of the five legal benchmarks out, the widest-third figure is 64% to 76%. The widest third means gaps over 10 points on Harvey LAB, over 12.5 on Vals Legal Research and over 7 on Mercor APEX law; the closest third means gaps under about 5, 6 and 3 points.
 
 ## The same models for every field
 
