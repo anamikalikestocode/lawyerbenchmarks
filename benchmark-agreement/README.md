@@ -127,6 +127,8 @@ A legal benchmark agrees with a coding benchmark 65% of the time (40 pairings), 
 ## Files
 
 - `benchmark-of-legal-benchmarks.png`: leaderboard-style chart. Scores are agreement rescaled so 0 is a coin flip and 100 is an identical ranking (2 x share of model pairs ordered the same, minus 1).
+- `benchmark-of-benchmarks-six-fields.png`: six fields, legal highlighted.
+- `benchmark-of-legal-benchmarks-50.png`: the five legal benchmarks on a scale where 50 is a coin flip.
 - `option1-winners.png`, `option2-ten-dots.png`: alternative charts.
 - `legal-benchmarks-agreement.png`: earlier detailed chart with intervals.
 - `data/pairs.csv`, `data/scores.csv`, `data/final.json`, `data/concord.json`: results.
