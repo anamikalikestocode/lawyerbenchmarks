@@ -4,14 +4,24 @@ Draft, 11 November 2026. Not committed to the site.
 
 ## The finding
 
-Six legal benchmarks rank the same current models. Two of them typically agree at 0.32 (Spearman rank correlation, where 0 is an unrelated order and 1 is an identical order). Eight coding benchmarks on the same models typically agree at 0.72.
+Pick any two current AI models. Two legal benchmarks agree on which one is better 62% of the time. Two coding benchmarks agree 78% of the time, on the same models. Guessing would give 50%.
 
-| | Benchmarks | Pairs | Median agreement | 95% interval |
+| Comparison | Agreement on which of two models is better | 95% interval |
+|---|---|---|
+| The same benchmark, run by two evaluators | 85% to 93% | range across four reruns |
+| Two different coding benchmarks (8 benchmarks, 28 pairings) | 78% | 70% to 84% |
+| Two different legal benchmarks (6 benchmarks, 15 pairings) | 62% | 54% to 71% |
+
+The gap between coding and legal is 16 points, with a 95% interval of 6 to 25. Coding came out at or below law in 0.2% of resamples. Counting only pairings where the two benchmarks were run by different evaluators gives 61% for legal and 78% for coding.
+
+The same result as a rank correlation (Spearman, 0 is an unrelated order and 1 is identical): legal benchmarks typically agree at 0.32, coding benchmarks at 0.72.
+
+| | Benchmarks | Pairs | Median rank correlation | 95% interval |
 |---|---|---|---|---|
 | Legal | 6 | 15 | 0.32 | 0.07 to 0.56 |
 | Coding | 8 | 28 | 0.72 | 0.54 to 0.84 |
 
-The gap is 0.41, with a 95% interval of 0.15 to 0.65. Coding came out at or below law in 0.03% of resamples.
+On that scale the gap is 0.41, with a 95% interval of 0.15 to 0.65.
 
 This is not because legal benchmarks are unrepeatable. Harvey's LAB has been run by three evaluators (Vals, Artificial Analysis, Mercor), and their rankings agree at 0.83 to 0.95. A coding benchmark run by two evaluators (Terminal-Bench 4, Vals and Artificial Analysis) agrees at 0.96.
 
@@ -32,7 +42,7 @@ Every pair, with the number of shared models, is in `data/pairs.csv`. The scores
 
 - **Models.** The 37 models Vals ran on Harvey's LAB between 19 October and 9 November 2026. This set was chosen because it is defined by recency, not by score. Each pair of benchmarks is compared on the models both tested, and a pair needs at least 10 shared models.
 - **Scores.** Each benchmark's own headline score, taken from the publisher's site on 11 November 2026. Where a source ran a model at several effort settings, the highest setting is used.
-- **Agreement.** Spearman rank correlation between two benchmarks' scores.
+- **Agreement.** For two benchmarks, the share of model pairs they put in the same order, over the models both tested (ties dropped). Spearman rank correlation is reported alongside.
 - **Intervals.** Models were resampled with replacement 3,000 times and every statistic recomputed.
 - **Coding reference.** Terminal-Bench 4, Vibe Code, Code Migration, IOI, ProgramBench and SWE-bench Multimodal (all as run by Vals), plus FrontierCode 2 and SciCode (Artificial Analysis).
 

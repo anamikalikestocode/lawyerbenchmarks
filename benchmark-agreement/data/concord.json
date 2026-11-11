@@ -1,0 +1,264 @@
+{
+ "legal_pairs": {
+  "Harvey LAB|Vals Legal Research": [
+   0.7492307692307693,
+   37
+  ],
+  "Harvey LAB|Mercor APEX law": [
+   0.5919395465994962,
+   29
+  ],
+  "Harvey LAB|Legora BAR": [
+   0.6236559139784946,
+   15
+  ],
+  "Harvey LAB|GDPx legal": [
+   0.5132275132275133,
+   20
+  ],
+  "Harvey LAB|Certera": [
+   0.448,
+   23
+  ],
+  "Vals Legal Research|Mercor APEX law": [
+   0.6658227848101266,
+   29
+  ],
+  "Vals Legal Research|Legora BAR": [
+   0.6413043478260869,
+   15
+  ],
+  "Vals Legal Research|GDPx legal": [
+   0.6577540106951871,
+   20
+  ],
+  "Vals Legal Research|Certera": [
+   0.5742971887550201,
+   23
+  ],
+  "Mercor APEX law|Legora BAR": [
+   0.5425531914893617,
+   15
+  ],
+  "Mercor APEX law|GDPx legal": [
+   0.7218934911242604,
+   19
+  ],
+  "Mercor APEX law|Certera": [
+   0.6696035242290749,
+   22
+  ],
+  "Legora BAR|GDPx legal": [
+   0.6222222222222222,
+   11
+  ],
+  "Legora BAR|Certera": [
+   0.5212765957446809,
+   15
+  ],
+  "GDPx legal|Certera": [
+   0.780952380952381,
+   15
+  ]
+ },
+ "coding_pairs": {
+  "Terminal-Bench 4|Vibe Code": [
+   0.8,
+   37
+  ],
+  "Terminal-Bench 4|FrontierCode 2": [
+   0.8051044083526682,
+   30
+  ],
+  "Terminal-Bench 4|SciCode": [
+   0.7556109725685786,
+   29
+  ],
+  "Terminal-Bench 4|Code Migration": [
+   0.9037433155080213,
+   28
+  ],
+  "Terminal-Bench 4|IOI": [
+   0.7888198757763976,
+   26
+  ],
+  "Terminal-Bench 4|ProgramBench": [
+   0.7971698113207547,
+   23
+  ],
+  "Terminal-Bench 4|SWE-bench Multimodal": [
+   0.7857142857142857,
+   19
+  ],
+  "Vibe Code|FrontierCode 2": [
+   0.8574712643678161,
+   30
+  ],
+  "Vibe Code|SciCode": [
+   0.7308641975308642,
+   29
+  ],
+  "Vibe Code|Code Migration": [
+   0.8227513227513228,
+   28
+  ],
+  "Vibe Code|IOI": [
+   0.7160493827160493,
+   26
+  ],
+  "Vibe Code|ProgramBench": [
+   0.8317757009345794,
+   23
+  ],
+  "Vibe Code|SWE-bench Multimodal": [
+   0.8,
+   19
+  ],
+  "FrontierCode 2|SciCode": [
+   0.713527851458886,
+   28
+  ],
+  "FrontierCode 2|Code Migration": [
+   0.8537549407114624,
+   23
+  ],
+  "FrontierCode 2|IOI": [
+   0.7857142857142857,
+   23
+  ],
+  "FrontierCode 2|ProgramBench": [
+   0.8571428571428571,
+   21
+  ],
+  "FrontierCode 2|SWE-bench Multimodal": [
+   0.8092105263157895,
+   18
+  ],
+  "SciCode|Code Migration": [
+   0.7028985507246377,
+   24
+  ],
+  "SciCode|IOI": [
+   0.6934306569343066,
+   24
+  ],
+  "SciCode|ProgramBench": [
+   0.7959183673469388,
+   22
+  ],
+  "SciCode|SWE-bench Multimodal": [
+   0.7514792899408284,
+   19
+  ],
+  "Code Migration|IOI": [
+   0.8036363636363636,
+   24
+  ],
+  "Code Migration|ProgramBench": [
+   0.7638190954773869,
+   22
+  ],
+  "Code Migration|SWE-bench Multimodal": [
+   0.7703703703703704,
+   17
+  ],
+  "IOI|ProgramBench": [
+   0.6949152542372882,
+   21
+  ],
+  "IOI|SWE-bench Multimodal": [
+   0.7014925373134329,
+   17
+  ],
+  "ProgramBench|SWE-bench Multimodal": [
+   0.7596153846153846,
+   16
+  ]
+ },
+ "same": {
+  "LAB: Vals vs Artificial Analysis": [
+   0.8802395209580839,
+   19
+  ],
+  "LAB: Vals vs Mercor": [
+   0.9242902208201893,
+   26
+  ],
+  "LAB: Artificial Analysis vs Mercor": [
+   0.8461538461538461,
+   16
+  ],
+  "Terminal-Bench 4: Vals vs Artificial Analysis": [
+   0.9320175438596491,
+   31
+  ]
+ },
+ "per_legal": {
+  "Harvey LAB": 0.5852107486072546,
+  "Vals Legal Research": 0.657681820263438,
+  "Mercor APEX law": 0.638362507650464,
+  "Legora BAR": 0.5902024542521692,
+  "GDPx legal": 0.6592099236443127,
+  "Certera": 0.5988259379362313
+ },
+ "per_legal_ci": {
+  "Harvey LAB": [
+   0.473090362760148,
+   0.7009975434793124
+  ],
+  "Vals Legal Research": [
+   0.5590826117575279,
+   0.7536613059120596
+  ],
+  "Mercor APEX law": [
+   0.5432175369040317,
+   0.7294020993974625
+  ],
+  "Legora BAR": [
+   0.4283983120743799,
+   0.7167889231164164
+  ],
+  "GDPx legal": [
+   0.5590252158983677,
+   0.7750021767736225
+  ],
+  "Certera": [
+   0.48397529577450565,
+   0.7117964277275772
+  ]
+ },
+ "per_coding": {
+  "Terminal-Bench 4": 0.8051660956058152,
+  "Vibe Code": 0.7941302669000903,
+  "FrontierCode 2": 0.8117037334376807,
+  "SciCode": 0.7348185552150058,
+  "Code Migration": 0.8029962798827951,
+  "IOI": 0.740579765189732,
+  "ProgramBench": 0.7857652101535985,
+  "SWE-bench Multimodal": 0.768268913467156
+ },
+ "legal": [
+  0.6236559139784946,
+  0.6215822320589783
+ ],
+ "coding": [
+  0.7872670807453417,
+  0.780428602481484
+ ],
+ "legal_ci": [
+  0.5428700711776167,
+  0.7087235989650422
+ ],
+ "coding_ci": [
+  0.7043620537769657,
+  0.8426612925598195
+ ],
+ "diff_ci": [
+  0.057434484409147855,
+  0.25176577826212526
+ ],
+ "cross": {
+  "legal": 0.6124644794038504,
+  "coding": 0.783216693137586
+ }
+}
