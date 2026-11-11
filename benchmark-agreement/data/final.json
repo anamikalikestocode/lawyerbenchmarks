@@ -1,0 +1,329 @@
+{
+ "main": {
+  "legal": 0.31727639787081463,
+  "coding": 0.723710158785174,
+  "nl": 15,
+  "nc": 28,
+  "legal_ci": [
+   0.07325550739705905,
+   0.562873621063747
+  ],
+  "coding_ci": [
+   0.5421797755292732,
+   0.8355018385099371
+  ],
+  "gap_ci": [
+   0.14833156994243316,
+   0.64810844398657
+  ],
+  "p": 0.0003333333333333333
+ },
+ "bars": {
+  "Harvey LAB": [
+   0.2156260758280319,
+   -0.0746217892220976,
+   0.478000918331397,
+   37
+  ],
+  "Vals Legal Research": [
+   0.3857878433002694,
+   0.15163785074273048,
+   0.6182220569271537,
+   37
+  ],
+  "Mercor APEX law": [
+   0.38176659871591184,
+   0.13717592041212598,
+   0.5986378289626139,
+   29
+  ],
+  "Legora BAR": [
+   0.20710072051789719,
+   -0.17299548292672923,
+   0.49142920196058354,
+   15
+  ],
+  "GDPx legal": [
+   0.3959477373510424,
+   0.12155069014405151,
+   0.6409009616585962,
+   20
+  ],
+  "Certera": [
+   0.23129511835145386,
+   -0.04396169078524516,
+   0.4904530106908917,
+   23
+  ]
+ },
+ "legal_pairs": {
+  "Harvey LAB|Vals Legal Research": [
+   0.6536339468709115,
+   37
+  ],
+  "Harvey LAB|Mercor APEX law": [
+   0.27505856453654265,
+   29
+  ],
+  "Harvey LAB|Legora BAR": [
+   0.32427966505871164,
+   15
+  ],
+  "Harvey LAB|GDPx legal": [
+   0.013538925365125222,
+   20
+  ],
+  "Harvey LAB|Certera": [
+   -0.18838072269113162,
+   23
+  ],
+  "Vals Legal Research|Mercor APEX law": [
+   0.4284129039022096,
+   29
+  ],
+  "Vals Legal Research|Legora BAR": [
+   0.31727639787081463,
+   15
+  ],
+  "Vals Legal Research|GDPx legal": [
+   0.3891609556261024,
+   20
+  ],
+  "Vals Legal Research|Certera": [
+   0.14045501223130882,
+   23
+  ],
+  "Mercor APEX law|Legora BAR": [
+   0.09464876412413044,
+   15
+  ],
+  "Mercor APEX law|GDPx legal": [
+   0.633889620953389,
+   19
+  ],
+  "Mercor APEX law|Certera": [
+   0.47682314006328735,
+   22
+  ],
+  "Legora BAR|GDPx legal": [
+   0.2574348990963099,
+   11
+  ],
+  "Legora BAR|Certera": [
+   0.041863876439519235,
+   15
+  ],
+  "GDPx legal|Certera": [
+   0.6857142857142856,
+   15
+  ]
+ },
+ "coding_pairs": {
+  "Terminal-Bench 4|Vibe Code": [
+   0.7474208939685997,
+   37
+  ],
+  "Terminal-Bench 4|FrontierCode 2": [
+   0.7954596826370928,
+   30
+  ],
+  "Terminal-Bench 4|SciCode": [
+   0.6612446539345801,
+   29
+  ],
+  "Terminal-Bench 4|Code Migration": [
+   0.9370209510282024,
+   28
+  ],
+  "Terminal-Bench 4|IOI": [
+   0.7798871330068788,
+   26
+  ],
+  "Terminal-Bench 4|ProgramBench": [
+   0.6696019851862363,
+   23
+  ],
+  "Terminal-Bench 4|SWE-bench Multimodal": [
+   0.7400088548513231,
+   19
+  ],
+  "Vibe Code|FrontierCode 2": [
+   0.8852057842046718,
+   30
+  ],
+  "Vibe Code|SciCode": [
+   0.6281561816337395,
+   29
+  ],
+  "Vibe Code|Code Migration": [
+   0.8166392993979201,
+   28
+  ],
+  "Vibe Code|IOI": [
+   0.5908702428637996,
+   26
+  ],
+  "Vibe Code|ProgramBench": [
+   0.7809008191214699,
+   23
+  ],
+  "Vibe Code|SWE-bench Multimodal": [
+   0.7871874386593156,
+   19
+  ],
+  "FrontierCode 2|SciCode": [
+   0.5622006347981394,
+   28
+  ],
+  "FrontierCode 2|Code Migration": [
+   0.8715415019762847,
+   23
+  ],
+  "FrontierCode 2|IOI": [
+   0.7165802047275197,
+   23
+  ],
+  "FrontierCode 2|ProgramBench": [
+   0.7742615635934226,
+   21
+  ],
+  "FrontierCode 2|SWE-bench Multimodal": [
+   0.8125969074633828,
+   18
+  ],
+  "SciCode|Code Migration": [
+   0.54,
+   24
+  ],
+  "SciCode|IOI": [
+   0.507177033492823,
+   24
+  ],
+  "SciCode|ProgramBench": [
+   0.6854939242791267,
+   22
+  ],
+  "SciCode|SWE-bench Multimodal": [
+   0.6628621597892889,
+   19
+  ],
+  "Code Migration|IOI": [
+   0.7910415494675959,
+   24
+  ],
+  "Code Migration|ProgramBench": [
+   0.6275720026021543,
+   22
+  ],
+  "Code Migration|SWE-bench Multimodal": [
+   0.7308401128428283,
+   17
+  ],
+  "IOI|ProgramBench": [
+   0.5094904134701357,
+   21
+  ],
+  "IOI|SWE-bench Multimodal": [
+   0.5276073619631901,
+   17
+  ],
+  "ProgramBench|SWE-bench Multimodal": [
+   0.661876132380177,
+   16
+  ]
+ },
+ "robustness": {
+  "original 4 coding benchmarks": {
+   "legal": 0.31727639787081463,
+   "coding": 0.7043327739515899,
+   "nl": 15,
+   "nc": 6,
+   "legal_ci": [
+    0.0720822788812119,
+    0.5631658389660602
+   ],
+   "coding_ci": [
+    0.5057817586915613,
+    0.8433321785453344
+   ],
+   "gap_ci": [
+    0.13398224159352032,
+    0.6337924860840882
+   ],
+   "p": 0.0006666666666666666
+  },
+  "no uncertain matches": {
+   "legal": 0.31411627957491195,
+   "coding": 0.7516000634962379,
+   "nl": 15,
+   "nc": 28,
+   "legal_ci": [
+    0.0794486719675511,
+    0.6183144591539029
+   ],
+   "coding_ci": [
+    0.5715344431565933,
+    0.8536247849150309
+   ],
+   "gap_ci": [
+    0.1298917739568635,
+    0.6506485347954717
+   ],
+   "p": 0.0003333333333333333
+  },
+  "kendall": {
+   "legal": 0.23262010079303627,
+   "coding": 0.5557670607170873,
+   "nl": 15,
+   "nc": 28
+  },
+  "all models": {
+   "legal": 0.32427966505871164,
+   "coding": 0.7724594092886834,
+   "nl": 15,
+   "nc": 28
+  },
+  "drop Harvey LAB": {
+   "legal": 0.3532186767484585,
+   "coding": 0.723710158785174,
+   "nl": 10,
+   "nc": 28
+  },
+  "drop Vals Legal Research": {
+   "legal": 0.2662467318164263,
+   "coding": 0.723710158785174,
+   "nl": 10,
+   "nc": 28
+  },
+  "drop Mercor APEX law": {
+   "legal": 0.28735564848356226,
+   "coding": 0.723710158785174,
+   "nl": 10,
+   "nc": 28
+  },
+  "drop Legora BAR": {
+   "legal": 0.408786929764156,
+   "coding": 0.723710158785174,
+   "nl": 10,
+   "nc": 28
+  },
+  "drop GDPx legal": {
+   "legal": 0.29616748120367864,
+   "coding": 0.723710158785174,
+   "nl": 10,
+   "nc": 28
+  },
+  "drop Certera": {
+   "legal": 0.32077803146476314,
+   "coding": 0.723710158785174,
+   "nl": 10,
+   "nc": 28
+  },
+  "min 15 shared": {
+   "legal": 0.32077803146476314,
+   "coding": 0.723710158785174,
+   "nl": 14,
+   "nc": 28
+  }
+ }
+}

@@ -1,0 +1,44 @@
+field,benchmark_a,benchmark_b,shared_models,spearman
+legal,GDPx legal,Certera,15,0.686
+legal,Harvey LAB,Vals Legal Research,37,0.654
+legal,Mercor APEX law,GDPx legal,19,0.634
+legal,Mercor APEX law,Certera,22,0.477
+legal,Vals Legal Research,Mercor APEX law,29,0.428
+legal,Vals Legal Research,GDPx legal,20,0.389
+legal,Harvey LAB,Legora BAR,15,0.324
+legal,Vals Legal Research,Legora BAR,15,0.317
+legal,Harvey LAB,Mercor APEX law,29,0.275
+legal,Legora BAR,GDPx legal,11,0.257
+legal,Vals Legal Research,Certera,23,0.14
+legal,Mercor APEX law,Legora BAR,15,0.095
+legal,Legora BAR,Certera,15,0.042
+legal,Harvey LAB,GDPx legal,20,0.014
+legal,Harvey LAB,Certera,23,-0.188
+coding,Terminal-Bench 4,Code Migration,28,0.937
+coding,Vibe Code,FrontierCode 2,30,0.885
+coding,FrontierCode 2,Code Migration,23,0.872
+coding,Vibe Code,Code Migration,28,0.817
+coding,FrontierCode 2,SWE-bench Multimodal,18,0.813
+coding,Terminal-Bench 4,FrontierCode 2,30,0.795
+coding,Code Migration,IOI,24,0.791
+coding,Vibe Code,SWE-bench Multimodal,19,0.787
+coding,Vibe Code,ProgramBench,23,0.781
+coding,Terminal-Bench 4,IOI,26,0.78
+coding,FrontierCode 2,ProgramBench,21,0.774
+coding,Terminal-Bench 4,Vibe Code,37,0.747
+coding,Terminal-Bench 4,SWE-bench Multimodal,19,0.74
+coding,Code Migration,SWE-bench Multimodal,17,0.731
+coding,FrontierCode 2,IOI,23,0.717
+coding,SciCode,ProgramBench,22,0.685
+coding,Terminal-Bench 4,ProgramBench,23,0.67
+coding,SciCode,SWE-bench Multimodal,19,0.663
+coding,ProgramBench,SWE-bench Multimodal,16,0.662
+coding,Terminal-Bench 4,SciCode,29,0.661
+coding,Vibe Code,SciCode,29,0.628
+coding,Code Migration,ProgramBench,22,0.628
+coding,Vibe Code,IOI,26,0.591
+coding,FrontierCode 2,SciCode,28,0.562
+coding,SciCode,Code Migration,24,0.54
+coding,IOI,SWE-bench Multimodal,17,0.528
+coding,IOI,ProgramBench,21,0.509
+coding,SciCode,IOI,24,0.507
