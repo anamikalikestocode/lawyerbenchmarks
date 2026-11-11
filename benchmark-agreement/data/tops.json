@@ -1,0 +1,148 @@
+{
+ "legal": {
+  "Harvey LAB (Vals run)": {
+   "top": [
+    "gemini-4-argon"
+   ],
+   "score": 27.083,
+   "second": 25.0,
+   "top_in_cohort": true,
+   "models": 37
+  },
+  "Legal Research Bench (Vals)": {
+   "top": [
+    "gemini-4-carbon"
+   ],
+   "score": 55.769,
+   "second": 55.288,
+   "top_in_cohort": true,
+   "models": 89
+  },
+  "Mercor APEX, corporate law": {
+   "top": [
+    "gpt-6-astra"
+   ],
+   "score": 88.9,
+   "second": 88.4,
+   "top_in_cohort": true,
+   "models": 66
+  },
+  "Legora BAR": {
+   "top": [
+    "opus-5-5"
+   ],
+   "score": 106.0,
+   "second": 105.0,
+   "top_in_cohort": true,
+   "models": 17
+  },
+  "Certera": {
+   "top": [
+    "gpt-6-1-sol"
+   ],
+   "score": 1114.0,
+   "second": 1095.0,
+   "top_in_cohort": true,
+   "models": 78
+  }
+ },
+ "coding": {
+  "Code Migration v1.1 (Vals)": {
+   "top": [
+    "sonnet-5-5"
+   ],
+   "score": 86.875,
+   "second": 83.265,
+   "top_in_cohort": true,
+   "models": 29
+  },
+  "IOI (Vals)": {
+   "top": [
+    "gemini-4-argon",
+    "gpt-6-astra"
+   ],
+   "score": 100.0,
+   "second": 96.889,
+   "top_in_cohort": true,
+   "models": 45
+  },
+  "ProgramBench (Vals)": {
+   "top": [
+    "fable-5-2"
+   ],
+   "score": 19.0,
+   "second": 18.5,
+   "top_in_cohort": true,
+   "models": 63
+  },
+  "SWE-bench Multimodal (Vals)": {
+   "top": [
+    "opus-5-5"
+   ],
+   "score": 70.208,
+   "second": 62.292,
+   "top_in_cohort": true,
+   "models": 22
+  },
+  "Terminal-Bench 4.0 (Vals)": {
+   "top": [
+    "fable-5-2",
+    "opus-5-5"
+   ],
+   "score": 65.152,
+   "second": 64.141,
+   "top_in_cohort": true,
+   "models": 59
+  },
+  "Vibe Code Bench 1-100 (Vals)": {
+   "top": [
+    "muse-wonder-full"
+   ],
+   "score": 33.978,
+   "second": 30.361,
+   "top_in_cohort": true,
+   "models": 25
+  },
+  "Vibe Code Bench v1.1 (Vals)": {
+   "top": [
+    "fable-5-2"
+   ],
+   "score": 93.771,
+   "second": 92.392,
+   "top_in_cohort": true,
+   "models": 122
+  },
+  "FrontierCode 2 (AA)": {
+   "top": [
+    "fable-5-2"
+   ],
+   "score": 0.487597222222222,
+   "second": 0.464359595959596,
+   "top_in_cohort": true,
+   "models": 70
+  },
+  "SciCode (AA)": {
+   "top": [
+    "fable-5-2"
+   ],
+   "score": 0.677083333333333,
+   "second": 0.668981481481482,
+   "top_in_cohort": true,
+   "models": 141
+  }
+ },
+ "legal_summary": {
+  "benchmarks": 5,
+  "distinct_top_models": 5,
+  "most": 1,
+  "most_model": "opus-5-5",
+  "ties": 0
+ },
+ "coding_summary": {
+  "benchmarks": 9,
+  "distinct_top_models": 6,
+  "most": 5,
+  "most_model": "fable-5-2",
+  "ties": 2
+ }
+}

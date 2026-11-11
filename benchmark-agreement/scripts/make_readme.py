@@ -4,7 +4,7 @@ sys.path.insert(0,'scripts')
 with contextlib.redirect_stdout(io.StringIO()):
     from full import T, cohort
 D=lambda f:json.load(open(f'data/{f}.json'))
-C=D('concord'); F=D('final'); A=D('audit_fields'); CAND=D('audit_candidates'); VAR=D('audit_legal_variants'); M=D('matched'); S=D('sidechecks'); G=D('field_gaps'); GS=D('gap_size')
+C=D('concord'); F=D('final'); A=D('audit_fields'); CAND=D('audit_candidates'); VAR=D('audit_legal_variants'); M=D('matched'); S=D('sidechecks'); G=D('field_gaps'); GS=D('gap_size'); TP=D('tops')
 p=lambda x:f"{x:.0f}%"; pc=lambda x:f"{x*100:.0f}%"; r2=lambda x:f"{x:.2f}"
 NICE={'gemini-4-argon':'Gemini 4 Argon','gemini-4-carbon':'Gemini 4 Carbon','gpt-6-astra':'GPT-6 Astra','opus-5-5':'Claude Opus 5.5','gpt-6-1-sol':'GPT-6.1 Sol','muse-wonder-full':'Muse Wonder Full','fable-5-2':'Claude Fable 5.2'}
 LEG=[('Vals Legal Research','Legal Research Bench','Vals','Vals','Vals Legal Research'),('Mercor APEX law','APEX-Agents, corporate law','Mercor','Mercor','APEX-Agents corporate law (Mercor)'),('Harvey LAB','LAB','Harvey','Vals','LAB (Vals run)'),('Legora BAR','BAR','Legora','Legora','Legora BAR'),('Certera','Legal AI Leaderboard','Certera','Certera','Certera (votes by legal professionals)')]
@@ -34,6 +34,8 @@ for key,name,pub,run,tk in sorted(LEG,key=lambda x:-C['per_legal'][x[0]]):
     t,n=top(tk); ci=C['per_legal_ci'][key]
     w(f"| {name} | {pub} | {run} | {JUDGE[key]} | {n} | {t} | {pc(C['per_legal'][key])} | {pc(ci[0])} to {pc(ci[1])} |")
 w("\nThe intervals overlap almost completely, so the order of the five says little. The score measures agreement with the other four, not quality: a low score means a benchmark ranks models differently, not that it is wrong.\n")
+ls_,cs_=TP['legal_summary'],TP['coding_summary']
+w(f"Each of the five has a different model in first place. Among the {cs_['benchmarks']} coding benchmarks, one model is first or tied for first on {cs_['most']}. On three of the five legal leaderboards the leader is ahead of second place by about a point or less, so first place there is within the margin of error.\n")
 rv=GS['rubric_vs_votes']
 w(f"Four of the five describe their grading the same way: a written rubric scored by an AI judge. The rubrics are mostly private (LAB's are public), so a reader cannot see how the standards differ. Certera is the only one where people judge the answers. The four rubric benchmarks agree with each other {p(rv['rubric_rubric'])} of the time and with Certera's votes {p(rv['rubric_votes'])}; the difference is {rv['diff']:.0f} points with an interval of {rv['lo']:.0f} to {rv['hi']:.0f}, so it is not clearly different from zero. SemiAnalysis' GDPx legal, in the rule-based set below, also uses an AI judge, against rubrics and reference answers written by lawyers.\n")
 w("Harvey wrote LAB, but its own published results cover only older models. Scores for current models come from other parties running it. Vals' run is used because it covers the most models and reports a margin of error for each score. Vals Legal Research is a separate benchmark with its own tasks.\n")
