@@ -4,7 +4,7 @@ sys.path.insert(0,'scripts')
 with contextlib.redirect_stdout(io.StringIO()):
     from full import T, cohort
 D=lambda f:json.load(open(f'data/{f}.json'))
-C=D('concord'); F=D('final'); A=D('audit_fields'); CAND=D('audit_candidates'); VAR=D('audit_legal_variants'); M=D('matched'); S=D('sidechecks'); G=D('field_gaps'); GS=D('gap_size'); TP=D('tops'); SS=D('shared_signal')
+C=D('concord'); F=D('final'); A=D('audit_fields'); CAND=D('audit_candidates'); VAR=D('audit_legal_variants'); M=D('matched'); S=D('sidechecks'); G=D('field_gaps'); GS=D('gap_size'); TP=D('tops'); SS=D('shared_signal'); OM=D('other_measures')
 p=lambda x:f"{x:.0f}%"; pc=lambda x:f"{x*100:.0f}%"; r2=lambda x:f"{x:.2f}"
 NICE={'gemini-4-argon':'Gemini 4 Argon','gemini-4-carbon':'Gemini 4 Carbon','gpt-6-astra':'GPT-6 Astra','opus-5-5':'Claude Opus 5.5','gpt-6-1-sol':'GPT-6.1 Sol','muse-wonder-full':'Muse Wonder Full','fable-5-2':'Claude Fable 5.2'}
 LEG=[('Vals Legal Research','Legal Research Bench','Vals','Vals','Vals Legal Research'),('Mercor APEX law','APEX-Agents, corporate law','Mercor','Mercor','APEX-Agents corporate law (Mercor)'),('Harvey LAB','LAB','Harvey','Vals','LAB (Vals run)'),('Legora BAR','BAR','Legora','Legora','Legora BAR'),('Certera','Legal AI Leaderboard','Certera','Certera','Certera (votes by legal professionals)')]
@@ -144,6 +144,22 @@ w("| One rule about what counts as good: LAB with and without the penalty for ma
 w("| The whole benchmark: two different legal benchmarks | 62% |\n")
 w("For reference, random halves of Terminal-Bench 4 (coding) agree 90% of the time and of Vals' Finance Agent 81%. Inside one benchmark, legal tasks are as consistent as coding tasks.\n")
 w("On the same LAB answers, ranking models by rubric pass rate and ranking them by fewest made-up facts agree 55% of the time. Area of law and the evaluator make no measurable difference. Kind of work costs a few points on thin data. A change in what counts as a good answer moves rankings the most of the things that could be isolated. Legora's comparison rests on 9 models, and the made-up-facts check is done by a single AI judge.\n")
+w("## Other ways of counting agreement\n")
+w("The headline counts how often two benchmarks agree on which of two models is better. That is Kendall's rank correlation written as a share, (tau + 1) / 2, the usual statistic in benchmark agreement testing. The same comparison under other counts, with coding as the nine benchmarks chosen by the rule:\n")
+w("| Measure | Legal | Coding | By chance |\n|---|---|---|---|")
+ol,oc=OM['legal'],OM['coding']; pcc=lambda d,k:f"{d['point'][k]*100:.0f}% ({d['ci'][k][0]*100:.0f} to {d['ci'][k][1]*100:.0f})"
+w(f"| Which of two models is better | {pcc(ol,'pairs')} | {pcc(oc,'pairs')} | 50% |")
+w(f"| Same order for three models | {pcc(ol,'triples')} | {pcc(oc,'triples')} | 17% |")
+w(f"| Same top model, among the models both tested | {pcc(ol,'same_top')} | {pcc(oc,'same_top')} | depends on the number of models |")
+w(f"| Overlap of the top three | {pcc(ol,'top3_overlap')} | {pcc(oc,'top3_overlap')} | depends on the number of models |")
+w("\nEvery count puts legal below coding. The top-model counts use one or three models per leaderboard, so a single model added or missing changes them, which is why their intervals are so wide.\n")
+st=OM['strongest']; g=lambda N,f:f"{st[str(N)][f]['pairs']*100:.0f}% ({st[str(N)][f]['lo']*100:.0f} to {st[str(N)][f]['hi']*100:.0f})"
+w("The headline uses every pair among the 37 models, including pairs of a strong and a weak model. Restricted to the strongest models (ranked by average percentile over every benchmark in the five fields):\n")
+w("| Models | Legal | Coding |\n|---|---|---|")
+for N in [10,15,20]: w(f"| Strongest {N} | {g(N,'legal')} | {g(N,'coding')} |")
+wu,lbx=OM['without_uncertain'],OM['legalbench']
+w(f"\nAmong the strongest models both figures are lower and legal is close to a coin flip; the gap remains, with wide intervals. Leaving out the four models whose names were matched across publishers with less certainty gives {wu['legal']*100:.0f}% for legal and {wu['coding']*100:.0f}% for coding.\n")
+w(f"LegalBench is not among the legal benchmarks because the only current leaderboard for it, Vals', has {lbx['of_cohort']} of the 37 models (last updated 13 October 2026), below the minimum of 15. Their scores run from {lbx['lowest']:.0f} to {lbx['highest']:.0f}. Adding it anyway gives {lbx['five_plus_legalbench']*100:.0f}% over {lbx['pairings']} pairings.\n")
 w("## Robustness (Spearman rank correlation)\n")
 w("| Check | Legal | Coding | Gap |\n|---|---|---|---|")
 w(f"| Main result | {r2(m['legal'])} | {r2(m['coding'])} | {r2(m['coding']-m['legal'])} |")

@@ -232,6 +232,31 @@ For reference, random halves of Terminal-Bench 4 (coding) agree 90% of the time 
 
 On the same LAB answers, ranking models by rubric pass rate and ranking them by fewest made-up facts agree 55% of the time. Area of law and the evaluator make no measurable difference. Kind of work costs a few points on thin data. A change in what counts as a good answer moves rankings the most of the things that could be isolated. Legora's comparison rests on 9 models, and the made-up-facts check is done by a single AI judge.
 
+## Other ways of counting agreement
+
+The headline counts how often two benchmarks agree on which of two models is better. That is Kendall's rank correlation written as a share, (tau + 1) / 2, the usual statistic in benchmark agreement testing. The same comparison under other counts, with coding as the nine benchmarks chosen by the rule:
+
+| Measure | Legal | Coding | By chance |
+|---|---|---|---|
+| Which of two models is better | 62% (54 to 71) | 79% (71 to 85) | 50% |
+| Same order for three models | 29% (20 to 40) | 51% (39 to 62) | 17% |
+| Same top model, among the models both tested | 0% (0 to 37) | 28% (20 to 77) | depends on the number of models |
+| Overlap of the top three | 27% (23 to 57) | 64% (53 to 83) | depends on the number of models |
+
+Every count puts legal below coding. The top-model counts use one or three models per leaderboard, so a single model added or missing changes them, which is why their intervals are so wide.
+
+The headline uses every pair among the 37 models, including pairs of a strong and a weak model. Restricted to the strongest models (ranked by average percentile over every benchmark in the five fields):
+
+| Models | Legal | Coding |
+|---|---|---|
+| Strongest 10 | 51% (42 to 88) | 67% (55 to 89) |
+| Strongest 15 | 55% (45 to 72) | 72% (62 to 82) |
+| Strongest 20 | 55% (46 to 66) | 74% (65 to 81) |
+
+Among the strongest models both figures are lower and legal is close to a coin flip; the gap remains, with wide intervals. Leaving out the four models whose names were matched across publishers with less certainty gives 64% for legal and 81% for coding.
+
+LegalBench is not among the legal benchmarks because the only current leaderboard for it, Vals', has 13 of the 37 models (last updated 13 October 2026), below the minimum of 15. Their scores run from 82 to 88. Adding it anyway gives 64% over 14 pairings.
+
 ## Robustness (Spearman rank correlation)
 
 | Check | Legal | Coding | Gap |
