@@ -23,45 +23,49 @@ def rbar(ax,x,w,y0,y1,color,r=10,z=3):
     ax.add_artist(PathPatch(Path(V,Cc),facecolor=color,edgecolor='none',transform=IdentityTransform(),zorder=z))
 def frame(title,sub,n):
     fig,ax=plt.subplots(figsize=(W,H),dpi=DPI); fig.patch.set_facecolor(SURF); ax.set_facecolor(SURF)
-    plt.subplots_adjust(left=0.165,right=0.955,top=0.645,bottom=0.168)
+    shift=(2-(title.count('\n')+1))*0.064          # a one-line title pulls the subtitle and the chart up
+    plt.subplots_adjust(left=0.165,right=0.955,top=0.645+shift,bottom=0.168)
     ax.set_xlim(-0.6,n-0.4); ax.set_ylim(B0,100); ax.set_xticks([])
     for s in ax.spines.values(): s.set_visible(False)
     ax.tick_params(axis='y',length=0,pad=10)
     ax.axhline(100,color=GRID,lw=1.2,zorder=1)
     fig.text(0.062,0.955,title,fontsize=45,color=INK,ha='left',va='top',linespacing=1.02,**HEAVY)
-    fig.text(0.062,0.802,sub,fontsize=18.5,color=INK,ha='left',va='top',linespacing=1.3)
+    fig.text(0.062,0.802+shift,sub,fontsize=18.5,color=INK,ha='left',va='top',linespacing=1.3)
     return fig,ax
+def ylab(ax,y,num,cap):
+    two=cap.count('\n')>0; tr=ax.get_yaxis_transform()
+    ax.annotate(num,xy=(0,y),xycoords=tr,xytext=(-11,20.5 if two else 9.5),textcoords='offset points',ha='right',va='center',fontsize=15,fontweight='bold',color=INK,annotation_clip=False)
+    ax.annotate(cap,xy=(0,y),xycoords=tr,xytext=(-11,-8 if two else -9.5),textcoords='offset points',ha='right',va='center',fontsize=13,color=INK,linespacing=1.2,annotation_clip=False)
 def axis_labels(ax,extra=None):
-    DASH=(0,(5,3))
+    DASH=(0,(5,3)); ax.set_yticks([])
     if base=='coin':
-        t=[50,100]; l=['50\ncoin flip','100\nsame\nranking']; ax.axhline(50,color=INK,lw=2.4,zorder=6)
+        L=[(50,'50','coin flip'),(100,'100','same\nranking')]; ax.axhline(50,color=INK,lw=2.4,zorder=6)
     else:
-        t=[0,50,100]; l=['0\nopposite','50\ncoin flip','100\nsame\nranking']
+        L=[(0,'0','opposite'),(50,'50','coin flip'),(100,'100','same\nranking')]
         ax.axhline(0,color=INK,lw=1.6,zorder=6)
         if lum(NEU)<0.25:
-            ax.axhline(50,color=INK,lw=2.0,ls=DASH,zorder=2)    # black in the gaps, behind dark bars
-            ax.axhline(50,color=SURF,lw=2.0,ls=DASH,zorder=5)   # white where it crosses a dark bar
+            ax.axhline(50,color=INK,lw=2.0,ls=DASH,zorder=2); ax.axhline(50,color=SURF,lw=2.0,ls=DASH,zorder=5)
         else: ax.axhline(50,color=INK,lw=2.0,ls=DASH,zorder=5)
-    if extra: t.append(extra[0]); l.append(extra[1])
-    ax.set_yticks(t); ax.set_yticklabels(l,fontsize=13,color=INK,linespacing=1.2)
+    if extra: L.append(extra)
+    for y,num,cap in L: ylab(ax,y,num,cap)
 # ---- slide 1 ----
 F=[('Science',A['science'][0],A['science'][3]),('Coding',A['coding'][0],A['coding'][3]),('Office\nwork',A['office work'][0],A['office work'][3]),('Finance',A['finance'][0],A['finance'][3]),('Legal',C['legal'][1]*100,5)]
 fig,ax=frame("The Benchmark\nof Benchmarks","How often do two benchmarks in the same field\nagree on which AI is better?",len(F)); axis_labels(ax)
 for x,(lab,v,n) in enumerate(F):
     hot=lab=='Legal'
     rbar(ax,x,0.74,B0,v,ACC if hot else NEU)
-    ax.text(x,up(v),f"{v:.0f}",ha='center',va='bottom',fontsize=48 if hot else 31,color=INK,zorder=7,**HEAVY)
+    ax.text(x,up(v),f"{v:.0f}",ha='center',va='bottom',fontsize=31,color=INK,zorder=7,**HEAVY)
     ax.text(x,B0-0.05*span,lab,ha='center',va='top',fontsize=18,color=INK,linespacing=1.12,fontweight='bold' if hot else 'normal')
     ax.text(x,B0-0.215*span,f"{n} benchmarks",ha='center',va='top',fontsize=11.5,color=INK)
 fig.savefig(f"{OUT}/slide1{SUF}.png",facecolor=SURF); plt.close(fig)
 # ---- slide 2 ----
 NAME={'Vals Legal Research':'Vals\nLegal\nResearch','Mercor APEX law':'Mercor\nAPEX','Harvey LAB':'Harvey\nLAB','Legora BAR':'Legora\nBAR','Certera':'Certera'}
 legal=sorted(C['per_legal'].items(),key=lambda kv:NAME[kv[0]].lower()); coding=A['coding'][0]
-fig,ax=frame("Legal\nBenchmarks","How often does each one agree with the other four\non which AI is better?",len(legal)); axis_labels(ax,(coding,f"{coding:.0f}\ncoding"))
+fig,ax=frame("Legal Benchmarks","How often does each one agree with the other four\non which AI is better?",len(legal)); axis_labels(ax,(coding,f"{coding:.0f}",'coding'))
 ax.axhline(coding,color=NEU,lw=4,zorder=2)
 for x,(k,v) in enumerate(legal):
     rbar(ax,x,0.74,B0,v*100,ACC)
-    ax.text(x,up(v*100),f"{v*100:.0f}",ha='center',va='bottom',fontsize=30,color=INK,zorder=7,**HEAVY)
+    ax.text(x,up(v*100),f"{v*100:.0f}",ha='center',va='bottom',fontsize=31,color=INK,zorder=7,**HEAVY)
     ax.text(x,B0-0.05*span,NAME[k],ha='center',va='top',fontsize=16.5,color=INK,linespacing=1.12)
     if k=='Harvey LAB': ax.text(x,B0-0.215*span,'run by Vals',ha='center',va='top',fontsize=11.5,color=INK)
 fig.savefig(f"{OUT}/slide2{SUF}.png",facecolor=SURF); plt.close(fig)
