@@ -1,0 +1,48 @@
+{
+ "common_models": [
+  "deepseek-v4-1-flash",
+  "deepseek-v4-pro",
+  "gemini-3-8-flash",
+  "gemini-4-argon",
+  "glm-5-3",
+  "glm-5-3-flash",
+  "gpt-6-1-sol",
+  "gpt-6-astra",
+  "gpt-6-luna",
+  "grok-4-7",
+  "kimi-k3",
+  "mistral-large-4",
+  "muse-wonder",
+  "opus-5-5",
+  "sonnet-5-5"
+ ],
+ "common": {
+  "legal": [
+   0.5654666052912914,
+   10
+  ],
+  "coding": [
+   0.764136497070955,
+   28
+  ],
+  "finance": [
+   0.726984126984127,
+   3
+  ],
+  "science": [
+   0.830771022594922,
+   3
+  ],
+  "office work": [
+   0.7404395604395605,
+   10
+  ]
+ },
+ "matched_mean": {
+  "legal": 0.6158492527525953,
+  "coding": 0.7733791657870834,
+  "finance": 0.7247677830286526,
+  "science": 0.8356304918423276,
+  "office work": 0.7545308872661336
+ }
+}

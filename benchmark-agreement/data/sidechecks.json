@@ -1,0 +1,66 @@
+{
+ "coding": 78.76978289463858,
+ "lab_run": {
+  "LAB (Vals run)": 61.58492527525953,
+  "LAB (Mercor run)": 60.78449951505016,
+  "LAB (AA run, ungated)": 61.04791432133862,
+  "LAB (AA run, hallucination-gated)": 61.75973374103722
+ },
+ "legal_same_runner": [
+  74.92307692307692,
+  1
+ ],
+ "legal_diff_runner": [
+  60.102908425502044,
+  9
+ ],
+ "coding_same_runner": [
+  78.02570207317527,
+  16
+ ],
+ "coding_diff_runner": [
+  79.76189065658973,
+  12
+ ],
+ "three": {
+  "legal": 68.47935342496942,
+  "ci": [
+   57.70640686794684,
+   78.29679104540887
+  ],
+  "gap": 10.29042946966917,
+  "gap_ci": [
+   -0.01916558496343423,
+   21.22895249488573
+  ],
+  "p": 0.0255,
+  "bars": {
+   "Harvey LAB": 68.28506787330318,
+   "Vals Legal Research": 71.8955007256894,
+   "Mercor APEX law": 65.25749167591565
+  },
+  "pairs": {
+   "Harvey LAB|Vals Legal Research": 74.92307692307692,
+   "Harvey LAB|Mercor APEX law": 61.64705882352941,
+   "Vals Legal Research|Mercor APEX law": 68.86792452830188
+  }
+ },
+ "cross": {
+  "legal_legal": 61.58492527525953,
+  "legal_coding": 65.69864833790126,
+  "pairs": 40,
+  "diff": 4.113723062641728,
+  "ci": [
+   -2.3800295109930953,
+   10.140839214165892
+  ],
+  "p": 0.124,
+  "per": {
+   "Harvey LAB": 56.37771936992851,
+   "Vals Legal Research": 71.71448563221006,
+   "Mercor APEX law": 72.31778806221982,
+   "Legora BAR": 60.95111737189245,
+   "Certera": 67.13213125325544
+  }
+ }
+}

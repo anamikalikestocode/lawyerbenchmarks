@@ -2,8 +2,7 @@
 import sys,io,contextlib,json,glob,os,itertools,numpy as np
 sys.path.insert(0,'scripts')
 with contextlib.redirect_stdout(io.StringIO()):
-    from final import T as TF,LEGAL,CODE,cohort
-    from concord import conc
+    from full import cohort
     from master import vals,aa,other,pick
     from full import inv
     from canon import canon
@@ -102,8 +101,9 @@ for f in ['science','coding','medicine','office work','finance','maths','cyber',
     ex=[r for r in rows if r[0]==f and not r[6]]
     if f!='legal': out.append('      left out: '+'; '.join(f"{r[1]} [{r[7]}]" for r in ex))
 out.append('\n=== Legal under different inclusion choices ===')
+VAR=[]
 def L(label,names): 
-    P=pairs(names); lo,hi=boot(names); out.append(f"  {label:58} {len(names)} benchmarks, {len(P):2} pairings: {np.mean([p[2] for p in P])*100:5.1f}% [{lo:.0f},{hi:.0f}]")
+    P=pairs(names); lo,hi=boot(names); VAR.append([label,len(names),len(P),float(np.mean([p[2] for p in P])*100),float(lo),float(hi)]); out.append(f"  {label:58} {len(names)} benchmarks, {len(P):2} pairings: {np.mean([p[2] for p in P])*100:5.1f}% [{lo:.0f},{hi:.0f}]")
 rule=[r[1] for r in rows if r[0]=='legal' and r[6]]
 five=['Harvey LAB (Vals run)','Legal Research Bench (Vals)','Mercor APEX, corporate law','Legora BAR','Certera']
 L('written rule (15+ models, own leaderboard, one run each)',rule)
@@ -116,3 +116,4 @@ L('rule, task benchmarks only (no Certera votes)',[n for n in rule if n!='Certer
 L('only benchmarks run by an independent evaluator or vote',[n for n in rule if n in ('Harvey LAB (Vals run)','Legal Research Bench (Vals)','Immigration (Vals)','Certera','GDPx legal (SemiAnalysis)','Contract Workflows (legalbenchmarks.ai)','Data Extraction (legalbenchmarks.ai)')])
 sys.stderr.write('\n'.join(out)+'\n'); json.dump({k:[float(x) for x in v[:3]]+[v[3],v[4],v[5]] for k,v in res.items()},open('data/audit_fields.json','w'),indent=1)
 json.dump([[r[0],r[1],r[2],r[3],r[4],r[6],r[7]] for r in rows],open('data/audit_candidates.json','w'),indent=1)
+json.dump(VAR,open('data/audit_legal_variants.json','w'),indent=1)

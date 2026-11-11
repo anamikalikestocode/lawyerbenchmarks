@@ -544,7 +544,7 @@
   "GDP.pdf legal slice (AA)",
   "Artificial Analysis",
   "Artificial Analysis",
-  31,
+  34,
   false,
   "a breakdown inside a general benchmark, not its own leaderboard"
  ],
@@ -553,7 +553,7 @@
   "Omniscience law slice (AA)",
   "Artificial Analysis",
   "Artificial Analysis",
-  30,
+  33,
   false,
   "a breakdown inside a general benchmark, not its own leaderboard"
  ],
@@ -562,7 +562,7 @@
   "FrontierCode 2 (AA)",
   "Artificial Analysis",
   "Artificial Analysis",
-  30,
+  33,
   true,
   ""
  ],
@@ -571,7 +571,7 @@
   "SciCode (AA)",
   "academic",
   "Artificial Analysis",
-  29,
+  31,
   true,
   ""
  ],
@@ -580,7 +580,7 @@
   "Terminal-Bench 4 (AA run)",
   "Terminal-Bench",
   "Artificial Analysis",
-  31,
+  34,
   false,
   "second run of a benchmark already listed"
  ],
@@ -589,7 +589,7 @@
   "FrontierCode 1.1 (AA)",
   "Artificial Analysis",
   "Artificial Analysis",
-  28,
+  30,
   false,
   "older version of a benchmark already listed"
  ],
@@ -616,7 +616,7 @@
   "Terminal-Bench Science (AA run)",
   "Terminal-Bench",
   "Artificial Analysis",
-  31,
+  34,
   false,
   "second run of a benchmark already listed"
  ],
@@ -625,7 +625,7 @@
   "GDPval-AA",
   "Artificial Analysis",
   "Artificial Analysis",
-  30,
+  32,
   true,
   ""
  ],
@@ -634,7 +634,7 @@
   "AA-Briefcase",
   "Artificial Analysis",
   "Artificial Analysis",
-  31,
+  34,
   true,
   ""
  ],
@@ -643,7 +643,7 @@
   "AutomationBench-AA",
   "Artificial Analysis",
   "Artificial Analysis",
-  31,
+  34,
   true,
   ""
  ],
@@ -652,7 +652,7 @@
   "GDP.pdf (AA)",
   "Artificial Analysis",
   "Artificial Analysis",
-  31,
+  34,
   true,
   ""
  ],
@@ -661,7 +661,7 @@
   "AA-Omniscience",
   "Artificial Analysis",
   "Artificial Analysis",
-  30,
+  33,
   true,
   ""
  ],
@@ -670,7 +670,7 @@
   "Mercor APEX, corporate law",
   "Mercor",
   "Mercor",
-  29,
+  30,
   true,
   ""
  ],
@@ -679,7 +679,7 @@
   "Mercor APEX-Agents, overall",
   "Mercor",
   "Mercor",
-  29,
+  30,
   true,
   ""
  ],
@@ -697,7 +697,7 @@
   "Certera",
   "Certera",
   "Certera",
-  23,
+  24,
   true,
   ""
  ],
@@ -760,7 +760,7 @@
   "Harvey LAB (Mercor run)",
   "Harvey",
   "Mercor",
-  26,
+  27,
   false,
   "second run of a benchmark already listed"
  ],

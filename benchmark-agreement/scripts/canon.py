@@ -1,6 +1,8 @@
 """Map each source's model label to one canonical model key. Effort settings are kept separately."""
 import re, json
 EFF = ['xhigh','max','high','medium','low','auto']
+# same model, different label at different publishers
+ALIAS = {'reflection-beam':'beam-1-0','tencent-hy4':'hy4','nemotron-3-5-super-vl':'nemotron-3-5-super-vl-120b-a12b'}
 def canon(s):
     s = s.lower().strip()
     s = s.split('/')[-1]
@@ -16,7 +18,7 @@ def canon(s):
     s = s.replace('m3p1','m3-1').replace('qwen3-8','qwen-3-8').replace('qwen-3-8-max','qwen-3-8-max')
     s = re.sub(r'^beam(-1-0)?$', 'beam-1-0', s)
     s = re.sub(r'^gpt-5-6-sol-pro$', 'gpt-5-6-sol', s)
-    return s
+    return ALIAS.get(s, s)
 if __name__ == '__main__':
     import glob, os
     seen = {}
