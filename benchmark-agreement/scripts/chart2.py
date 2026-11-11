@@ -7,7 +7,7 @@ same=[v[0]*100 for v in C['same'].values()]
 rows=[  # (label, sublabel, value, lo, hi, color, height)
  ('The same benchmark, run by two evaluators','Harvey LAB (three runs), Terminal-Bench 4 (two runs)',float(np.mean(same)),min(same),max(same),GRAY,0.5),
  ('Two different coding benchmarks','Terminal-Bench 4, Vibe Code, Code Migration, IOI, ProgramBench,\nSWE-bench Multimodal, FrontierCode 2, SciCode',C['coding'][1]*100,C['coding_ci'][0]*100,C['coding_ci'][1]*100,ORANGE,0.5),
- ('Two different legal benchmarks','Harvey LAB, Vals Legal Research, Mercor APEX, Legora BAR,\nSemiAnalysis GDPx, Certera',C['legal'][1]*100,C['legal_ci'][0]*100,C['legal_ci'][1]*100,BLUE,0.5),
+ ('Two different legal benchmarks','Harvey LAB, Vals Legal Research, Mercor APEX, Legora BAR, Certera',C['legal'][1]*100,C['legal_ci'][0]*100,C['legal_ci'][1]*100,BLUE,0.5),
 ]
 NAME={'GDPx legal':'SemiAnalysis GDPx (legal)','Vals Legal Research':'Vals Legal Research','Mercor APEX law':'Mercor APEX (corporate law)','Certera':'Certera (lawyer votes)','Legora BAR':'Legora BAR','Harvey LAB':'Harvey LAB'}
 per=sorted(C['per_legal'].items(),key=lambda kv:-kv[1])
@@ -25,7 +25,7 @@ for (lab,sub,v,lo,hi,col,h),yy in zip(rows,ypos):
     ax.text(48.6,yy-0.17,lab,ha='right',va='center',fontsize=13.5,color=INK,fontweight='bold')
     ax.text(48.6,yy+0.2,sub,ha='right',va='top',fontsize=9.3,color=MUTE,linespacing=1.3)
 y0=4.35
-ax.text(48.6,y0-0.75,'Each legal benchmark against the other five',ha='right',va='center',fontsize=11.5,color=SEC,fontweight='bold')
+ax.text(48.6,y0-0.75,'Each legal benchmark against the other four',ha='right',va='center',fontsize=11.5,color=SEC,fontweight='bold')
 for i,(k,v) in enumerate(per):
     yy=y0+i*0.62; lo,hi=[x*100 for x in C['per_legal_ci'][k]]
     bar(yy,v*100,lo,hi,BLUE,0.34,bold=False)

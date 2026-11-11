@@ -8,7 +8,7 @@ T=dict(T)
 for slug,name in [('code-migration-v1-1','Code Migration (Vals)'),('ioi','IOI (Vals run)'),('programbench','ProgramBench (Vals run)'),('swebench-multimodal','SWE-bench Multimodal (Vals run)')]:
     T[name]=vals(slug)[0]
 cohort=sorted(T['LAB (Vals run)'])
-LEGAL={'Harvey LAB':'LAB (Vals run)','Vals Legal Research':'Vals Legal Research','Mercor APEX law':'APEX-Agents corporate law (Mercor)','Legora BAR':'Legora BAR','GDPx legal':'GDPx legal (SemiAnalysis)','Certera':'Certera (votes by legal professionals)'}
+LEGAL={'Harvey LAB':'LAB (Vals run)','Vals Legal Research':'Vals Legal Research','Mercor APEX law':'APEX-Agents corporate law (Mercor)','Legora BAR':'Legora BAR','Certera':'Certera (votes by legal professionals)'}
 CODE={'Terminal-Bench 4':'Terminal-Bench 4 (Vals run)','Vibe Code':'Vibe Code (Vals)','FrontierCode 2':'FrontierCode 2 (AA)','SciCode':'SciCode (AA)','Code Migration':'Code Migration (Vals)','IOI':'IOI (Vals run)','ProgramBench':'ProgramBench (Vals run)','SWE-bench Multimodal':'SWE-bench Multimodal (Vals run)'}
 def rho(a,b,ms,minn=10,f=spearmanr):
     ms=[m for m in ms if m in T[a] and m in T[b]]
