@@ -29,6 +29,7 @@ def aa(f,metric,sub=None):
             v=(r.get('breakdowns') or {})
             for s in sub: v=v.get(s) if isinstance(v,dict) else None
         else: v=r['metrics'].get(metric)
+        if not r.get('aa_model_slug'): continue
         c.append((canon(r['aa_model_slug']),r.get('reasoning_setting'),v,r['aa_model_slug']))
     return pick(c)
 def other(f,metric):

@@ -85,6 +85,23 @@ On the agreement-share measure:
 | Pairings run by different evaluators | 59% (9 pairings) | 78% (12 pairings) |
 | Only Harvey LAB, Vals Legal Research and Mercor APEX | 67% | 78% |
 
+## Other fields, same models
+
+The same test on benchmarks from other fields, using the same 37 models.
+
+| Field | Benchmarks | Pairings | Agreement on which of two models is better | 95% interval |
+|---|---|---|---|---|
+| Science and maths | 4 | 6 | 83% | 72% to 90% |
+| Coding | 8 | 28 | 78% | 70% to 84% |
+| Medicine | 2 | 1 | 77% | 68% to 87% |
+| Office work | 5 | 10 | 75% | 69% to 81% |
+| Finance | 3 | 3 | 74% | 63% to 81% |
+| Legal | 5 | 10 | 60% | 52% to 69% |
+
+Legal is the lowest of the six. The other fields are thinner than coding: the finance, science and medicine benchmarks were all run by Vals, and four of the five office-work benchmarks by Artificial Analysis. Office-work pairings run by different evaluators (Artificial Analysis and Mercor) agree 76% of the time.
+
+A legal benchmark agrees with a coding benchmark 65% of the time (40 pairings), against 60% with another legal benchmark. The difference is 4 points with an interval of -2 to 10, so it is not clearly different from zero. There is no sign that the legal benchmarks share a ranking of their own beyond general model strength.
+
 ## Limits
 
 - **It shows that the rankings differ, not why.** Legal work may be several distinct skills (research, drafting, review), in which case lower agreement is expected and is not a flaw in any benchmark.
