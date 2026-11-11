@@ -2,7 +2,7 @@ import json, matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 A=json.load(open('data/audit_fields.json')); C=json.load(open('data/concord.json'))
-INK='#0b0b0b'; SEC='#52514e'; MUTE='#8a8983'; GRID='#e6e5e0'; SURF='#fcfcfb'; BLUE='#2a78d6'; GRAY='#b9b8b2'
+INK='#0b0b0b'; SEC='#0b0b0b'; MUTE='#0b0b0b'; GRID='#e6e5e0'; SURF='#fcfcfb'; BLUE='#2a78d6'; GRAY='#b9b8b2'
 OUT='/home/user/lawyerbenchmarks/benchmark-agreement/'
 def frame(title,sub,foot,bottom=0.17):
     fig,ax=plt.subplots(figsize=(10.5,7.9),dpi=200); fig.patch.set_facecolor(SURF); ax.set_facecolor(SURF)
