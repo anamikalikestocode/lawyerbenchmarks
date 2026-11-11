@@ -152,6 +152,24 @@ Vals reports a margin of error for every score, so for Vals-run benchmarks the e
 
 The cross-party drop is consistent with each party applying its own standard of good legal work, and also with differences in setup, such as Legora testing inside its own product and Certera collecting votes on chat answers. The data cannot separate the two. Pairings of the three rubric-graded agent benchmarks (Harvey, Vals, Mercor) agree more than pairings involving Certera or Legora.
 
+## Tasks or standard?
+
+Two benchmarks can disagree because they set different tasks or because they judge answers differently. These checks hold one fixed and change the other (figures from `scripts/tasks_vs_standard.py`).
+
+| What changes | Agreement on which of two models is better |
+|---|---|
+| Nothing: one benchmark split into random halves (LAB, Vals Legal Research) | 87% |
+| Area of law: LAB's deal-work practice areas against its disputes and regulatory ones | 90% |
+| Who runs it: LAB run by Vals, Artificial Analysis and Mercor | 85% to 92% |
+| The scoring rule: LAB scored all-or-nothing against per criterion | 88% |
+| Kind of work: Legora's task families (draft, review, extract and so on), 9 models | 73%, against 80% for the same family in two editions |
+| One rule about what counts as good: LAB with and without the penalty for made-up facts, 25 models | 79% |
+| The whole benchmark: two different legal benchmarks | 62% |
+
+For reference, random halves of Terminal-Bench 4 (coding) agree 90% of the time and of Vals' Finance Agent 81%. Inside one benchmark, legal tasks are as consistent as coding tasks.
+
+On the same LAB answers, ranking models by rubric pass rate and ranking them by fewest made-up facts agree 55% of the time. Area of law and the evaluator make no measurable difference. Kind of work costs a few points on thin data. A change in what counts as a good answer moves rankings the most of the things that could be isolated. Legora's comparison rests on 9 models, and the made-up-facts check is done by a single AI judge.
+
 ## Robustness (Spearman rank correlation)
 
 | Check | Legal | Coding | Gap |
