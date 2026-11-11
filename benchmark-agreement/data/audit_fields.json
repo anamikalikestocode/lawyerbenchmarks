@@ -1,0 +1,98 @@
+{
+ "science": [
+  83.80094315754772,
+  71.59002979749486,
+  91.78924346853239,
+  3,
+  3,
+  [
+   "BioMysteryBench (Vals)",
+   "MysteryMechanism (Vals)",
+   "Terminal-Bench-Science (Vals)"
+  ]
+ ],
+ "coding": [
+  78.04615163637575,
+  70.75107324344812,
+  84.15625772399954,
+  9,
+  36,
+  [
+   "Code Migration v1.1 (Vals)",
+   "IOI (Vals)",
+   "ProgramBench (Vals)",
+   "SWE-bench Multimodal (Vals)",
+   "Terminal-Bench 4.0 (Vals)",
+   "Vibe Code Bench 1-100 (Vals)",
+   "Vibe Code Bench v1.1 (Vals)",
+   "FrontierCode 2 (AA)",
+   "SciCode (AA)"
+  ]
+ ],
+ "medicine": [
+  77.14285714285715,
+  68.0265306122449,
+  86.32456140350877,
+  2,
+  1,
+  [
+   "MedCode (Vals)",
+   "MedScribe (Vals)"
+  ]
+ ],
+ "office work": [
+  75.158231215812,
+  67.56534520611571,
+  80.86863752851256,
+  5,
+  10,
+  [
+   "GDPval-AA",
+   "AA-Briefcase",
+   "AutomationBench-AA",
+   "GDP.pdf (AA)",
+   "Mercor APEX-Agents, overall"
+  ]
+ ],
+ "finance": [
+  73.47347347347349,
+  64.20394265232974,
+  81.01210977812177,
+  3,
+  3,
+  [
+   "EMB v1.1 (Vals)",
+   "Finance Agent v2.1 (Vals)",
+   "Tax Agent Bench (Vals)"
+  ]
+ ],
+ "cyber": [
+  40.476190476190474,
+  20.36111111111111,
+  63.72236584061329,
+  2,
+  1,
+  [
+   "CyberBench v1.1 (Vals)",
+   "SRE Bench (Vals)"
+  ]
+ ],
+ "legal": [
+  62.66392145791835,
+  56.87947282396413,
+  69.39740099369398,
+  9,
+  36,
+  [
+   "Harvey LAB (Vals run)",
+   "Immigration (Vals)",
+   "Legal Research Bench (Vals)",
+   "Mercor APEX, corporate law",
+   "Legora BAR",
+   "Certera",
+   "GDPx legal (SemiAnalysis)",
+   "Contract Workflows (legalbenchmarks.ai)",
+   "Data Extraction (legalbenchmarks.ai)"
+  ]
+ ]
+}

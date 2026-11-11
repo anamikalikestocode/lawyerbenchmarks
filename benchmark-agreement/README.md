@@ -51,15 +51,69 @@ The intervals overlap almost completely, so the order of the five says little. E
 - **Intervals.** Models were resampled with replacement and every statistic recomputed (2,000 times for the agreement shares, 3,000 for the correlations).
 - **Coding reference.** Terminal-Bench 4, Vibe Code, Code Migration, IOI, ProgramBench and SWE-bench Multimodal (all as run by Vals), plus FrontierCode 2 and SciCode (Artificial Analysis).
 
-## What was left out
+## Which benchmarks are in, and why
 
-Artificial Analysis has no legal benchmark of its own. Its legal leaderboard is a run of Harvey's LAB, so it appears in the rerun comparison, not as a separate benchmark.
+The five legal benchmarks in the charts were chosen by hand: the best-known ones with enough current models. To check that the choice does not drive the result, one written rule was also applied the same way to every field.
 
-Left out by choice, as small or little known: SemiAnalysis GDPx (legal domain, 20 tasks, every model scores zero on its headline measure), the two legalbenchmarks.ai benchmarks, Vals Immigration (Vals already has one benchmark in the set).
+**The rule.** A benchmark counts if (1) it has its own published leaderboard with a score per model, (2) at least 15 of the 37 models are on it, (3) it is the latest version, and (4) it is counted once, using the run with the most of the 37 models when several evaluators ran it. Combined indices and breakdowns inside a general benchmark do not count. A field is reported only if at least three benchmarks qualify. Vals' benchmarks are assigned to fields by Vals' own labels.
 
-Left out for too few current models, or because they are a slice of a general benchmark: Surge DAYJOB law, Snorkel legal, Scale PRBench legal, the GDP.pdf legal slice, LegalBench, LEXam, RedlineBench, GDPval.
+Every legal candidate found, and what the rule does with it:
 
-With all twelve legal benchmarks that had current models, the median rank correlation is 0.32 (53 pairings, interval 0.15 to 0.54), close to the 0.30 from the five.
+| Benchmark | Run by | Models of the 37 | Rule | In the hand-picked five |
+|---|---|---|---|---|
+| Harvey LAB | Vals | 37 | in | yes |
+| Vals Legal Research | Vals | 37 | in | yes |
+| Mercor APEX, corporate law | Mercor | 29 | in | yes |
+| Certera | Certera | 23 | in | yes |
+| SemiAnalysis GDPx, legal | SemiAnalysis | 20 | in | no, left out by choice |
+| Vals Immigration | Vals | 19 | in | no, left out by choice |
+| Legora BAR | Legora | 15 | in | yes |
+| legalbenchmarks.ai Contract Workflows | legalbenchmarks.ai | 15 | in | no, left out by choice |
+| legalbenchmarks.ai Data Extraction | legalbenchmarks.ai | 15 | in | no, left out by choice |
+| GDP.pdf legal slice | Artificial Analysis | 31 | out: breakdown inside a general benchmark | no |
+| AA-Omniscience law slice | Artificial Analysis | 30 | out: breakdown inside a general benchmark | no |
+| Harvey LAB, Mercor's run | Mercor | 26 | out: second run of LAB | no |
+| Harvey LAB v1 | Vals | 25 | out: older version | no |
+| Harvey LAB, Artificial Analysis' run | Artificial Analysis | 19 | out: second run of LAB | no |
+| Surge DAYJOB law | Fireworks copy | 14 | out: too few models | no |
+| LegalBench | Vals | 13 | out: too few models | no |
+| Snorkel legal | Snorkel | 11 | out: too few models | no |
+| Scale PRBench legal | Scale | 11 | out: too few models | no |
+| Epiq CorporateBench | Fireworks | 9 | out: too few models | no |
+| DELTA (Dutch legal research) | legalbenchmarks.ai | 5 | out: too few models | no |
+| Vals CaseLaw v2 | Vals | 1 | out: too few models | no |
+
+The legal figure under different choices:
+
+| Choice | Benchmarks | Pairings | Agreement | 95% interval |
+|---|---|---|---|---|
+| The hand-picked five (used in the charts) | 5 | 10 | 60% | 51% to 68% |
+| The written rule | 9 | 36 | 63% | 56% to 69% |
+| Rule with a minimum of 10 models | 13 | 57 | 63% | 57% to 69% |
+| Rule with a minimum of 20 models | 5 | 10 | 64% | 56% to 73% |
+| Rule, one benchmark per publisher | 7 | 21 | 62% | 55% to 68% |
+| Rule, plus the two Artificial Analysis slices | 11 | 55 | 63% | 56% to 69% |
+| Rule, without Certera's votes | 8 | 28 | 64% | 56% to 72% |
+| Only Harvey LAB, Vals Legal Research and Mercor APEX | 3 | 3 | 67% | 56% to 77% |
+
+Every choice with five or more benchmarks gives 60% to 64%. The hand-picked five is at the low end of that range. Mercor's corporate-law score is one job out of three inside APEX-Agents; it is counted because Mercor publishes it as its own leaderboard.
+
+## Other fields, same models, same rule
+
+| Field | Benchmarks | Pairings | Agreement | 95% interval | Run by |
+|---|---|---|---|---|---|
+| Science | 3 | 3 | 84% | 72% to 92% | Vals |
+| Coding | 9 | 36 | 78% | 71% to 84% | Vals, Artificial Analysis |
+| Office work | 5 | 10 | 75% | 68% to 81% | Artificial Analysis, Mercor |
+| Finance | 3 | 3 | 73% | 64% to 81% | Vals |
+| Legal (written rule) | 9 | 36 | 63% | 56% to 69% | six different parties |
+| Legal (hand-picked five) | 5 | 10 | 60% | 51% to 68% | four different parties |
+
+Two fields have only two qualifying benchmarks, so one pairing each, and are not reported as fields: medicine (77%, interval 68% to 86%) and cyber (41%, interval 20% to 64%). Cyber's single pairing is lower than legal. An earlier draft showed medicine and merged a maths benchmark into science; both were inconsistent with the rule and have been removed. Maths and general knowledge have one qualifying benchmark each.
+
+The other fields are thinner than legal in one respect: science and finance were each run by a single evaluator. Legal benchmarks were run by four to six different parties. Where the evaluator differs, coding pairings agree 78% of the time and office-work pairings 76%, against 59% for legal.
+
+A legal benchmark agrees with a coding benchmark 65% of the time (40 pairings), against 60% with another legal benchmark. The difference is 4 points with an interval of -2 to 10, so it is not clearly different from zero. There is no sign that the legal benchmarks share a ranking of their own beyond general model strength.
 
 ## Robustness (Spearman rank correlation)
 
@@ -84,23 +138,6 @@ On the agreement-share measure:
 | Pairings run by the same evaluator | 75% (1 pairing) | 78% (16 pairings) |
 | Pairings run by different evaluators | 59% (9 pairings) | 78% (12 pairings) |
 | Only Harvey LAB, Vals Legal Research and Mercor APEX | 67% | 78% |
-
-## Other fields, same models
-
-The same test on benchmarks from other fields, using the same 37 models.
-
-| Field | Benchmarks | Pairings | Agreement on which of two models is better | 95% interval |
-|---|---|---|---|---|
-| Science and maths | 4 | 6 | 83% | 72% to 90% |
-| Coding | 8 | 28 | 78% | 70% to 84% |
-| Medicine | 2 | 1 | 77% | 68% to 87% |
-| Office work | 5 | 10 | 75% | 69% to 81% |
-| Finance | 3 | 3 | 74% | 63% to 81% |
-| Legal | 5 | 10 | 60% | 52% to 69% |
-
-Legal is the lowest of the six. The other fields are thinner than coding: the finance, science and medicine benchmarks were all run by Vals, and four of the five office-work benchmarks by Artificial Analysis. Office-work pairings run by different evaluators (Artificial Analysis and Mercor) agree 76% of the time.
-
-A legal benchmark agrees with a coding benchmark 65% of the time (40 pairings), against 60% with another legal benchmark. The difference is 4 points with an interval of -2 to 10, so it is not clearly different from zero. There is no sign that the legal benchmarks share a ranking of their own beyond general model strength.
 
 ## Limits
 
@@ -127,7 +164,8 @@ A legal benchmark agrees with a coding benchmark 65% of the time (40 pairings), 
 ## Files
 
 - `benchmark-of-legal-benchmarks.png`: leaderboard-style chart. Scores are agreement rescaled so 0 is a coin flip and 100 is an identical ranking (2 x share of model pairs ordered the same, minus 1).
-- `benchmark-of-benchmarks-six-fields.png`: six fields, legal highlighted.
+- `slide1-benchmark-of-benchmarks.png`: five fields, legal highlighted.
+- `slide2-benchmark-of-legal-benchmarks.png`: the five legal benchmarks.
 - `benchmark-of-legal-benchmarks-50.png`: the five legal benchmarks on a scale where 50 is a coin flip.
 - `option1-winners.png`, `option2-ten-dots.png`: alternative charts.
 - `legal-benchmarks-agreement.png`: earlier detailed chart with intervals.

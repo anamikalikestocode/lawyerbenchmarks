@@ -1,0 +1,785 @@
+[
+ [
+  "social mobility",
+  "Access to Justice Benchmark (Vals)",
+  "Vals",
+  "Vals",
+  17,
+  false,
+  "Vals files it under 'social mobility', not one of the fields"
+ ],
+ [
+  "maths",
+  "AIME (Vals)",
+  "Vals",
+  "Vals",
+  0,
+  false,
+  "only 0 of the 37 models"
+ ],
+ [
+  "science",
+  "BioMysteryBench (Vals)",
+  "Vals",
+  "Vals",
+  21,
+  true,
+  ""
+ ],
+ [
+  "legal",
+  "CaseLaw v2 (Vals)",
+  "Vals",
+  "Vals",
+  1,
+  false,
+  "only 1 of the 37 models"
+ ],
+ [
+  "finance",
+  "ClaimBench (Vals)",
+  "Vals",
+  "Vals",
+  5,
+  false,
+  "only 5 of the 37 models"
+ ],
+ [
+  "coding",
+  "Code Migration (Vals)",
+  "Vals",
+  "Vals",
+  25,
+  false,
+  "older version of a benchmark already listed"
+ ],
+ [
+  "coding",
+  "Code Migration v1.1 (Vals)",
+  "Vals",
+  "Vals",
+  28,
+  true,
+  ""
+ ],
+ [
+  "finance",
+  "CorpFin v2 (Vals)",
+  "Vals",
+  "Vals",
+  5,
+  false,
+  "only 5 of the 37 models"
+ ],
+ [
+  "beta",
+  "CUA-bench (Vals)",
+  "Vals",
+  "Vals",
+  5,
+  false,
+  "Vals files it under 'beta', not one of the fields"
+ ],
+ [
+  "cyber",
+  "CyberBench v1.1 (Vals)",
+  "Vals",
+  "Vals",
+  23,
+  true,
+  ""
+ ],
+ [
+  "finance",
+  "EMB (Vals)",
+  "Vals",
+  "Vals",
+  25,
+  false,
+  "older version of a benchmark already listed"
+ ],
+ [
+  "finance",
+  "EMB v1.1 (Vals)",
+  "Vals",
+  "Vals",
+  37,
+  true,
+  ""
+ ],
+ [
+  "finance",
+  "Finance Agent (v2) (Vals)",
+  "Vals",
+  "Vals",
+  25,
+  false,
+  "older version of a benchmark already listed"
+ ],
+ [
+  "finance",
+  "Finance Agent v2.1 (Vals)",
+  "Vals",
+  "Vals",
+  37,
+  true,
+  ""
+ ],
+ [
+  "index",
+  "Vals Finance Index (Vals)",
+  "Vals",
+  "Vals",
+  37,
+  false,
+  "Vals files it under 'index', not one of the fields"
+ ],
+ [
+  "general knowledge",
+  "GPQA Diamond (Vals)",
+  "Vals",
+  "Vals",
+  8,
+  false,
+  "only 8 of the 37 models"
+ ],
+ [
+  "legal",
+  "Harvey LAB (Vals run)",
+  "Harvey",
+  "Vals",
+  37,
+  true,
+  ""
+ ],
+ [
+  "legal",
+  "Harvey's Legal Agent Benchmark v1 (Vals)",
+  "Vals",
+  "Vals",
+  25,
+  false,
+  "older version of a benchmark already listed"
+ ],
+ [
+  "legal",
+  "Immigration (Vals)",
+  "Vals",
+  "Vals",
+  19,
+  true,
+  ""
+ ],
+ [
+  "coding",
+  "IOI (Vals)",
+  "Vals",
+  "Vals",
+  26,
+  true,
+  ""
+ ],
+ [
+  "coding",
+  "LiveCodeBench (Vals)",
+  "Vals",
+  "Vals",
+  8,
+  false,
+  "only 8 of the 37 models"
+ ],
+ [
+  "legal",
+  "LegalBench (Vals)",
+  "Vals",
+  "Vals",
+  13,
+  false,
+  "only 13 of the 37 models"
+ ],
+ [
+  "index",
+  "Vals Legal Index (Vals)",
+  "Vals",
+  "Vals",
+  37,
+  false,
+  "Vals files it under 'index', not one of the fields"
+ ],
+ [
+  "legal",
+  "Legal Research Bench (Vals)",
+  "Vals",
+  "Vals",
+  37,
+  true,
+  ""
+ ],
+ [
+  "maths",
+  "MATH 500 (Vals)",
+  "Vals",
+  "Vals",
+  0,
+  false,
+  "only 0 of the 37 models"
+ ],
+ [
+  "medicine",
+  "MedCode (Vals)",
+  "Vals",
+  "Vals",
+  21,
+  true,
+  ""
+ ],
+ [
+  "medicine",
+  "MedQA (Vals)",
+  "Vals",
+  "Vals",
+  0,
+  false,
+  "only 0 of the 37 models"
+ ],
+ [
+  "medicine",
+  "MedScribe (Vals)",
+  "Vals",
+  "Vals",
+  22,
+  true,
+  ""
+ ],
+ [
+  "maths",
+  "MGSM (Vals)",
+  "Vals",
+  "Vals",
+  0,
+  false,
+  "only 0 of the 37 models"
+ ],
+ [
+  "general knowledge",
+  "MMLU Pro (Vals)",
+  "Vals",
+  "Vals",
+  8,
+  false,
+  "only 8 of the 37 models"
+ ],
+ [
+  "general knowledge",
+  "MMMU Pro (Vals)",
+  "Vals",
+  "Vals",
+  5,
+  false,
+  "only 5 of the 37 models"
+ ],
+ [
+  "finance",
+  "MortgageTax (Vals)",
+  "Vals",
+  "Vals",
+  5,
+  false,
+  "only 5 of the 37 models"
+ ],
+ [
+  "science",
+  "MysteryMechanism (Vals)",
+  "Vals",
+  "Vals",
+  21,
+  true,
+  ""
+ ],
+ [
+  "beta",
+  "Agent Poker Bench (Vals)",
+  "Vals",
+  "Vals",
+  0,
+  false,
+  "Vals files it under 'beta', not one of the fields"
+ ],
+ [
+  "coding",
+  "ProgramBench (Vals)",
+  "Vals",
+  "Vals",
+  23,
+  true,
+  ""
+ ],
+ [
+  "maths",
+  "ProofBench v1.1 (Vals)",
+  "Vals",
+  "Vals",
+  27,
+  true,
+  ""
+ ],
+ [
+  "social mobility",
+  "Public Benefits Bench v1.1 (Vals)",
+  "Vals",
+  "Vals",
+  21,
+  false,
+  "Vals files it under 'social mobility', not one of the fields"
+ ],
+ [
+  "social mobility",
+  "Public Benefits Bench v1 (Vals)",
+  "Vals",
+  "Vals",
+  1,
+  false,
+  "Vals files it under 'social mobility', not one of the fields"
+ ],
+ [
+  "science",
+  "Robo-bench (Vals)",
+  "Vals",
+  "Vals",
+  6,
+  false,
+  "only 6 of the 37 models"
+ ],
+ [
+  "education",
+  "SAGE (Vals)",
+  "Vals",
+  "Vals",
+  17,
+  false,
+  "Vals files it under 'education', not one of the fields"
+ ],
+ [
+  "index",
+  "Vals Science Index (Vals)",
+  "Vals",
+  "Vals",
+  17,
+  false,
+  "Vals files it under 'index', not one of the fields"
+ ],
+ [
+  "coding",
+  "SkillsBench (Vals)",
+  "Vals",
+  "Vals",
+  8,
+  false,
+  "only 8 of the 37 models"
+ ],
+ [
+  "cyber",
+  "SRE Bench (Vals)",
+  "Vals",
+  "Vals",
+  21,
+  true,
+  ""
+ ],
+ [
+  "coding",
+  "SWE-bench (Vals)",
+  "Vals",
+  "Vals",
+  8,
+  false,
+  "only 8 of the 37 models"
+ ],
+ [
+  "coding",
+  "SWE-bench Multimodal (Vals)",
+  "Vals",
+  "Vals",
+  19,
+  true,
+  ""
+ ],
+ [
+  "finance",
+  "Tax Agent Bench (Vals)",
+  "Vals",
+  "Vals",
+  37,
+  true,
+  ""
+ ],
+ [
+  "finance",
+  "TaxEval v2 (Vals)",
+  "Vals",
+  "Vals",
+  8,
+  false,
+  "only 8 of the 37 models"
+ ],
+ [
+  "coding",
+  "Terminal-Bench 2.0 (Vals)",
+  "Vals",
+  "Vals",
+  1,
+  false,
+  "older version of a benchmark already listed"
+ ],
+ [
+  "coding",
+  "Terminal-Bench 2.1 (Vals)",
+  "Vals",
+  "Vals",
+  18,
+  false,
+  "older version of a benchmark already listed"
+ ],
+ [
+  "coding",
+  "Terminal-Bench 4.0 (Vals)",
+  "Vals",
+  "Vals",
+  37,
+  true,
+  ""
+ ],
+ [
+  "science",
+  "Terminal-Bench-Science (Vals)",
+  "Vals",
+  "Vals",
+  25,
+  true,
+  ""
+ ],
+ [
+  "beta",
+  "Time Horizon Index: KSP (Vals)",
+  "Vals",
+  "Vals",
+  5,
+  false,
+  "Vals files it under 'beta', not one of the fields"
+ ],
+ [
+  "index",
+  "Vals Index (Vals)",
+  "Vals",
+  "Vals",
+  36,
+  false,
+  "Vals files it under 'index', not one of the fields"
+ ],
+ [
+  "index",
+  "Vals Multimodal Index (Vals)",
+  "Vals",
+  "Vals",
+  4,
+  false,
+  "Vals files it under 'index', not one of the fields"
+ ],
+ [
+  "index",
+  "Vals Router Index (Vals)",
+  "Vals",
+  "Vals",
+  22,
+  false,
+  "Vals files it under 'index', not one of the fields"
+ ],
+ [
+  "coding",
+  "Vibe Code Bench 1-100 (Vals)",
+  "Vals",
+  "Vals",
+  15,
+  true,
+  ""
+ ],
+ [
+  "coding",
+  "Vibe Code Bench v1.1 (Vals)",
+  "Vals",
+  "Vals",
+  37,
+  true,
+  ""
+ ],
+ [
+  "voice",
+  "VoiceCodeBench (Vals)",
+  "Vals",
+  "Vals",
+  0,
+  false,
+  "Vals files it under 'voice', not one of the fields"
+ ],
+ [
+  "index",
+  "Vals Web Search Index (Vals)",
+  "Vals",
+  "Vals",
+  1,
+  false,
+  "Vals files it under 'index', not one of the fields"
+ ],
+ [
+  "legal",
+  "Harvey LAB (AA run)",
+  "Harvey",
+  "Artificial Analysis",
+  19,
+  false,
+  "second run of a benchmark already listed"
+ ],
+ [
+  "legal",
+  "GDP.pdf legal slice (AA)",
+  "Artificial Analysis",
+  "Artificial Analysis",
+  31,
+  false,
+  "a breakdown inside a general benchmark, not its own leaderboard"
+ ],
+ [
+  "legal",
+  "Omniscience law slice (AA)",
+  "Artificial Analysis",
+  "Artificial Analysis",
+  30,
+  false,
+  "a breakdown inside a general benchmark, not its own leaderboard"
+ ],
+ [
+  "coding",
+  "FrontierCode 2 (AA)",
+  "Artificial Analysis",
+  "Artificial Analysis",
+  30,
+  true,
+  ""
+ ],
+ [
+  "coding",
+  "SciCode (AA)",
+  "academic",
+  "Artificial Analysis",
+  29,
+  true,
+  ""
+ ],
+ [
+  "coding",
+  "Terminal-Bench 4 (AA run)",
+  "Terminal-Bench",
+  "Artificial Analysis",
+  31,
+  false,
+  "second run of a benchmark already listed"
+ ],
+ [
+  "coding",
+  "FrontierCode 1.1 (AA)",
+  "Artificial Analysis",
+  "Artificial Analysis",
+  28,
+  false,
+  "older version of a benchmark already listed"
+ ],
+ [
+  "coding",
+  "Terminal-Bench 2.1 (AA run)",
+  "Terminal-Bench",
+  "Artificial Analysis",
+  11,
+  false,
+  "older version of a benchmark already listed"
+ ],
+ [
+  "coding",
+  "Terminal-Bench Hard (AA)",
+  "Artificial Analysis",
+  "Artificial Analysis",
+  1,
+  false,
+  "only 1 of the 37 models"
+ ],
+ [
+  "science",
+  "Terminal-Bench Science (AA run)",
+  "Terminal-Bench",
+  "Artificial Analysis",
+  31,
+  false,
+  "second run of a benchmark already listed"
+ ],
+ [
+  "office work",
+  "GDPval-AA",
+  "Artificial Analysis",
+  "Artificial Analysis",
+  30,
+  true,
+  ""
+ ],
+ [
+  "office work",
+  "AA-Briefcase",
+  "Artificial Analysis",
+  "Artificial Analysis",
+  31,
+  true,
+  ""
+ ],
+ [
+  "office work",
+  "AutomationBench-AA",
+  "Artificial Analysis",
+  "Artificial Analysis",
+  31,
+  true,
+  ""
+ ],
+ [
+  "office work",
+  "GDP.pdf (AA)",
+  "Artificial Analysis",
+  "Artificial Analysis",
+  31,
+  true,
+  ""
+ ],
+ [
+  "general knowledge",
+  "AA-Omniscience",
+  "Artificial Analysis",
+  "Artificial Analysis",
+  30,
+  true,
+  ""
+ ],
+ [
+  "legal",
+  "Mercor APEX, corporate law",
+  "Mercor",
+  "Mercor",
+  29,
+  true,
+  ""
+ ],
+ [
+  "office work",
+  "Mercor APEX-Agents, overall",
+  "Mercor",
+  "Mercor",
+  29,
+  true,
+  ""
+ ],
+ [
+  "legal",
+  "Legora BAR",
+  "Legora",
+  "Legora",
+  15,
+  true,
+  ""
+ ],
+ [
+  "legal",
+  "Certera",
+  "Certera",
+  "Certera",
+  23,
+  true,
+  ""
+ ],
+ [
+  "legal",
+  "GDPx legal (SemiAnalysis)",
+  "SemiAnalysis",
+  "SemiAnalysis",
+  20,
+  true,
+  ""
+ ],
+ [
+  "legal",
+  "Contract Workflows (legalbenchmarks.ai)",
+  "legalbenchmarks.ai",
+  "legalbenchmarks.ai",
+  15,
+  true,
+  ""
+ ],
+ [
+  "legal",
+  "Data Extraction (legalbenchmarks.ai)",
+  "legalbenchmarks.ai",
+  "legalbenchmarks.ai",
+  15,
+  true,
+  ""
+ ],
+ [
+  "legal",
+  "DAYJOB law (Surge)",
+  "Surge",
+  "Fireworks copy",
+  14,
+  false,
+  "only 14 of the 37 models"
+ ],
+ [
+  "legal",
+  "SnorkelLegal",
+  "Snorkel",
+  "Snorkel",
+  11,
+  false,
+  "only 11 of the 37 models"
+ ],
+ [
+  "legal",
+  "PRBench legal (Scale)",
+  "Scale",
+  "Scale",
+  11,
+  false,
+  "only 11 of the 37 models"
+ ],
+ [
+  "legal",
+  "Harvey LAB (Mercor run)",
+  "Harvey",
+  "Mercor",
+  26,
+  false,
+  "second run of a benchmark already listed"
+ ],
+ [
+  "legal",
+  "Dutch legal research DELTA",
+  "legalbenchmarks.ai",
+  "legalbenchmarks.ai",
+  5,
+  false,
+  "only 5 of the 37 models"
+ ],
+ [
+  "legal",
+  "CorporateBench (Epiq)",
+  "Epiq",
+  "Fireworks",
+  9,
+  false,
+  "only 9 of the 37 models"
+ ]
+]
