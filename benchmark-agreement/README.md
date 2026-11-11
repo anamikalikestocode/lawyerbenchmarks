@@ -30,7 +30,7 @@ Legal benchmarks do agree more often than chance. They agree less than coding be
 
 The intervals overlap almost completely, so the order of the five says little. The score measures agreement with the other four, not quality: a low score means a benchmark ranks models differently, not that it is wrong.
 
-Each of the five has a different model in first place. Among the 9 coding benchmarks, one model is first or tied for first on 5. On three of the five legal leaderboards the leader is ahead of second place by about a point or less, so first place there is within the margin of error.
+Each of the five has a different model in first place. Among the 9 coding benchmarks, one model is first or tied for first on 5. On three of the five legal leaderboards (Vals Legal Research, Mercor APEX law, Legora BAR) the leader is ahead of second place by about a point or less.
 
 Four of the five describe their grading the same way: a written rubric scored by an AI judge. The rubrics are mostly private (LAB's are public), so a reader cannot see how the standards differ. Certera is the only one where people judge the answers. The four rubric benchmarks agree with each other 64% of the time and with Certera's votes 57%; the difference is 7 points with an interval of -7 to 22, so it is not clearly different from zero. SemiAnalysis' GDPx legal, in the rule-based set below, also uses an AI judge, against rubrics and reference answers written by lawyers.
 
