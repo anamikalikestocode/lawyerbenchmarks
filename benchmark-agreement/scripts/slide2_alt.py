@@ -18,7 +18,7 @@ ax.yaxis.grid(True,color=GRID,lw=0.8,zorder=0); ax.set_axisbelow(True); ax.axhli
 ax.axhline(50,color=INK,lw=1.6,ls=(0,(5,3)),zorder=5)
 ax.axhline(coding,color=GRAY,lw=2.6,zorder=2)
 fig.text(0.045,0.955,title,fontsize=30,color=INK,fontweight='bold',ha='left',va='top')
-fig.text(0.045,0.868,"How often does each legal benchmark agree with the other four on which AI is better?",fontsize=15.5,color=INK,ha='left',va='top')
+fig.text(0.045,0.868,"How often does each one agree with the other four on which AI is better?",fontsize=15.5,color=INK,ha='left',va='top')
 for x,(k,v) in enumerate(legal):
     ax.bar(x,v*100,width=0.66,color=BLUE,zorder=3,linewidth=0)
     ax.text(x,v*100+2,f"{v*100:.0f}",ha='center',va='bottom',fontsize=24,color=INK,fontweight='bold',zorder=6)
