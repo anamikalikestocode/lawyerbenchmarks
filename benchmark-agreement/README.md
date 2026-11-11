@@ -211,6 +211,13 @@ On the agreement-share measure:
 - **LAB's ranking changes when hallucinations are penalised.** Artificial Analysis zeroes any task with a material hallucination. Its ungated and gated rankings have a rank correlation of 0.75, and Gemini 4 Argon falls from 20.8% to 3.9%. Artificial Analysis published this itself in October.
 - **The hallucination check depends on the checking model.** In Artificial Analysis' own comparison on 20 tasks, the count of material hallucinations ranged from 1.4 to 23.5 per task depending on which model did the checking. It uses the strictest, GPT-6 Sol.
 
+## Related work
+
+- **Comparing benchmarks by how they rank models is an established method.** Perlitz et al. (2024), *Do These LLM Benchmarks Agree? Fixing Benchmark Evaluation with BenchBench* (arXiv 2407.13696), call it benchmark agreement testing and warn that results depend on which models are compared. The same-models check and the cross-field comparison above are meant to address that.
+- **Rubric grading has been tested against expert preference in legal work.** *JudgmentBench* (arXiv 2605.25240) collected rubric scores and pairwise preferences from practising attorneys on 30 legal tasks and reports that pairwise preferences recover an intended quality ordering far better than rubrics (rank correlation 0.908 against 0.150). Four of the five legal benchmarks here are rubric-graded; Certera is the one built on preferences.
+- **The case for public legal benchmarking, and how it can go wrong,** is made by Guha et al. (2026), *There Is No Free Benchmark: An Institutional View of Legal AI Benchmarking* (PNAS).
+- A search on 11 November 2026 found no published comparison of how legal benchmarks rank the same models. That is one search, not proof that none exists.
+
 ## Files
 
 - `slide1-benchmark-of-benchmarks.png`, `slide2-benchmark-of-legal-benchmarks.png`: the two slides. `slide1-no-footer.png` and `slide2-no-footer.png` are the same without the footer line.
