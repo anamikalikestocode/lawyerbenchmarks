@@ -45,6 +45,8 @@ Harvey wrote LAB, but its own published results cover only older models. Scores 
 | Legora BAR and Certera | 15 | 52% |
 | Harvey LAB and Certera | 24 | 48% |
 
+No single benchmark produces the low figure. Leaving any one of the five out, the other four agree 58% to 64% of the time.
+
 Every pairing is in `data/pairs.csv` and the scores used are in `data/scores.csv`.
 
 ## Method
@@ -114,6 +116,17 @@ Every choice with five or more benchmarks gives 62% to 65%. The hand-picked five
 | Finance | 3 | 3 | 73% | 64% to 81% | Vals |
 | Legal (written rule) | 9 | 36 | 63% | 57% to 70% | six different parties |
 | Legal (hand-picked five) | 5 | 10 | 62% | 53% to 72% | four different parties |
+
+Legal (hand-picked five) against each field separately, resampling the same models for both:
+
+| Field | Points above legal | 95% interval | Resamples where the field is not above legal |
+|---|---|---|---|
+| Science | 22 | 7 to 34 | 0.3% |
+| Coding | 17 | 7 to 26 | 0.1% |
+| Office work | 15 | 6 to 23 | 0.1% |
+| Finance | 12 | 3 to 20 | 0.8% |
+
+Legal is below each of the four, and each interval excludes zero. These are four comparisons with no correction for making several, and science and finance have three benchmarks each.
 
 Two fields have only two qualifying benchmarks, so one pairing each, and are not reported as fields: medicine (77%, interval 68% to 86%) and cyber (40%, interval 20% to 64%). Cyber's single pairing is lower than legal. An earlier draft showed medicine and merged a maths benchmark into science; both were inconsistent with the rule and have been removed. Maths and general knowledge have one qualifying benchmark each.
 
@@ -220,7 +233,7 @@ On the agreement-share measure:
 
 ## Files
 
-- `slide1-benchmark-of-benchmarks.png`, `slide2-benchmark-of-legal-benchmarks.png`: the two slides. `slide1-no-footer.png` and `slide2-no-footer.png` are the same without the footer line.
+- `slide1-benchmark-of-benchmarks.png`, `slide2-benchmark-of-legal-benchmarks.png`: the two slides. `slide1-no-footer.png` and `slide2-no-footer.png` are the same without the footer line. `slide2-alt.png` is slide 2 with a title that does not read as a ranking, bars in alphabetical order, and the coding figure as a reference line.
 - `option1-winners.png`, `option2-ten-dots.png`, `benchmark-of-legal-benchmarks-50.png`, `benchmark-of-legal-benchmarks.png`, `legal-benchmarks-agreement.png`: earlier chart versions, redrawn from the same numbers.
 - `data/`: results. `pairs.csv` and `scores.csv` are the pairings and scores for the five legal benchmarks; the `.json` files hold every figure quoted here.
 - `scripts/`: the analysis code. `make_readme.py` builds this file from the result files. Raw downloaded leaderboards (about 400 MB) are not in the repo.

@@ -4,7 +4,7 @@ sys.path.insert(0,'scripts')
 with contextlib.redirect_stdout(io.StringIO()):
     from full import T, cohort
 D=lambda f:json.load(open(f'data/{f}.json'))
-C=D('concord'); F=D('final'); A=D('audit_fields'); CAND=D('audit_candidates'); VAR=D('audit_legal_variants'); M=D('matched'); S=D('sidechecks')
+C=D('concord'); F=D('final'); A=D('audit_fields'); CAND=D('audit_candidates'); VAR=D('audit_legal_variants'); M=D('matched'); S=D('sidechecks'); G=D('field_gaps')
 p=lambda x:f"{x:.0f}%"; pc=lambda x:f"{x*100:.0f}%"; r2=lambda x:f"{x:.2f}"
 NICE={'gemini-4-argon':'Gemini 4 Argon','gemini-4-carbon':'Gemini 4 Carbon','gpt-6-astra':'GPT-6 Astra','opus-5-5':'Claude Opus 5.5','gpt-6-1-sol':'GPT-6.1 Sol','muse-wonder-full':'Muse Wonder Full','fable-5-2':'Claude Fable 5.2'}
 LEG=[('Vals Legal Research','Legal Research Bench','Vals','Vals','Vals Legal Research'),('Mercor APEX law','APEX-Agents, corporate law','Mercor','Mercor','APEX-Agents corporate law (Mercor)'),('Harvey LAB','LAB','Harvey','Vals','LAB (Vals run)'),('Legora BAR','BAR','Legora','Legora','Legora BAR'),('Certera','Legal AI Leaderboard','Certera','Certera','Certera (votes by legal professionals)')]
@@ -38,7 +38,9 @@ SHORT={'Harvey LAB':'Harvey LAB','Vals Legal Research':'Vals Legal Research','Me
 w("| Pairing | Shared models | Agree on which of two models is better |\n|---|---|---|")
 for k,v in sorted(C['legal_pairs'].items(),key=lambda kv:-kv[1][0]):
     a,b=k.split('|'); w(f"| {a} and {b} | {v[1]} | {pc(v[0])} |")
-w("\nEvery pairing is in `data/pairs.csv` and the scores used are in `data/scores.csv`.\n")
+loo=[sum(v[0] for k,v in C['legal_pairs'].items() if n not in k.split('|'))/sum(1 for k in C['legal_pairs'] if n not in k.split('|'))*100 for n in C['per_legal']]
+w(f"\nNo single benchmark produces the low figure. Leaving any one of the five out, the other four agree {p(min(loo))} to {p(max(loo))} of the time.\n")
+w("Every pairing is in `data/pairs.csv` and the scores used are in `data/scores.csv`.\n")
 w("## Method\n")
 w("- **Models.** The 37 models Vals ran on Harvey's LAB between 19 October and 9 November 2026. This set is defined by recency, not by score. Each pairing of benchmarks is compared on the models both tested, and needs at least 10 shared models.")
 w("- **Scores.** Each benchmark's own headline score, taken from the publisher's site on 11 November 2026. Where a source ran a model at several effort settings, the highest setting is used.")
@@ -73,6 +75,11 @@ for k in ['science','coding','office work','finance']:
     v=A[k]; w(f"| {k.capitalize()} | {v[3]} | {v[4]} | {p(v[0])} | {p(v[1])} to {p(v[2])} | {RUN[k]} |")
 v=A['legal']; w(f"| Legal (written rule) | {v[3]} | {v[4]} | {p(v[0])} | {p(v[1])} to {p(v[2])} | six different parties |")
 w(f"| Legal (hand-picked five) | 5 | {len(C['legal_pairs'])} | {p(lm)} | {pc(C['legal_ci'][0])} to {pc(C['legal_ci'][1])} | four different parties |\n")
+w("Legal (hand-picked five) against each field separately, resampling the same models for both:\n")
+w("| Field | Points above legal | 95% interval | Resamples where the field is not above legal |\n|---|---|---|---|")
+for k in ['science','coding','office work','finance']:
+    g=G[k]; w(f"| {k.capitalize()} | {g['gap']:.0f} | {g['lo']:.0f} to {g['hi']:.0f} | {g['share_not_above']*100:.1f}% |")
+w("\nLegal is below each of the four, and each interval excludes zero. These are four comparisons with no correction for making several, and science and finance have three benchmarks each.\n")
 md,cy=A['medicine'],A['cyber']
 w(f"Two fields have only two qualifying benchmarks, so one pairing each, and are not reported as fields: medicine ({p(md[0])}, interval {p(md[1])} to {p(md[2])}) and cyber ({p(cy[0])}, interval {p(cy[1])} to {p(cy[2])}). Cyber's single pairing is lower than legal. An earlier draft showed medicine and merged a maths benchmark into science; both were inconsistent with the rule and have been removed. Maths and general knowledge have one qualifying benchmark each.\n")
 w(f"Science and finance were each run by a single evaluator, and legal benchmarks by four to six different parties. Where the evaluator differs, coding pairings agree {p(S['coding_diff_runner'][0])} of the time ({S['coding_diff_runner'][1]} pairings), against {p(S['legal_diff_runner'][0])} for legal ({S['legal_diff_runner'][1]} pairings). The one legal pairing run by the same evaluator (Harvey LAB and Vals Legal Research, both run by Vals) agrees {p(S['legal_same_runner'][0])} of the time.\n")
@@ -141,7 +148,7 @@ w("- **Rubric grading has been tested against expert preference in legal work.**
 w("- **The case for public legal benchmarking, and how it can go wrong,** is made by Guha et al. (2026), *There Is No Free Benchmark: An Institutional View of Legal AI Benchmarking* (PNAS).")
 w("- A search on 11 November 2026 found no published comparison of how legal benchmarks rank the same models. That is one search, not proof that none exists.\n")
 w("## Files\n")
-w("- `slide1-benchmark-of-benchmarks.png`, `slide2-benchmark-of-legal-benchmarks.png`: the two slides. `slide1-no-footer.png` and `slide2-no-footer.png` are the same without the footer line.")
+w("- `slide1-benchmark-of-benchmarks.png`, `slide2-benchmark-of-legal-benchmarks.png`: the two slides. `slide1-no-footer.png` and `slide2-no-footer.png` are the same without the footer line. `slide2-alt.png` is slide 2 with a title that does not read as a ranking, bars in alphabetical order, and the coding figure as a reference line.")
 w("- `option1-winners.png`, `option2-ten-dots.png`, `benchmark-of-legal-benchmarks-50.png`, `benchmark-of-legal-benchmarks.png`, `legal-benchmarks-agreement.png`: earlier chart versions, redrawn from the same numbers.")
 w("- `data/`: results. `pairs.csv` and `scores.csv` are the pairings and scores for the five legal benchmarks; the `.json` files hold every figure quoted here.")
 w("- `scripts/`: the analysis code. `make_readme.py` builds this file from the result files. Raw downloaded leaderboards (about 400 MB) are not in the repo.")
