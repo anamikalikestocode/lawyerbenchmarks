@@ -150,7 +150,7 @@ Two fields have only two qualifying benchmarks, so one pairing each, and are not
 
 Science and finance were each run by a single evaluator, and legal benchmarks by four to six different parties. Where the evaluator differs, coding pairings agree 80% of the time (12 pairings), against 60% for legal (9 pairings). The one legal pairing run by the same evaluator (Harvey LAB and Vals Legal Research, both run by Vals) agrees 75% of the time.
 
-A legal benchmark agrees with a coding benchmark 66% of the time (40 pairings), against 62% with another legal benchmark. The difference is 4 points with an interval of -2 to 10, so it is not clearly different from zero. There is no sign that the legal benchmarks share a ranking of their own beyond general model strength.
+A legal benchmark agrees with a coding benchmark 66% of the time (40 pairings), against 62% with another legal benchmark. The difference is 4 points with an interval of -2 to 10, so it is not clearly different from zero. The next section tests directly whether legal benchmarks share anything beyond general model strength.
 
 ## How far does a lead on one benchmark carry?
 
@@ -166,6 +166,22 @@ For each benchmark, pairs of models are split into thirds by the size of the gap
 | Legal (hand-picked five) | 57% (49 to 66) | 59% (50 to 71) | 69% (57 to 81) | 75% |
 
 A small lead is close to a coin flip in every field. The difference is at the other end: in the four other fields a wide lead on one benchmark holds on another 92% to 97% of the time, and in legal about 70%. Leaving any one of the five legal benchmarks out, the widest-third figure is 64% to 76%. The widest third means gaps over 10 points on Harvey LAB, over 12.5 on Vals Legal Research and over 7 on Mercor APEX law; the closest third means gaps under about 5, 6 and 3 points.
+
+## Do legal benchmarks share anything beyond general strength?
+
+A model's general strength is taken as its average standardised score on the benchmarks of the other fields. The table gives the average rank correlation between two benchmarks in a field, and the same after general strength is removed.
+
+| Field | Rank correlation | After removing general strength | 95% interval |
+|---|---|---|---|
+| Science | 0.82 | 0.56 | 0.11 to 0.85 |
+| Coding | 0.72 | 0.29 | 0.16 to 0.47 |
+| Office work | 0.71 | 0.22 | 0.06 to 0.39 |
+| Finance | 0.64 | 0.14 | -0.05 to 0.34 |
+| Legal | 0.29 | 0.08 | -0.07 to 0.27 |
+
+On average the five legal benchmarks share almost nothing beyond general strength, and the interval includes zero. Science, coding and office work keep a shared part of their own. The legal figure barely moves if the fields are weighted equally or coding is left out of general strength.
+
+The average hides one exception. Harvey LAB and Vals Legal Research correlate 0.68 after general strength is removed, and 0.66 when Mercor's run of LAB is used instead of Vals', so this is not an effect of who ran it. For Harvey LAB, Vals Legal Research and Mercor APEX law together the figure is 0.30 (0.04 to 0.56). The two models those three place highest, Gemini 4 Argon and Muse Wonder, are 6th and 10th of 36 on general strength. The data cannot say whether what these benchmarks share is legal skill or a similar way of grading.
 
 ## The same models for every field
 
