@@ -40,7 +40,7 @@ const el=(tag,props={},kids=[])=>{const n=Object.assign(document.createElement(t
 function intro(){
   app.replaceChildren(
     el('h1',{textContent:'Which answer is better?'}),
-    el('p',{textContent:'You will see a short legal task and two answers to it, side by side. Pick the one you would rather send to the client. There are '+PAIRS.length+' comparisons across '+TASKS.length+' tasks, and it takes about 45 minutes.'}),
+    el('p',{textContent:'You will see a short legal task and two answers to it, side by side. Pick the one you would rather send to the client. There are '+PAIRS.length+' comparisons across '+TASKS.length+' tasks, and it takes about an hour.'}),
     el('ol',{},[
       el('li',{textContent:'Judge the way you would judge a junior lawyer\'s draft. There is no rubric and no right answer.'}),
       el('li',{textContent:'If you honestly cannot choose, use "Too close to call". Please use it sparingly.'}),

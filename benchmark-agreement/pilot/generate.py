@@ -1,6 +1,6 @@
 """Ask each model every task once, with the same instruction, and save the answers."""
 import json,subprocess,sys,concurrent.futures as cf,os
-MODELS=['gemini-4-argon','gpt-6.1-sol','claude-opus-5-5','gpt-6-astra']
+MODELS=['gemini-4-argon','gpt-6.1-sol','claude-opus-5-5','gpt-6-astra','gpt-6-luna']
 SYSTEM="You are helping a lawyer at a small firm that advises early-stage startups. Write the answer the lawyer would send. Use at most 150 words. Plain text only: no markdown, no bullet symbols, no headings."
 tasks=json.load(open('tasks.json'))
 def ask(model,task):
