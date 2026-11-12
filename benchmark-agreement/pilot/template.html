@@ -68,12 +68,15 @@ function show(){
       el('button',{className:'quiet',textContent:'Back',disabled:S.i===0,onclick:()=>{S.i--;save();show()}})]));
 }
 function done(){
-  const code=btoa(unescape(encodeURIComponent(JSON.stringify({v:1,who:S.who,r:S.r}))));
+  const mk=()=>btoa(unescape(encodeURIComponent(JSON.stringify({v:1,who:S.who,r:S.r,why:S.why||''}))));
+  let code=mk();
   const ta=el('textarea',{id:'code',readOnly:true,value:code});
+  const why=el('textarea',{id:'why',value:S.why||'',style:'min-height:90px;font-size:16px;word-break:normal',oninput:()=>{S.why=why.value;save();code=mk();ta.value=code}});
   const note=el('p',{className:'mute',textContent:''});
   app.replaceChildren(
     el('h1',{textContent:'Done. Thank you.'}),
-    el('p',{textContent:'One last step: copy the code below and send it back to the person who asked you to do this. It holds your choices and nothing else.'}),
+    el('label',{htmlFor:'why',style:'max-width:70ch',textContent:'One question before you go: what mostly decided it for you when two answers were close?'},[why]),
+    el('p',{textContent:'Then copy the code below and send it back to the person who asked you to do this. It holds your choices and your note, nothing else.'}),
     ta,
     el('div',{className:'row'},[
       el('button',{className:'pick',textContent:'Copy the code',onclick:()=>{ta.select();(navigator.clipboard?navigator.clipboard.writeText(code):Promise.reject()).then(()=>note.textContent='Copied.',()=>note.textContent='Select the code above and copy it.')}}),
