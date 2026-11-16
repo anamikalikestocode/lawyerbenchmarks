@@ -1,17 +1,224 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Coming soon</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ccircle cx='16' cy='16' r='9' fill='%23000'/%3E%3C/svg%3E">
-  <style>
-  html, body { height: 100%; margin: 0; background: #fff; color: #000; font-family: "Times New Roman", Times, serif; }
-  body { display: flex; align-items: center; justify-content: center; }
-  h1 { font-weight: 400; font-size: clamp(34px, 4.6vw, 60px); margin: 0; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benchmarking Lawyers</title>
+<meta name="description" content="How legal AI gets graded, and what the grading misses.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ccircle cx='16' cy='16' r='9' fill='%23000'/%3E%3C/svg%3E">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#fff;color:#000;font-family:"Times New Roman",Times,serif}
+main{max-width:1180px;margin:0 auto;padding:40px 16px 60px}
+.narrow{max-width:680px;margin:0 auto}
+h1{font-weight:400;font-size:clamp(36px,5vw,64px);line-height:1.05;margin:10px 0 10px;text-align:center}
+.lede{text-align:center;font-size:clamp(18px,2vw,22px);margin:0 0 30px;color:#333}
+h2{font-weight:700;font-size:26px;margin:56px 0 16px}
+a{color:#000}
+.map{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.map svg{min-width:720px}
+.key{display:grid;grid-template-columns:1fr 1fr;gap:6px 28px;font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.4;margin:18px 0 0}
+.key i{display:inline-block;width:14px;height:11px;border:1px solid #000;margin-right:7px;vertical-align:-1px}
+.notes{font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:13px;line-height:1.5;color:#222;margin-top:14px}
+.notes p{margin:0 0 6px}
+.src{font-size:11.5px;color:#666}
+ul.cards{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+ul.cards li{border:1.5px solid #000;padding:16px 18px;font-size:19px;font-weight:700;line-height:1.25}
+ul.cards li a{text-decoration:none}
+ul.cards li:hover{background:#f6f6f6}
+ul.cards li span{display:block;font-size:16px;font-weight:400;color:#555;margin-top:6px;line-height:1.4}
+ul.cards li.soon{border-color:#bbb}
+@media (max-width:640px){ul.cards{grid-template-columns:1fr}}
+.soon{color:#999}
+footer{text-align:center;color:#999;font-size:14px;padding:50px 16px 40px}
+footer a{color:#999}
+.post{font-size:19px;line-height:1.5}
+.post img{width:100%;height:auto;border:1px solid #eee;margin:14px 0 22px}
+.tweet{white-space:pre-line;margin:0 0 6px}
+.back{font-size:15px}
+@media (max-width:640px){.key{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-  <h1>Coming soon</h1>
+<main>
+<h1>Benchmarking Lawyers</h1>
+<p class="lede">how legal AI gets graded and what the grading misses</p>
+<div class="map"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 773 640" role="img" aria-label="Legal Benchmarks 101 map" style="width:100%;height:auto;display:block;font-family:-apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif">
+<title>Legal Benchmarks 101</title>
+<desc>A map of what has been measured in legal AI benchmarks. The top level groups sources by kind of work: contracts, which splits into redlining and review, then written answers, legal research and agent tasks. Rows are who judges whose work and who agrees with whom. Box colour shows the kind of number. Notes at the bottom explain the redlining scores, the agent task scores and how the agreement rates were counted.</desc>
+<rect x="0" y="0" width="773" height="640" fill="#fff"/>
+<g transform="translate(22,0)">
+<g fill="none" stroke="#000" stroke-width="2">
+<path d="M368.5 44V52M253 52H680.5M253 52V58M481 52V58M595 52V58M680.5 52V58"/>
+<path d="M253 88V90M224.5 90H367M224.5 90V92M367 90V92"/>
+<path d="M224.5 116V120M167.5 120H310M167.5 120V124M253 120V124M310 120V124M367 116V124M481 116V120M452.5 120H538M452.5 120V124M538 120V124M595 116V124M680.5 116V120M652 120H709M652 120V124M709 120V124"/>
+<path d="M167.5 152V155M139 155H196M139 155V158M196 155V158M253 152V158M310 152V158M367 152V158M452.5 152V155M424 155H481M424 155V158M481 155V158M538 152V158M595 152V158M652 152V158M709 152V158"/>
+</g>
+<g fill="#fff" stroke="#000" stroke-width="2.5">
+<rect x="208.5" y="10" width="320" height="34"/>
+<rect x="112" y="58" width="282" height="30"/>
+<rect x="397" y="58" width="168" height="58"/>
+<rect x="568" y="58" width="54" height="58"/>
+<rect x="625" y="58" width="111" height="58"/>
+</g>
+<g fill="#fff" stroke="#000" stroke-width="2">
+<rect x="112" y="92" width="225" height="24"/>
+<rect x="340" y="92" width="54" height="24"/>
+</g>
+<g fill="#fff" stroke="#000" stroke-width="1.5">
+<rect x="112" y="124" width="111" height="28"/><rect x="283" y="124" width="54" height="28"/><rect x="340" y="124" width="54" height="28"/>
+<rect x="397" y="124" width="111" height="28"/><rect x="511" y="124" width="54" height="28"/>
+<rect x="568" y="124" width="54" height="28"/><rect x="625" y="124" width="54" height="28"/><rect x="682" y="124" width="54" height="28"/>
+<rect x="112" y="158" width="54" height="22"/><rect x="169" y="158" width="54" height="22"/><rect x="283" y="158" width="54" height="22"/><rect x="340" y="158" width="54" height="22"/>
+<rect x="397" y="158" width="54" height="22"/><rect x="454" y="158" width="54" height="22"/><rect x="511" y="158" width="54" height="22"/>
+<rect x="568" y="158" width="54" height="22"/><rect x="625" y="158" width="54" height="22"/><rect x="682" y="158" width="54" height="22"/>
+</g>
+<g fill="#E2DAF5" stroke="#000" stroke-width="1.5">
+<rect x="112" y="188" width="111" height="44"/>
+
+</g>
+<g fill="#CFE4F7" stroke="#000" stroke-width="1.5">
+<rect x="340" y="236" width="54" height="44"/><rect x="568" y="236" width="54" height="44"/>
+<rect x="340" y="284" width="54" height="44"/><rect x="568" y="284" width="54" height="44"/>
+<rect x="112" y="332" width="54" height="44"/><rect x="283" y="332" width="54" height="44"/>
+<rect x="112" y="380" width="54" height="44"/><rect x="283" y="380" width="54" height="44"/><rect x="568" y="380" width="54" height="44"/><rect x="625" y="380" width="54" height="44"/><rect x="682" y="380" width="54" height="44"/>
+
+</g>
+<g fill="#FBE0A8" stroke="#000" stroke-width="1.5">
+<rect x="511" y="236" width="54" height="44"/>
+<rect x="397" y="284" width="54" height="44"/><rect x="454" y="284" width="54" height="44"/><rect x="511" y="284" width="54" height="44"/>
+<rect x="397" y="380" width="54" height="44"/><rect x="454" y="380" width="54" height="44"/>
+
+</g>
+<g fill="#CFEACB" stroke="#000" stroke-width="1.5">
+<rect x="397" y="438" width="54" height="44"/><rect x="454" y="438" width="54" height="44"/><rect x="511" y="438" width="54" height="44"/><rect x="568" y="438" width="54" height="44"/>
+<rect x="397" y="486" width="54" height="44"/><rect x="454" y="486" width="54" height="44"/><rect x="568" y="486" width="54" height="44"/><rect x="625" y="486" width="54" height="44"/>
+<rect x="169" y="534" width="54" height="44"/><rect x="397" y="534" width="54" height="44"/><rect x="454" y="534" width="54" height="44"/><rect x="625" y="534" width="54" height="44"/>
+
+</g>
+<g fill="#F7D3C7" stroke="#000" stroke-width="1.5">
+<rect x="112" y="590" width="111" height="40"/><rect x="226" y="590" width="111" height="40"/>
+
+</g>
+<g fill="#fff" stroke="#000" stroke-width="1.5" stroke-dasharray="5 4">
+<rect x="511" y="188" width="54" height="44"/>
+<rect x="625" y="236" width="54" height="44"/>
+<rect x="169" y="284" width="54" height="44"/><rect x="625" y="284" width="54" height="44"/>
+<rect x="625" y="332" width="54" height="44"/>
+<rect x="169" y="380" width="54" height="44"/><rect x="511" y="380" width="54" height="44"/>
+<rect x="169" y="438" width="54" height="44"/><rect x="340" y="438" width="54" height="44"/><rect x="625" y="438" width="54" height="44"/>
+<rect x="169" y="486" width="54" height="44"/><rect x="511" y="486" width="54" height="44"/><rect x="682" y="486" width="54" height="44"/>
+<rect x="112" y="534" width="54" height="44"/><rect x="682" y="534" width="54" height="44"/>
+</g>
+<g fill="#000" text-anchor="middle">
+<text x="368.5" y="33" font-size="17" font-weight="700">Legal Benchmarks 101</text>
+<g font-size="12" font-weight="700">
+<text x="253" y="78">Contracts</text>
+<text x="224.5" y="108" font-size="11">Redlining</text>
+<text x="367" y="108" font-size="10">Review</text>
+<text x="481" y="92">Written answers</text>
+<text x="595" y="85" font-size="10">Legal</text><text x="595" y="98" font-size="10">research</text>
+<text x="680.5" y="92">Agent tasks</text>
+</g>
+<g font-size="10" font-style="italic">
+<text x="167.5" y="142">Crosby</text>
+<text x="310" y="142">Vals</text>
+<text x="367" y="142">Harvey</text>
+<text x="452.5" y="142">JudgmentBench</text>
+<text x="538" y="136" font-size="8.5">Stanford</text><text x="538" y="147" font-size="8.5">professors</text>
+<text x="595" y="142">Vals</text>
+<text x="652" y="142">Mercor</text>
+<text x="709" y="142">Harvey</text>
+</g>
+<g font-size="9" font-weight="700">
+<text x="139" y="173">Rubric</text><text x="196" y="173">Pairwise</text><text x="310" y="173">Rubric</text><text x="367" y="173">Rubric</text>
+<text x="424" y="173">Rubric</text><text x="481" y="173">Pairwise</text><text x="538" y="173">Pairwise</text>
+<text x="595" y="173">Rubric</text><text x="652" y="173">Rubric</text><text x="709" y="173">Rubric</text>
+</g>
+<g font-size="14" font-weight="700" dominant-baseline="central">
+<text x="167.5" y="210">45%</text>
+<text x="367" y="258">92%*</text><text x="538" y="258">25%*</text><text x="595" y="258">69%</text>
+<text x="367" y="297">92%*†</text><text x="424" y="306">54%</text><text x="481" y="306">67%</text><text x="538" y="306">75%</text><text x="595" y="297">78%†</text>
+<text x="139" y="354">28%*</text><text x="310" y="354">80%</text>
+<text x="139" y="393">30%</text><text x="310" y="393">59%†</text><text x="424" y="402">49%*</text><text x="481" y="402">80%*</text><text x="595" y="402">56%</text><text x="652" y="402">77%</text><text x="709" y="402">27%</text>
+<text x="424" y="460">52%*</text><text x="481" y="460">55%</text><text x="538" y="460">69%*</text><text x="595" y="460">83%</text>
+<text x="424" y="499">55%*</text><text x="481" y="499">62%*</text><text x="595" y="499">87%</text><text x="652" y="508">84%</text>
+<text x="196" y="556">88%*</text><text x="424" y="556">56%*</text><text x="481" y="556">74%*</text><text x="652" y="556">81%</text>
+<text x="167.5" y="610">62%* <tspan font-size="10.5" font-weight="400">legal</tspan></text>
+<text x="281.5" y="610">79%* <tspan font-size="10.5" font-weight="400">coding</tspan></text>
+</g>
+<g font-size="7.5">
+<text x="367" y="313">attorney</text><text x="367" y="322">scores 92%</text>
+<text x="595" y="313">attorney</text><text x="595" y="322">scores 69%</text>
+<text x="139" y="409">attorney</text><text x="139" y="418">scores 28%</text>
+<text x="310" y="409">attorney</text><text x="310" y="418">scores 80%</text>
+<text x="424" y="515">attorneys</text><text x="424" y="524">agree 52%</text>
+<text x="481" y="515">attorneys</text><text x="481" y="524">agree 55%</text>
+<text x="595" y="515">attorneys</text><text x="595" y="524">agree 83%</text>
+</g>
+<g font-size="20" font-weight="700" dominant-baseline="central">
+<text x="538" y="210">?</text>
+<text x="652" y="258">?</text>
+<text x="196" y="306">?</text><text x="652" y="306">?</text>
+<text x="652" y="354">?</text>
+<text x="196" y="402">?</text><text x="538" y="402">?</text>
+<text x="196" y="460">?</text><text x="367" y="460">?</text><text x="652" y="460">?</text>
+<text x="196" y="508">?</text><text x="538" y="508">?</text><text x="709" y="508">?</text>
+<text x="139" y="556">?</text><text x="709" y="556">?</text>
+</g>
+</g>
+<g fill="#fff" stroke="#000" stroke-width="1.5"><rect x="226" y="124" width="54" height="28"/><rect x="226" y="158" width="54" height="22"/></g>
+<rect x="226" y="188" width="54" height="44" fill="#E2DAF5" stroke="#000" stroke-width="1.5"/>
+<rect x="226" y="380" width="54" height="44" fill="#CFE4F7" stroke="#000" stroke-width="1.5"/>
+<rect x="226" y="534" width="54" height="44" fill="#CFEACB" stroke="#000" stroke-width="1.5"/>
+<g fill="#000" text-anchor="middle"><text x="253" y="136" font-size="8.5" font-style="italic">Contract</text><text x="253" y="147" font-size="8.5" font-style="italic">Bench</text>
+<text x="253" y="173" font-size="9" font-weight="700">Rubric</text>
+<g font-size="14" font-weight="700" dominant-baseline="central"><text x="253" y="210">37%</text><text x="253" y="393">63%</text><text x="253" y="556">83%</text></g></g>
+<rect x="226" y="332" width="54" height="44" fill="#CFE4F7" stroke="#000" stroke-width="1.5"/>
+<g fill="#000" text-anchor="middle"><text x="253" y="354" font-size="14" font-weight="700" dominant-baseline="central">53%*</text>
+<g font-size="7.5"><text x="253" y="409">attorney</text><text x="253" y="418">scores 53%</text></g></g>
+<g fill="#000" font-size="10.5" font-weight="700">
+<text x="-8" y="207">Inter-attorney</text><text x="-8" y="220">overlap in writing</text>
+<text x="-8" y="255">Attorney judging</text><text x="-8" y="268">of attorney work</text>
+<text x="-8" y="303">Attorney judging</text><text x="-8" y="316">of AI work</text>
+<text x="-8" y="351">AI judging of</text><text x="-8" y="364">attorney work</text>
+<text x="-8" y="399">AI judging of</text><text x="-8" y="412">AI work</text>
+<text x="-8" y="457">Inter-attorney</text><text x="-8" y="470">agreement</text>
+<text x="-8" y="505">Attorney-AI judge</text><text x="-8" y="518">agreement</text>
+<text x="-8" y="553">Inter-AI judge</text><text x="-8" y="566">agreement</text>
+<text x="-8" y="607">Inter-benchmark</text><text x="-8" y="620">agreement</text>
+</g>
+<text x="348" y="614" font-size="10.5" font-style="italic" fill="#000">(Harvey, Vals, Mercor, Legora, Certera)</text>
+
+
+</g>
+</svg></div>
+<div class="key">
+<div><i style="background:#E2DAF5"></i><b>Overlap rate.</b> How many of two attorneys' edits to the same contract were the same.</div>
+<div><i style="background:#FBE0A8"></i><b>Win rate.</b> How often the stronger answer, the AI's answer or the professor's answer was picked.</div>
+<div><i style="background:#CFE4F7"></i><b>Score.</b> How much of a lawyer-written rubric the work met. Vals' Legal Research Bench, Mercor and Harvey's agent tasks are all or nothing. The others are partial credit.</div>
+<div><i style="background:#CFEACB"></i><b>Agreement rate.</b> How often two judges gave the same verdict. A coin flip is 50%.<br><i style="background:#F7D3C7"></i><b>Benchmark agreement rate.</b> How often two benchmarks rank the same two AI models the same way.</div>
+</div>
+<div class="notes">
+<p>"Attorney scores" is what an attorney scored on the same test. "Attorneys agree" is how often two attorneys gave the same verdict on the same question. <b>*</b> My own computation from published data. Where it needed AI judges, I used Claude models only, so the 88% is inflated and the 28% and 53% are untested on Crosby’s and ContractBench’s own judges. <b>†</b> A legal AI product: Harvey's, or Counsel Stack's for the 78%. <b>?</b> Collected by the source and not published.</p>
+<p><b>Redlining.</b> Scores rise as rubric goes from fixed points to an agreed standard. Crosby (attorney 28%, AI 30%): each rubric is one attorney’s exact edits, so a different good fix fails. ContractBench (attorney 53%, AI 63%): most points come from the client playbook, any fix that fits passes. Vals (attorneys 80%, AI 59%): law firms agreed to a rubric first. Its AI trails, though, as its early 2025. <b>Agent tasks.</b> Mercor's 77% and Harvey's 27% are both all or nothing. Harvey's rubrics are far longer, so meeting every point is far harder. <b>Agreement.</b> Vals compares each judge with a majority of three attorneys. Counted that way, JudgmentBench's <i>inter-attorney</i> 55% is 66% and its <i>attorney-AI judge</i> 62% is 78%.</p>
+<p class="src">Sources: Vals (three studies, 2025 to 2026), ContractBench (Ivo and micro1, 2026), Mercor (2026 leaderboard, 2025 paper), Harvey (2025 contract study, 2026 Legal Agent Benchmark).</p>
+</div>
+<div class="narrow">
+<h2>Projects</h2>
+<ul class="cards">
+<li><a href="https://confessbench.com">Confess Bench<span>does an AI model report itself to the state? tested under new york’s and california’s AI laws.</span></a></li>
+<li><a href="/benchmark-of-benchmarks/">The Benchmark of Benchmarks<span>legal benchmarks agree on which model is better only 62% of the time. coding benchmarks: 79%.</span></a></li>
+</ul>
+<h2>Papers</h2>
+<ul class="cards">
+<li><a href="https://confessbench.com/paper/">Canons of Artificial Construction<span>how AI models read ambiguous AI laws and the attitudes toward doubt nobody wrote down.</span></a></li>
+<li class="soon">What Is a Good Lawyer?<span>draft. coming soon.</span></li>
+</ul>
+<h2>Thoughts I Need to Expand On</h2>
+<ul class="cards"><li><a href="/thoughts/why-do-legal-evaluators-take-lab-money/">why do we let legal evaluators take money from the companies they rank?</a></li><li><a href="/thoughts/professors-agreed-most-on-policy/">the professors agreed most on policy</a></li><li><a href="/thoughts/what-does-a-model-do-when-the-client-says-nothing/">what does a model do when the client says nothing?</a></li><li><a href="/thoughts/answer-key-sets-the-score/">the answer key sets the score</a></li><li><a href="/thoughts/lawyers-agree-on-what-to-leave-alone/">lawyers agree on what to leave alone</a></li></ul>
+</div>
+</main>
+<footer>if anything here is interesting, reach out: <a href="https://x.com/anamika__x">@anamika__x</a> or <a href="mailto:anabhoyrul@gmail.com">anabhoyrul@gmail.com</a></footer>
 </body>
 </html>
