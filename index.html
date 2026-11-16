@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Benchmarking Lawyers</title>
-<meta name="description" content="How legal AI gets graded, and what the grading misses.">
+<meta name="description" content="How legal AI gets graded and my very many thoughts on it.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ccircle cx='16' cy='16' r='9' fill='%23000'/%3E%3C/svg%3E">
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;background:#fff;color:#000;font-family:"Times New Roman",Times,serif}
 main{max-width:1180px;margin:0 auto;padding:40px 16px 60px}
 .narrow{max-width:680px;margin:0 auto}
-h1{font-weight:400;font-size:clamp(36px,5vw,64px);line-height:1.05;margin:10px 0 10px;text-align:center}
+h1{font-weight:700;font-size:clamp(36px,5vw,64px);line-height:1.05;margin:10px 0 10px;text-align:center}
 .lede{text-align:center;font-size:clamp(18px,2vw,22px);margin:0 0 30px;color:#333}
 h2{font-weight:700;font-size:26px;margin:56px 0 16px}
 a{color:#000}
 .map{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.map svg{min-width:720px}
+
 .key{display:grid;grid-template-columns:1fr 1fr;gap:6px 28px;font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.4;margin:18px 0 0}
 .key i{display:inline-block;width:14px;height:11px;border:1px solid #000;margin-right:7px;vertical-align:-1px}
 .notes{font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:13px;line-height:1.5;color:#222;margin-top:14px}
@@ -37,12 +37,16 @@ footer a{color:#999}
 .tweet{white-space:pre-line;margin:0 0 6px}
 .back{font-size:15px}
 @media (max-width:640px){.key{grid-template-columns:1fr}}
+.noteslink{display:none;font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:15px;margin:12px 0 0}
+.noteslink a{color:#555}
+@media (max-width:640px){.notes{display:none}.noteslink{display:block}}
+
 </style>
 </head>
 <body>
 <main>
 <h1>Benchmarking Lawyers</h1>
-<p class="lede">how legal AI gets graded and what the grading misses</p>
+<p class="lede">how legal ai gets graded and my very many thoughts on it</p>
 <div class="map"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 773 640" role="img" aria-label="Legal Benchmarks 101 map" style="width:100%;height:auto;display:block;font-family:-apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif">
 <title>Legal Benchmarks 101</title>
 <desc>A map of what has been measured in legal AI benchmarks. The top level groups sources by kind of work: contracts, which splits into redlining and review, then written answers, legal research and agent tasks. Rows are who judges whose work and who agrees with whom. Box colour shows the kind of number. Notes at the bottom explain the redlining scores, the agent task scores and how the agreement rates were counted.</desc>
@@ -204,6 +208,7 @@ footer a{color:#999}
 <p><b>Redlining.</b> Scores rise as rubric goes from fixed points to an agreed standard. Crosby (attorney 28%, AI 30%): each rubric is one attorney’s exact edits, so a different good fix fails. ContractBench (attorney 53%, AI 63%): most points come from the client playbook, any fix that fits passes. Vals (attorneys 80%, AI 59%): law firms agreed to a rubric first. Its AI trails, though, as its early 2025. <b>Agent tasks.</b> Mercor's 77% and Harvey's 27% are both all or nothing. Harvey's rubrics are far longer, so meeting every point is far harder. <b>Agreement.</b> Vals compares each judge with a majority of three attorneys. Counted that way, JudgmentBench's <i>inter-attorney</i> 55% is 66% and its <i>attorney-AI judge</i> 62% is 78%.</p>
 <p class="src">Sources: Vals (three studies, 2025 to 2026), ContractBench (Ivo and micro1, 2026), Mercor (2026 leaderboard, 2025 paper), Harvey (2025 contract study, 2026 Legal Agent Benchmark).</p>
 </div>
+<p class="noteslink"><a href="/notes/">* notes</a></p>
 <div class="narrow">
 <h2>Projects</h2>
 <ul class="cards">
@@ -213,7 +218,6 @@ footer a{color:#999}
 <h2>Papers</h2>
 <ul class="cards">
 <li><a href="https://confessbench.com/paper/">Canons of Artificial Construction<span>how AI models read ambiguous AI laws and the attitudes toward doubt nobody wrote down.</span></a></li>
-<li class="soon">What Is a Good Lawyer?<span>draft. coming soon.</span></li>
 </ul>
 <h2>Thoughts I Need to Expand On</h2>
 <ul class="cards"><li><a href="/thoughts/why-do-legal-evaluators-take-lab-money/">why do we let legal evaluators take money from the companies they rank?</a></li><li><a href="/thoughts/professors-agreed-most-on-policy/">the professors agreed most on policy</a></li><li><a href="/thoughts/what-does-a-model-do-when-the-client-says-nothing/">what does a model do when the client says nothing?</a></li><li><a href="/thoughts/answer-key-sets-the-score/">the answer key sets the score</a></li><li><a href="/thoughts/lawyers-agree-on-what-to-leave-alone/">lawyers agree on what to leave alone</a></li></ul>
