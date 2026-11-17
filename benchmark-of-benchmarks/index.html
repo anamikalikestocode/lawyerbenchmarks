@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>the benchmark of benchmarks</title>
+<title>The Benchmark of Benchmarks</title>
 <meta name="description" content="">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ccircle cx='16' cy='16' r='9' fill='%23000'/%3E%3C/svg%3E">
 <style>
@@ -34,26 +34,34 @@ footer a{color:#6f5a2a}
 .back{font-size:15px}
 @media (max-width:640px){.key{grid-template-columns:1fr}}
 </style>
+<style>
+.bob{max-width:760px;margin:0 auto;padding:10px 0 60px}
+.bob .back{font-size:15px;margin:0 0 10px}
+.bob h1{font-weight:400;font-size:clamp(34px,4.6vw,60px);line-height:1.04;text-align:center;margin:clamp(22px,5vh,48px) 0 12px}
+.bob .lede{font-size:clamp(19px,2vw,25px);text-align:center;margin:0 0 22px;color:#000}
+.bob .what{font-size:17px;text-align:center;color:#444;max-width:34em;margin:0 auto 30px}
+.bob h2{font-size:22px;font-weight:normal;margin:44px 0 8px;border:0;padding:0}
+.bob p{font-size:16px;line-height:1.45}
+.bob .chart{background:#fff;border:1.5px solid #000;overflow:hidden;margin:14px 0 26px}
+.bob .chart img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 100%}
+</style>
 </head>
 <body>
 <main>
-<div class="narrow post"><p class="back"><a href="/">← back</a></p>
-<h1 style="text-align:left;font-size:40px">the benchmark of benchmarks</h1>
-<p class="tweet">if you ask which AI model is better, different coding benchmarks agree 79% of the time vs 62% for legal
-
-a coin flip is 50%
-
-each benchmark has its own standard for good answers but those vary more in law than other fields</p>
-<img src="by-field.jpg" alt="How often two benchmarks in the same field agree on which AI is better: science 84, coding 79, office work 77, finance 73, legal 62">
-<p class="tweet">how much should you trust a legal benchmark? way less than a coding one.
-
-a few points up/down is largely arbitrary
-
-if many benchmarks agree, the model is probably just stronger overall (not necessarily better at law)</p>
-<img src="legal-each.jpg" alt="How often each legal benchmark agrees with the other four: Certera 57, Harvey LAB 62, Legora BAR 58, Mercor APEX 63, Vals Legal Research 67">
-<p>this is largely because answer keys make legal judgments in grading, which gives them more room to disagree (and way more ways to get the grading wrong).</p>
-<p>legal work has many good answers, which a panel of experts won’t settle either (it outvotes a lawyer’s view even where good lawyers differ).</p>
-<p>some benchmarks already account for that (grading against many lawyers’ rubrics, explaining every point, taking points off for over-editing) but more should follow.</p>
+<div class="bob">
+<p class="back"><a href="/">← back</a></p>
+<h1>The Benchmark of Benchmarks</h1>
+<p class="lede">How often do benchmarks in the same field agree on which AI model is better?</p>
+<p class="what">If you ask which AI model is better, different coding benchmarks agree 79% of the time, compared with 62% for legal. A coin flip is 50%.</p>
+<div class="chart" style="aspect-ratio:1029/846"><img src="by-field.jpg" alt="How often two benchmarks in the same field agree on which AI is better: science 84, coding 79, office work 77, finance 73, legal 62"></div>
+<p>Each benchmark has its own standard for good answers but those vary more in law than in other fields.</p>
+<h2>How much should you trust a legal benchmark?</h2>
+<p>Far less than a coding one. A few points up or down is largely arbitrary. If many benchmarks agree, the model is probably just stronger overall (not necessarily better at law).</p>
+<div class="chart" style="aspect-ratio:1029/1031"><img src="legal-each.jpg" alt="How often each legal benchmark agrees with the other four: Certera 57, Harvey LAB 62, Legora BAR 58, Mercor APEX 63, Vals Legal Research 67"></div>
+<h2>Why</h2>
+<p>This is largely because answer keys make legal judgments in grading, which gives them more room to disagree (and way more ways to get the grading wrong).</p>
+<p>Legal work has many good answers, which a panel of experts won’t settle either (it outvotes a lawyer’s view even where good lawyers differ).</p>
+<p>Some benchmarks already account for that (grading against many lawyers’ rubrics, explaining every point, taking points off for over-editing) but more should follow.</p>
 </div>
 </main>
 <footer>if anything here is interesting, reach out: <a href="https://x.com/anamika__x">@anamika__x</a> or <a href="mailto:anabhoyrul@gmail.com">anabhoyrul@gmail.com</a></footer>
