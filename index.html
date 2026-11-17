@@ -4,16 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Benchmarking Lawyers</title>
-<meta name="description" content="How legal AI gets graded and my very many thoughts on it.">
+<meta name="description" content="How legal AI gets graded and my many thoughts on it.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ccircle cx='16' cy='16' r='9' fill='%23000'/%3E%3C/svg%3E">
 <style>
 *{box-sizing:border-box}
-html,body{margin:0;background:#fff;color:#000;font-family:"Times New Roman",Times,serif}
-main{max-width:1180px;margin:0 auto;padding:40px 16px 60px}
-.narrow{max-width:680px;margin:0 auto}
+html,body{margin:0;background:#FBE0A8;color:#000;font-family:"Times New Roman",Times,serif}
+main{max-width:1080px;margin:0 auto;padding:48px 16px 60px}
+.narrow{max-width:1000px;margin:0 auto}
+.plate{max-width:1000px;margin:10px auto 0;background:#fff;border:1.5px solid #000;padding:clamp(14px,3.5vw,44px)}
+.sec{margin-top:72px}
+.sec h2 .dot{display:inline-block;width:18px;height:14px;border:1.5px solid #000;margin-right:12px;vertical-align:1px}
+.sec.p ul.cards li{background:#E2DAF5}.sec.p .dot{background:#E2DAF5}
+.sec.b ul.cards li{background:#CFE4F7}.sec.b .dot{background:#CFE4F7}
+.sec.a ul.cards li{background:#CFEACB}.sec.a .dot{background:#CFEACB}
 h1{font-weight:700;font-size:clamp(36px,5vw,64px);line-height:1.05;margin:10px 0 10px;text-align:center}
 .lede{text-align:center;font-size:clamp(18px,2vw,22px);margin:0 0 30px;color:#333}
-h2{font-weight:700;font-size:26px;margin:56px 0 16px}
+h2{font-weight:700;font-size:28px;margin:0 0 18px}
 a{color:#000}
 .map{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
 
@@ -22,16 +28,16 @@ a{color:#000}
 .notes{font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:13px;line-height:1.5;color:#222;margin-top:14px}
 .notes p{margin:0 0 6px}
 .src{font-size:11.5px;color:#666}
-ul.cards{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
-ul.cards li{border:1.5px solid #000;padding:16px 18px;font-size:19px;font-weight:700;line-height:1.25}
-ul.cards li a{text-decoration:none}
-ul.cards li:hover{background:#f6f6f6}
-ul.cards li span{display:block;font-size:16px;font-weight:400;color:#555;margin-top:6px;line-height:1.4}
+ul.cards{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+ul.cards li{border:1.5px solid #000;padding:18px 20px;font-size:19px;font-weight:700;line-height:1.25;transition:transform .12s,box-shadow .12s}
+ul.cards li a{text-decoration:none;display:block}
+ul.cards li:hover{transform:translate(-3px,-3px);box-shadow:4px 4px 0 #000}
+ul.cards li span{display:block;font-size:16px;font-weight:400;color:#333;margin-top:8px;line-height:1.4}
 ul.cards li.soon{border-color:#bbb}
-@media (max-width:640px){ul.cards{grid-template-columns:1fr}}
+@media (max-width:640px){ul.cards{grid-template-columns:1fr}.sec{margin-top:52px}}
 .soon{color:#999}
-footer{text-align:center;color:#999;font-size:14px;padding:50px 16px 40px}
-footer a{color:#999}
+footer{text-align:center;color:#6f5a2a;font-size:14px;padding:50px 16px 40px}
+footer a{color:#6f5a2a}
 .post{font-size:19px;line-height:1.5}
 .post img{width:100%;height:auto;border:1px solid #eee;margin:14px 0 22px}
 .tweet{white-space:pre-line;margin:0 0 6px}
@@ -46,7 +52,8 @@ footer a{color:#999}
 <body>
 <main>
 <h1>Benchmarking Lawyers</h1>
-<p class="lede">how legal ai gets graded and my very many thoughts on it</p>
+<p class="lede">how legal ai gets graded and my many thoughts on it</p>
+<div class="plate">
 <div class="map"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 773 640" role="img" aria-label="Legal Benchmarks 101 map" style="width:100%;height:auto;display:block;font-family:-apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif">
 <title>Legal Benchmarks 101</title>
 <desc>A map of what has been measured in legal AI benchmarks. The top level groups sources by kind of work: contracts, which splits into redlining and review, then written answers, legal research and agent tasks. Rows are who judges whose work and who agrees with whom. Box colour shows the kind of number. Notes at the bottom explain the redlining scores, the agent task scores and how the agreement rates were counted.</desc>
@@ -209,18 +216,19 @@ footer a{color:#999}
 <p class="src">Sources: Vals (three studies, 2025 to 2026), ContractBench (Ivo and micro1, 2026), Mercor (2026 leaderboard, 2025 paper), Harvey (2025 contract study, 2026 Legal Agent Benchmark).</p>
 </div>
 <p class="noteslink"><a href="/notes/">* notes</a></p>
+</div>
 <div class="narrow">
-<h2>Projects</h2>
+<section class="sec p"><h2><span class="dot"></span>Projects</h2>
 <ul class="cards">
 <li><a href="https://confessbench.com">Confess Bench<span>does an AI model report itself to the state? tested under new york’s and california’s AI laws.</span></a></li>
 <li><a href="/benchmark-of-benchmarks/">The Benchmark of Benchmarks<span>legal benchmarks agree on which model is better only 62% of the time. coding benchmarks: 79%.</span></a></li>
-</ul>
-<h2>Papers</h2>
+</ul></section>
+<section class="sec b"><h2><span class="dot"></span>Papers</h2>
 <ul class="cards">
 <li><a href="https://confessbench.com/paper/">Canons of Artificial Construction<span>how ai models read ambiguous ai laws and the biases that reveals.</span></a></li>
-</ul>
-<h2>Thoughts I Need to Expand On</h2>
-<ul class="cards"><li><a href="/thoughts/why-do-legal-evaluators-take-lab-money/">why do we let legal evaluators take money from the companies they rank?</a></li><li><a href="/thoughts/professors-agreed-most-on-policy/">the professors agreed most on policy</a></li><li><a href="/thoughts/what-does-a-model-do-when-the-client-says-nothing/">what does a model do when the client says nothing?</a></li><li><a href="/thoughts/answer-key-sets-the-score/">the answer key sets the score</a></li><li><a href="/thoughts/lawyers-agree-on-what-to-leave-alone/">lawyers agree on what to leave alone</a></li></ul>
+</ul></section>
+<section class="sec a"><h2><span class="dot"></span>Thoughts I Need to Expand On</h2>
+<ul class="cards"><li><a href="/thoughts/why-do-legal-evaluators-take-lab-money/">if the state wants independent verifiers, why doesn’t it pay for them?</a></li><li><a href="/thoughts/professors-agreed-most-on-policy/">the professors agreed most on policy</a></li><li><a href="/thoughts/what-does-a-model-do-when-the-client-says-nothing/">what does a model do when the client says nothing?</a></li><li><a href="/thoughts/answer-key-sets-the-score/">the answer key sets the score</a></li><li><a href="/thoughts/lawyers-agree-on-what-to-leave-alone/">lawyers agree on what to leave alone</a></li></ul></section>
 </div>
 </main>
 <footer>if anything here is interesting, reach out: <a href="https://x.com/anamika__x">@anamika__x</a> or <a href="mailto:anabhoyrul@gmail.com">anabhoyrul@gmail.com</a></footer>
