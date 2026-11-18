@@ -1,0 +1,87 @@
+{
+ "Harvey LAB (Vals run)": {
+  "models": 37,
+  "binary_range": [
+   1.667,
+   27.083
+  ],
+  "partial_range": [
+   72.766,
+   96.3
+  ],
+  "binary_separated": 50.6006006006006,
+  "partial_separated": 84.68468468468468,
+  "binary_vs_partial": 87.53799392097264,
+  "binary_vs_other_legal": 61.774372962584536,
+  "partial_vs_other_legal": 61.864898553586414
+ },
+ "Vals Legal Research": {
+  "models": 37,
+  "binary_range": [
+   10.096,
+   55.769
+  ],
+  "partial_range": [
+   70.148,
+   91.609
+  ],
+  "binary_separated": 48.048048048048045,
+  "partial_separated": 48.64864864864865,
+  "binary_vs_partial": 80.06088280060882,
+  "binary_vs_other_legal": 67.05388847026158,
+  "partial_vs_other_legal": 62.773189909715335
+ },
+ "Mercor APEX law": {
+  "models": 30,
+  "binary_range": [
+   44.1,
+   76.7
+  ],
+  "partial_range": [
+   68.8,
+   88.9
+  ],
+  "binary_separated": null,
+  "partial_separated": null,
+  "binary_vs_partial": 88.55140186915888,
+  "binary_vs_other_legal": 64.4134135830165,
+  "partial_vs_other_legal": 63.46165193041275
+ },
+ "Harvey LAB (Artificial Analysis run)": {
+  "models": 19,
+  "binary_range": [
+   1.3888888888888888,
+   25.555555555555554
+  ],
+  "partial_range": [
+   77.616560263107,
+   95.4923582898046
+  ],
+  "gated_range": [
+   0,
+   13.055555555555557
+  ],
+  "binary_vs_partial": 94.67455621301775,
+  "binary_vs_gated": 74.69879518072288,
+  "partial_vs_gated": 72.02380952380952,
+  "binary_vs_other_legal": 60.431845577782255,
+  "partial_vs_other_legal": 59.90938166311301,
+  "gated_vs_other_legal": 62.211394127028804
+ },
+ "GDPx legal": {
+  "models": 21,
+  "binary_range": [
+   0,
+   0
+  ],
+  "partial_range": [
+   9.73,
+   38.44
+  ]
+ },
+ "made_up_fact_gate": {
+  "models": 23,
+  "share_of_rubric_perfect_removed": 0.6246089676746611,
+  "models_lower_when_gated": 22
+ }
+}

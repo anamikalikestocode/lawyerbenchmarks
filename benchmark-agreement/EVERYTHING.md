@@ -279,6 +279,28 @@ For reference, random halves of Terminal-Bench 4 (coding) agree 90% of the time 
 
 On the same LAB answers, ranking models by rubric pass rate and ranking them by fewest made-up facts agree 55% of the time. Area of law and the evaluator make no measurable difference. Kind of work costs a few points on thin data. A change in what counts as a good answer moves rankings the most of the things that could be isolated. Legora's comparison rests on 9 models, and the made-up-facts check is done by a single AI judge.
 
+## All-or-nothing or partial credit?
+
+Three of the legal benchmarks publish two scores for the same runs: all-or-nothing (a task counts only if every rubric criterion is met) and partial credit (the share of criteria met). SemiAnalysis' GDPx reports both for legal.
+
+| Benchmark | All-or-nothing | Partial credit | Same model ahead | Agreement with the other legal benchmarks (all-or-nothing / partial) |
+|---|---|---|---|---|
+| Harvey LAB (Vals run) | 2 to 27 | 73 to 96 | 88% | 62% / 62% |
+| Vals Legal Research | 10 to 56 | 70 to 92 | 80% | 67% / 63% |
+| Mercor APEX law | 44 to 77 | 69 to 89 | 89% | 64% / 63% |
+| Harvey LAB (Artificial Analysis run) | 1 to 26 | 78 to 95 | 95% | 60% / 60% |
+| GDPx legal (SemiAnalysis) | 0 for all 21 models | 10 to 38 | not defined | not defined |
+
+Where both are published, the two scorings put the same model ahead most of the time, and neither agrees clearly better with the other legal benchmarks (every difference's interval includes zero). The choice between them does not explain the low agreement across legal benchmarks.
+
+Whether all-or-nothing is usable depends on how often a model meets every criterion, which depends on rubric length as much as on the partial score. Mercor's rubrics are short (about four criteria per task in its January 2026 paper) and its all-or-nothing scores run from 44 to 77. Harvey LAB's are long (a median of about 54 criteria per task in its repository), so the best model meets 96% of criteria but completes only 27% of tasks. On GDPx legal, where partial scores are low, all-or-nothing is 0 for every model, and SemiAnalysis reports partial scores for legal and finance for that reason.
+
+Precision: with Vals' published standard errors, 51% of model pairs on Harvey LAB are separated beyond the margin of error under all-or-nothing and 85% under partial. Vals' errors for the partial score treat each criterion as an independent draw; estimated the same way for both (from the 24 practice-area scores), the figures are about 52% and 60%. On Vals Legal Research, where both errors are estimated per question, they are 48% and 49%.
+
+Meeting every rubric criterion is not the same as being safe to use. In Artificial Analysis' run of Harvey LAB, 62% of the results that met every criterion still contained a material made-up fact, and 22 of 23 models score lower once those are zeroed. Zeroing them changes the order of models more than switching between all-or-nothing and partial does (75% against 95%). That check is made by one AI model (GPT-6 Sol), which Artificial Analysis found stricter than the other checkers it tried; there is no published check against lawyers.
+
+Vals Legal Research's all-or-nothing score also requires every cited authority to check out, so it already includes a gate of this kind.
+
 ## Other ways of counting agreement
 
 The headline counts how often two benchmarks agree on which of two models is better. That is Kendall's rank correlation written as a share, (tau + 1) / 2, the usual statistic in benchmark agreement testing. The same comparison under other counts, with coding as the nine benchmarks chosen by the rule:
@@ -330,6 +352,7 @@ On the agreement-share measure:
 
 ## Limits
 
+- One model row is matched differently on Vals Legal Research than on Harvey LAB (Qwen 3.8 Max, run 5 August 2026 against the internal run Vals used on LAB). Using the LAB run moves the legal figure from 61.6% to 61.5%.
 - **It shows that the rankings differ, not why.** Legal work may be several distinct skills (research, drafting, review), in which case lower agreement is expected and is not a flaw in any benchmark.
 - **The benchmarks measure different things.** Certera is blind votes by legal professionals on their own prompts. The others are rubric-graded tasks. Legora runs each model inside its own product, so a score reflects the model plus that setup.
 - **Five benchmarks is a small set.** There are ten pairings, and four of them involve Legora, which shares only 15 models with the others and publishes only scores relative to its average, with many ties.
